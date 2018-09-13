@@ -1,0 +1,6521 @@
+// Generated Mon, 27 Aug 2018 21:16:40 +0000
+
+if (!window.location.origin) { // Some browsers (mainly IE) does not have this property, so we need to build it manually...
+    window.location.origin = window.location.protocol + '//' + window.location.hostname + (window.location.port ? (':' + window.location.port) : '');
+}
+
+if (!String.prototype.startsWith) {
+    Object.defineProperty(String.prototype, 'startsWith', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function(searchString, position) {
+            position = position || 0;
+            return this.indexOf(searchString, position) === position;
+        }
+    });
+}
+;
+// ########################
+// #### some ajax stuff ###
+// ########################
+
+var _data_handlers = {};
+var _data_urls = {};
+var _data_count = 0;
+var _data_sid = Math.round(Math.random() * 9000) + 1000;
+
+function exec_script(href)
+{
+	var span = null;
+	span = document.body.appendChild(document.createElement('SPAN'));
+	span.style.display = 'none';
+	span.innerHTML = '.<s'+'cript></' + 'script>';
+	setTimeout(function() {
+		var s = span.getElementsByTagName("script")[0];
+		s.language = "JavaScript";
+		if (s.setAttribute) s.setAttribute('src', href); else s.src = href;
+	}, 10);
+	return false;
+}
+
+function load_data(href, handler, allow_dupe)
+{
+	if (!allow_dupe && _data_urls[href])
+	{
+		return false;
+	}
+	var id = _data_sid + "" + _data_count++;
+	_data_urls[href] = id;
+	_data_handlers[id] =
+	{
+		handler: handler,
+		url: href
+	};
+	href += (href.indexOf('?') == -1 ? '?' : '&') + 'js_id=' + id;
+	exec_script(href);
+	return false;
+}
+
+function _return_data(id, data)
+{
+	var foo = _data_handlers[id].handler;
+	if (foo)
+	{
+		delete _data_urls[_data_handlers[id].url];
+		delete _data_handlers[id];
+		foo(data);
+	}
+}
+;
+(function($) {
+	$.fn.gallery = function(target, options)
+	{
+		//if ($.browser.msie && $.browser.version < 8) return;
+		return this.each(function()
+		{
+			var elm = $(this);
+			var imgs = $("a:has(img)", elm);
+			if (!imgs.length) return;
+			var ul = $('<p>');
+			imgs.each(function() {
+				var img = $('img[title]', this);
+				var link = $(this);
+				var title = img.attr('title'); 
+					
+				if (img.length)
+				{
+					link.addClass('fancybox');
+					$(link)
+						.attr('data-fancybox-group', 'gallery')
+						.attr('data-fancybox-title', title);
+					
+					$(img).appendTo(link);
+				}
+				var thumb = $("<div/>").addClass('img-thumbnail').append(link);
+				$("<span/>")
+					.addClass('title')
+					.text(title)
+					.attr('title', title)
+					.appendTo(thumb);
+				
+				ul.append(thumb);
+			});
+			elm.html('');
+			elm.append(ul);
+		});
+	};
+})(jQuery);
+
+$(function()
+{
+	$('.magiclink').magiclink();
+	$('.gallery').gallery();
+});
+ 
+(function($) {
+$.fn.magiclink = function()
+{
+	this.detectLinks = function(url)
+	{
+		// OUR host only
+		if(url.indexOf(window.location.origin) === 0) {
+
+            var rege = /^(https?:\/\/[^\/]+\/pics\/[\w\/]*?)(t?)\.(gif|jpg|png|jpeg)$/;
+            var out = rege.exec(url);
+            if (out) {
+                return {
+                    "type": "image",
+                    "href": out[1] + "." + out[3],
+                    "src": out[1] + "t." + out[3],
+                    "altsrc": ""
+                };
+            }
+
+            rege = /^(https?:\/\/[^\/]+\/files\/[^?]*?)(?:\.(?:gif|jpg|png)\.\d+x\d+[rfc])?\.(gif|jpg|png|jpeg)$/;
+            out = rege.exec(url);
+            if (out) {
+                return {
+                    "type": "image",
+                    "href": out[1] + "." + out[2],
+                    "src": out[1] + "." + out[2] + ".160x120r." + out[2],
+                    "altsrc": ""
+                };
+            }
+
+            rege = /^(https?:\/\/[^\/]+\/files\/[^?]*?)(?:\.(?:mp3)\.\d+x\d+[rfc])?\.(mp3)$/;
+            out = rege.exec(url);
+            if (out) {
+                return {
+                    "type": "music",
+                    "src": out[1] + "." + out[2],
+                    "altsrc": "",
+                    "width": 520,
+                    "height": 28
+                };
+            }
+
+        }
+
+		
+	// youtube: http://www.youtube.com/watch?gl=RU&hl=ru&v=uHjTuBXKtAs
+		rege = /^((?:http(?:s|):\/\/|))(?:www\.|)((?:youtu(?:be\.com|\.be)))\/(?:vi?\/|(?:watch)?\?(?:.*&)?vi?=|embed\/|)([^&?\n\/]+|)/; 
+		out = rege.exec(url);
+		if (out && out[3]) {
+			return {
+                "type" : "video",
+                "src" : "https://www.youtube.com/embed/"+out[3],
+                "width" : "600",
+                "height" : "360"
+            };
+		}
+		
+	// rutube: http://rutube.ru/tracks/1827161.html?v=00c8292fded10621e867eb84c51785e3
+		rege = /^https?:\/\/(?:www\.)?rutube\.ru\/tracks\/(\d+).html\?v=(\w*)$/;
+		out = rege.exec(url);
+		if (out) {
+			return {
+                "type" : "video",
+                "src" : "https://video.rutube.ru/"+out[2],
+                "width" : "470",
+                "height" : "353"
+			};
+		}
+		
+	// vimeo: http://vimeo.com/2696386
+		rege = /^https?:\/\/vimeo\.com\/(\d+)$/;
+		out = rege.exec(url);
+		if (out) {
+			return {
+                "type" : "video",
+                "src" : "https://vimeo.com/moogaloop.swf?clip_id="+out[1]+"&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1",
+                "width" : "400",
+                "height" : "300"
+            };
+		}
+		
+	// dailymotion: http://www.dailymotion.com/video/x9ya90_lady-gaga-money-honey-live-hq-hd_music
+		rege = /^https?:\/\/(?:www\.)?dailymotion\.com\/video\/([^&]*)$/;
+		out = rege.exec(url);
+		if (out) {
+			return {
+                "type" : "video",
+                "src" : "https://www.dailymotion.com/swf/"+out[1]+"&amp;related=1",
+                "width" : "480",
+                "height" : "300"
+            };
+		}
+	
+	// google music: http://sites.google.com/site/scorpystunes/tunes/Mylavender.mp3?attredirects=0&d=1
+		rege = /^(https?:\/\/(\w+)\.google\.(com|ru)\/[\w\/]*).mp3([?]{0,1}[\w&\=]*)$/;
+		out = rege.exec(url);
+		if (out) {
+			return {
+                "type" : "music",
+                "src" : out[1]+".mp3",
+                "altsrc" : "",
+                "width" : 520,
+                "height" : 28
+			};
+		}
+	
+	// rghost music: http://rghost.ru/download/36841499/7754d34a358715232af657bd6be291282aa0f056/git.mp3
+		rege = /^(https?:\/\/rghost\.(ru|net)\/download\/[\w\d\/]*).mp3$/;
+		out = rege.exec(url);
+		if (out) {
+			return {
+                "type" : "music",
+                "src" : out[1]+".mp3",
+                "altsrc" : "",
+                "width" : 520,
+                "height" : 28
+            };
+		}
+	
+		// nothing discovered
+		return {
+			"type" : "unknown",
+			"href" : url
+		};
+	};
+	
+	
+	return this.each(function()
+	{
+		var href = $(this).attr("href");
+		var alt = $(this).attr("alt");
+		var title = $(this).attr("title");
+		var link = $().magiclink().detectLinks(href);
+		var res = "";
+		var aside = $(this).closest('.img_left, .img_right').length;
+		var inline = $(this).closest('.img_inline').length;
+		if (link["type"] === "image") {
+			if (inline)
+			{
+				res = $('<img/>').attr({'src': link['href'], 'title': title, 'alt': title});
+			}
+			else
+			{												
+				var $img = $('<img/>').attr({
+					'src': link['src'],
+					'alt': link['altsrc'],
+					'title': title,
+				});		
+				res = $img;
+				
+				if (link['href'])
+				{
+					if (alt) {
+						res = $('<a/>').attr({
+							'href': alt, 
+							'class': 'fancybox', 
+							'title': title,
+							'data-fancybox-group': 'resource',
+							'data-fancybox-title': title
+						}).html(res);
+					} else {
+						res = $('<a/>').attr({
+							'href': link['href'], 
+							'target': '_blank', 
+							'class': 'fancybox', 
+							'title': title,
+							'data-fancybox-group': 'resource',
+							'data-fancybox-title': title,
+						}).html(res);
+					}
+					
+					if (title) {
+						var $thumb = $("<div/>").addClass('img-thumbnail').append(res);
+						$("<span/>")
+							.addClass('title')
+							.text(title)
+							.attr('title', title)
+							.appendTo($thumb);
+						
+						$img.load(function () {
+							$thumb.width($img.width() + 5);
+						});
+						
+						res = $thumb;
+					}
+				}
+			}
+		} else if (link["type"] === "video") {
+			if (aside) {
+				var r = Math.max(1, link['width'] / 160);
+				link['width'] /= r;
+				link['height'] /= r;
+			}
+			res = $('<iframe/>').attr({
+				'src': link['src'],
+				'width': link['width'],
+				'height': link['height'],
+                'frameborder': 0,
+				'allowfullscreen': 'true'
+			});
+		} else if (link["type"] === "music") {
+			res = $('<audio controls/>').attr({
+				'src': link['src'],
+				'type': 'audio/mpeg'
+			});
+		}
+		if (res) {
+			$(this).replaceWith(res);
+		}
+	})
+}
+})(jQuery);
+
+ 
+(function($) {
+$.fn.spoiler = function(target, options)
+{
+	return this.each(function()
+	{
+		var elm = this;
+		var self = elm.spoiler = {};
+		self.title = $('.control:first', elm);
+		self.content = $('.cut:first', elm);
+		self.toggle = function()
+		{
+			self.content.slideToggle("fast");
+		};
+		self.title.click(function()
+		{
+			self.toggle();
+		});
+	})
+}
+})(jQuery);
+
+$(function()
+{
+	$('.spoiler').spoiler();
+});
+ 
+(function($) {
+$.fn.tabs = function(target, options)
+{
+	return this.each(function()
+	{
+		var elm = this;
+		var self = elm.tabs = {};
+		self.pages = $('.tab', elm);
+		self.tabs = $('.tabbar > div', elm);
+		
+		$('a', self.tabs).addClass('noborder');
+		
+		self.initRows = function()
+		{
+			self.row = [];
+			self.rowOffset = [];
+			self.rows = 0;
+			var lastOffset;
+			self.tabs.each(function(i, tab)
+			{
+				var offset = $(tab).position().top;
+				self.tabs[i].tab_index = i;
+				if (i === 0 || lastOffset !== offset)
+				{
+					self.rowOffset[self.rows] = offset;
+					self.rows += 1;
+					lastOffset = offset;
+				}
+				self.row[i] = self.rows - 1;
+			});
+			self.activeRow = -1;
+		};
+		
+		self.tabs.click(function(tab)
+		{
+			self.setActiveTab(this.tab_index);
+			this.blur();
+			return false;
+		});
+		
+		self.setActiveTab = function(i)
+		{
+			self.tabs.removeClass('active');
+			$(self.tabs[i]).addClass('active');
+			self.pages.removeClass('active');
+			$(self.pages[i]).addClass('active');
+			self.setActiveRow(self.row[i]);
+		};
+		
+		self.setActiveRow = function(r)
+		{
+			if (r === self.activeRow) return;
+			self.activeRow = r;
+			for (var i = 0; i < self.tabs.length; i++)
+			{
+				var row = self.row[i];
+				var newRow = (row === r ? self.rows - 1 : (self.rows - 2 - (row > r ? row - 1 : row)));
+				var offset = self.rowOffset[newRow] - self.rowOffset[row];
+				$(self.tabs[i]).css({top: offset});
+			}
+		};
+				
+		self.initRows();
+		if (window.location.hash)
+		{
+			var hash = window.location.hash.replace(/\D/g, '');
+			self.setActiveTab(parseInt(hash) - 1);
+		}
+		else
+		{
+			self.setActiveTab(0);
+		}
+	})
+}
+})(jQuery);
+
+$(function()
+{
+	$('.tabs').tabs();
+});
+ 
+jQuery.fn.texttabs = function(target, options)
+{
+	return this.keydown(function(evt)
+	{
+		var tab = "\t";
+		var t = evt.target;
+		var ss = t.selectionStart;
+		var se = t.selectionEnd;
+		var st = t.scrollTop;
+		if (evt.keyCode === 13 && evt.ctrlKey && t.form)
+		{
+			t.form.submit();
+			return false;
+		}
+		if (evt.keyCode !== 9) return;
+		var txt = tab;
+	
+		var seltxt = t.value.slice(ss,se);
+		if (document.selection)
+		{
+			seltxt = document.selection.createRange().text;
+		}
+		if (evt.shiftKey)
+		{
+			if (!seltxt) return true;
+			txt = seltxt.replace(/(^|\n)\t/g,"$1");
+		}
+		else
+		{
+			txt += seltxt.replace(/\n(?!$)/g,"\n"+tab);
+		}
+		t.focus();
+		if (document.selection)
+		{
+			document.selection.createRange().text = txt;
+			return false;
+		}
+		t.value = t.value.slice(0, ss) + txt + t.value.slice(se);
+		t.selectionStart = (ss !== se) ? ss : (ss + txt.length);
+		t.selectionEnd = ss + txt.length;
+		t.scrollTop = st;
+		return false;
+	});
+};
+
+$(function()
+{
+	$('.texttabs').texttabs();
+});
+ 
+(function($) {
+$.fn.votelink = function(target, options)
+{
+	return this.each(function()
+	{
+		var elm = this;
+		var match = /^vote_([a-z]+)([0-9]+)$/.exec(this.id);
+		if (!match) return;
+		var type = match[1];
+		var id = match[2];
+		
+		function callback(data)
+		{
+			if (!data) return;
+			var $plus = $('.vote_plus', elm);
+			var $minus = $('.vote_minus', elm);
+			$plus.html('+' + data['plus']);
+			$minus.html('&#8722;' + data['minus']);
+			if (data['plus'] >= 3) $plus.parent().addClass('gc');
+			if (data['minus'] >= 3) $minus.parent().addClass('rc');
+		}
+		$(".vote_plus,.vote_minus", elm).click(function(){
+			if (elm.voted) return false;
+			var value = this.className === 'vote_plus' ? 1 : -1;
+			$.post('vote.php', {'type' : type, 'id' : id, 'value' : value}, callback, "json");
+			$(elm).removeClass('votelink');
+			elm.voted = true;
+		});
+		
+	});
+}
+})(jQuery);
+
+$(function()
+{
+	$('.votelink').votelink();
+});
+
+(function($) {
+	$.fn.headerlink = function(target, options)
+	{		
+		this.click(function(e) {
+			e.preventDefault();
+			prompt('Вы можете использовать данную ссылку для мгновенного перехода в выбранный раздел документа.', window.location.origin + window.location.pathname + '#' + e.currentTarget.id);
+		});
+	}
+})(jQuery);
+
+$(function() {
+	$('.txt2 h1.linked-header').headerlink();
+	$('.txt2 h2.linked-header').headerlink();
+	$('.txt2 h3.linked-header').headerlink();
+});
+
+function xgmfp() {
+	setTimeout(function() {
+        new Fingerprint2({excludeUserAgent: true}).get(function (fp, fpc) {
+            $('.xgmfp').val(fp);
+        });
+        new Fingerprint2({excludeCanvas: true, excludeWebGL: true}).get(function (fp, fpc) {
+            $('.xgmfpv').val(JSON.stringify(fpc, null, 1));
+        });
+    }, 250);
+}
+;
+function stripCode(name)
+{
+	var text = getSelectedText(name);
+	text = text.replace(/\[[^\]]*\]/g, '');
+	insertText(name, text);
+	return false;
+}
+
+
+function insertCode(name, tag)
+{
+	var param = "";
+	if (tag == "url")
+	{
+		param = prompt("Введите URL ссылки", "");
+		if (!param) return;
+	}
+	if (param != "")
+	{
+		param = '=' + param;
+	}
+	var starttag = '[' + tag + param + ']';
+	var endtag = '[/' + tag + ']';
+	var text = getSelectedText(name);
+	if (tag == "img" && !text)
+	{
+		text = prompt("Введите URL изображения", "");
+		if (!text) return;
+	}
+
+	var newText = "";
+
+	if (text.substr(0, starttag.length) == starttag
+		&& text.substr(text.length - endtag.length) == endtag)
+	{
+		newText = text.substring(starttag.length, text.length - endtag.length);
+	}
+	else
+	{
+		newText = starttag + text + endtag;
+	}
+	insertText(name, newText);
+}
+
+function insertImage(name, option)
+{
+	insertText(name, "[image=" + option + "]");
+}
+
+function insertImageFormat(name, format, id, LR)
+{
+	var text = document.getElementById(name);
+	var lnk = document.getElementById('a' + '_id_' + id).href;
+	var temp;
+	
+	if (LR == 'L')
+	{
+		temp = "<- " + lnk;
+	}
+	else if (LR == 'R')
+	{
+		temp = "-> " + lnk;
+	} else
+	{
+		temp = lnk;
+	}
+
+	var oldPos = text.selectionStart;
+	if (text.value.charAt(oldPos-1) != '\n')
+	{
+		temp = '\n' + temp;
+	}
+	if (text.value.charAt(oldPos) != '\n')
+	{
+		temp = temp + '\n';
+	}
+	
+	insertText(name, temp, true);
+}
+
+function boldify(name)
+{
+	var text = getSelectedText(name);
+	var replacingAll = false;
+	if (!text)
+	{
+		text = document.getElementById(name).value;
+		replacingAll = true;
+	}
+	var newText = text.replace(/\[b\](["a-z]["+a-z0-9 ]*)\[\/b\]/gi, "$1");
+	newText = newText.replace(/("|\b)([a-z][+a-z0-9 ]*)("|\+|\b)(?!\S*[\]=])/gi, "[b]$1$2$3[/b]");
+	newText = newText.replace(/\[\/b\](\s*|\.)\[b\]/gi, "$1");
+	if (replacingAll)
+	{
+		document.getElementById(name).value = newText;
+	}
+	else
+	{
+		insertText(name, newText);
+	}
+}
+
+function insertList(name, listtype)
+{
+	var newText = listtype ? "[list=" + listtype + "]\n" : "[list]\n";
+	var text = getSelectedText(name);
+	if (text == "")
+	{
+		var listentry = " ";
+		while (true)
+		{
+			listentry = prompt('Введите очередной пункт списка (пустая строка - окончить ввод)', "");
+			if (listentry == "" || listentry == null) break;
+			newText += "[*]" + listentry + "\n";
+		}
+	}
+	else
+	{
+		var pieces = text.split(/(?:^|(\r?\n))[ *-]*/g);
+		for (var i in pieces)
+		{
+			if (pieces[i] == "" || pieces[i] == "\n") continue;
+			newText += "[*]" + pieces[i] + "\n";
+		}
+	}
+	newText += "[/list]\n";
+	insertText(name, newText);
+}
+
+// stub for forum editor replacement
+function editInit()
+{
+}
+
+function insertLink(textareaid, filename, tagid)
+{	
+	if (typeof focus_descr == 'undefined')
+	{
+		focus_descr = false;
+	}
+	
+	var id = focus_descr ? 'description' : 'pagetext';
+	
+	if (textareaid != '') {
+		id = textareaid; 
+	}
+	
+	if (document.getElementById('input_comment'))
+	{
+		id = 'input_comment';
+		var comment = tagid.split(/^(.*)comments\/([0-9]+)$/);
+		if (comment[2])
+		{
+			id = 'edit_comment-' + comment[2];
+		}
+	}
+	
+	var text = document.getElementById(id);
+	var oldPos = text.selectionStart;
+	var temp = '[файл: ' + filename + ']';
+	var dif = 0;
+	
+	if (text.value.charAt(oldPos+1) != '\n')
+	{
+		temp = temp + '\n';
+	}
+	
+	if (text.value.charAt(oldPos-1) != '\n')
+	{
+		temp = '\n' + temp;
+		dif = 1;
+	}
+	
+	insertText(id, temp , true);
+	text.selectionStart += dif;
+}
+;
+if (!window.VK) window.VK = {};
+if (!VK.Share) {
+  VK.Share = {
+    _popups: [],
+    _gens: [],
+    _base_domain: '',
+    _ge: function(id) {
+      return document.getElementById(id);
+    },
+    button: function(gen, but, index) {
+      if (!gen) gen = {};
+      if (gen === gen.toString()) gen = {url: gen.toString()};
+      if (!gen.url) gen.url = VK.Share._loc;
+
+      if (!but) but = {type: 'round'};
+      if (but === but.toString()) but = {type: 'round', text: but};
+      if (!but.text) but.text = '\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c';
+
+      var old = true, count_style = 'display: none';
+      if (index === undefined) {
+        gen.count = 0;
+        gen.shared = (but.type == 'button' || but.type == 'round') ? false : true;
+        this._gens.push(gen);
+        this._popups.push(false);
+        index = this._popups.length - 1;
+        old = false;
+      } else {
+        if ((gen.count = this._gens[index].count) && (but.type == 'button' || but.type == 'round')) {
+          count_style = '';
+        }
+        gen.shared = this._gens[index].shared;
+        this._gens[index] = gen;
+      }
+
+      var head = document.getElementsByTagName('head')[0];
+      if (!this._base_domain) {
+        for (var elem = head.firstChild; elem; elem = elem.nextSibling) {
+          var m;
+          if (elem.tagName && elem.tagName.toLowerCase() == 'script' && (m = elem.src.match(/(https?:\/\/(?:[a-z0-9_\-\.]*\.)?(?:vk\.com|vkontakte\.ru)\/)js\/api\/share\.js(?:\?|$)/))) {
+            this._base_domain = m[1];
+          }
+        }
+      }
+      this._base_domain = this._base_domain.replace('vkontakte.ru', 'vk.com');
+      if (!this._base_domain) {
+        this._base_domain = 'https://vk.com/';
+      }
+      if (!old && (but.type == 'button' || but.type == 'round')) {
+        var elem = document.createElement('script');
+        elem.src = this._base_domain + 'share.php?act=count&index=' + index + '&url=' + encodeURIComponent(gen.url);
+        head.appendChild(elem);
+      }
+      var is2x = window.devicePixelRatio >= 2 ? '_2x' : '';
+      var iseng = but.eng ? '_eng' : '';
+      var a = '<a href="'+this._base_domain+'share.php?url='+encodeURIComponent(gen.url)+'" onmouseup="this._btn=event.button;this.blur();" onclick="return VK.Share.click(' + index + ', this);"', a1 = a+' style="text-decoration:none;">', a2='</a>', a3 = a+' style="display:inline-block;text-decoration:none;">', td1 = '<td style="vertical-align: middle;">', td2 = '</td>';
+      if (but.type == 'round' || but.type == 'round_nocount' || but.type == 'button' || but.type == 'button_nocount') {
+        var logo = but.eng ? '' : '0px 0px';
+         return '<table cellspacing="0" cellpadding="0" id="vkshare'+index+'" onmouseover="VK.Share.change(1, '+index+');" onmouseout="VK.Share.change(0, '+index+');" onmousedown="VK.Share.change(2, '+index+');" onmouseup="VK.Share.change(1, '+index+');" style="position: relative; width: auto; cursor: pointer; border: 0px;"><tr style="line-height: normal;">'+
+            td1+a+' style="border: none;background: #5F83AA;-webkit-border-radius: 2px 0px 0px 2px;-moz-border-radius: 2px 0px 0px 2px;border-radius: 2px 0px 0px 2px;display:block;text-decoration: none;padding: 3px 3px 3px 6px;color: #FFFFFF;font-family: tahoma, arial;height: 15px;line-height:15px;font-size: 10px;text-shadow: none;">'+but.text+'<div class="float:right"></div>'+a2+td2+
+            td1+a+' style="border: none;background: #5F83AA;-webkit-border-radius: 0px 2px 2px 0px;-moz-border-radius: 0px 2px 2px 0px;border-radius: 0px 2px 2px 0px;display:block; padding: 3px;'+(but.eng ? 'padding-left: 1px;' : '')+'"><div style="background: url(\'//vk.com/images/icons/share_logo'+is2x+'.png\') 0px '+(but.eng ? '-15px' : '0px')+' no-repeat; background-size: 16px 31px; '+(but.eng ? 'width: 17px;height:9px;margin: 3px 0px;' : 'width: 15px;height: 15px;')+'"></div>'+a2+td2+
+            ((but.type == 'round' || but.type == 'button') ? td1+a+' style="text-decoration: none;font-weight:bold;font-family: tahoma, arial;'+count_style+'"><div style="background: url(\'//vk.com/images/icons/share_logo'+is2x+'.png\') 0px -24px no-repeat; background-size: 16px 31px; width: 4px; height: 7px;position: absolute; margin: 7px 0px 0px 4px;z-index:100;"></div><div id="vkshare_cnt'+index+'" style="border: 1px solid #bbbfc4;background: #FFFFFF;height: 15px;line-height: 15px;5px; padding: 2px 4px;min-width: 12px;margin-left: 7px;border-radius: 2px;-webkit-border-radius: 2px;-moz-border-radius:2px;text-align: center; color: #666c73;font-size: 10px;z-index:99;">'+gen.count+'</div>'+a2+td2 : '')+
+            '</tr></table>';
+      } else if (but.type == 'link') {
+        return '<table style="position: relative; cursor:pointer; width: auto; line-height: normal;" onmouseover="this.rows[0].cells[1].firstChild.firstChild.style.textDecoration=\'underline\'" onmouseout="this.rows[0].cells[1].firstChild.firstChild.style.textDecoration=\'none\'" cellspacing="0" cellpadding="0"><tr style="line-height: normal;">' +
+               td1+a1+'<img src="//vk.com/images/icons/share_link'+iseng+is2x+'.png" width="16" height="16" style="vertical-align: middle;border:0;"/>'+a2+td2 +
+               td1+a1+'<span style="padding: 0 0 0 5px; color: #2B587A; font-family: tahoma, arial; font-size: 11px;">' + but.text + '</span>'+a2+td2 +
+               '</tr></table>';
+      } else if (but.type == 'link_noicon') {
+        return a3+'<span style="position: relative; font-family: tahoma, arial; font-size: 11px; color: #2B587A; line-height: normal;" onmouseover="this.style.textDecoration=\'underline\'" onmouseout="this.style.textDecoration=\'none\'">' + but.text + '</span>'+a2;
+      } else {
+        return a3+'<span style="position: relative; padding:0;">' + but.text + '</span>'+a2;
+      }
+    },
+    change: function(state, index) {
+      var el = this._ge('vkshare' + index), color;
+      if (state == 0) {
+        color = '#5F83AA';
+      } else if (state == 1) {
+        color = '#6890bb';
+      } else if (state == 2) {
+        color = '#557599';
+      }
+      var els = [el.rows[0].cells[0].firstChild, el.rows[0].cells[1].firstChild];
+      for (var i in els) {
+        els[i].style.backgroundColor = color;
+        els[i].style.color = '#FFFFFF';
+        if (state == 2) {
+          els[i].style.paddingTop = '4px';
+          els[i].style.paddingBottom = '2px';
+        } else {
+          els[i].style.paddingTop = '3px';
+          els[i].style.paddingBottom = '3px';
+        }
+      }
+    },
+    click: function(index, el) {
+      var e = window.event;
+      if (e) {
+        if (!e.which && el._btn) e.which = (el._btn & 1 ? 1 : (el._btn & 2 ? 3 : (el._btn & 4 ? 2 : 0)));
+        if (e.which == 2) {
+          return true;
+        }
+      }
+      var details = this._gens[index];
+      if (!details.shared) {
+        VK.Share.count(index, details.count + 1);
+        details.shared = true;
+      }
+      var undefined;
+      if (details.noparse === undefined) {
+        details.noparse = details.title && details.description && details.image;
+      }
+      details.noparse = details.noparse ? 1 : 0;
+
+      var params = {};
+      var fields = ['title', 'description', 'image', 'noparse'];
+      for (var i = 0; i < fields.length; ++i) {
+        if (details[fields[i]]) {
+          params[fields[i]] = details[fields[i]];
+        }
+      }
+
+      var popupName = '_blank';
+      var width = 554;
+      var height = 349;
+      var left = (screen.width - width) / 2;
+      var top = (screen.height - height) / 2;
+      var url = this._base_domain + 'share.php?url=' + details.url;
+      var popupParams = 'scrollbars=0, resizable=1, menubar=0, left=' + left + ', top=' + top + ', width=' + width + ', height=' + height + ', toolbar=0, status=0';
+      var popup = false;
+      try {
+        var doc_dom = '', loc_hos = '';
+        try {
+          doc_dom = document.domain;
+          loc_hos = location.host;
+        } catch (e) {
+        }
+        if (doc_dom != loc_hos) {
+          var ua = navigator.userAgent.toLowerCase();
+          if (!/opera/i.test(ua) && /msie/i.test(ua)) {
+            throw 'wont work';
+          }
+        }
+        popup = this._popups[index] = window.open('', popupName, popupParams);
+        var text = '<form accept-charset="UTF-8" action="' + url + '" method="POST" id="share_form">';
+        for (var i in params) {
+          text += '<input type="hidden" name="' + i + '" value="' + params[i].toString().replace(/"/g, '&myquot;').replace(/&quot/ig, '&myquot') + '" />';
+        }
+        text += '</form>';
+        text += '<script type="text/javascript">document.getElementById("share_form").submit()</script>';
+
+        text = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' +
+               '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">' +
+               '<head><meta http-equiv="content-type" content="text/html; charset=windows-1251" /></head>' +
+               '<body>' + text + '</body></html>';
+        popup.document.write(text);
+        popup.focus();
+      } catch (e) { // ie with changed domain.
+        try {
+          if (popup) {
+            popup.close();
+          }
+          url += '?';
+          for (var i in params) {
+            url += encodeURIComponent(i) + '=' + encodeURIComponent(params[i]) + '&';
+          }
+          popup = this._popups[index] = window.open(url, popupName, popupParams);
+          popup.focus();
+        } catch (e) {
+        }
+      }
+      return false;
+    },
+    count: function(index, count) {
+      this._gens[index].count = count;
+      var elem = this._ge('vkshare'+index);
+      if (elem) {
+        var row = elem.rows[0];
+        if (count) {
+          var c = this._ge('vkshare_cnt'+index);
+          c.innerHTML = count;
+          row.cells[2].firstChild.style.display = 'block';
+        } else {
+          row.cells[2].firstChild.style.display = 'none';
+        }
+      }
+    }
+  }
+  try {
+    VK.Share._loc = location.toString();
+  } catch(e) {
+    VK.Share._loc = 'https://vk.com/';
+  }
+}
+try{if (window.stManager) stManager.done('api/share.js');}catch(e){}
+
+;
+// ###############################
+// #### useful DOM one-liners #### 
+// ###############################
+
+function el(elm) {return typeof elm == 'string' ? document.getElementById(elm) : elm}
+function show(elm) {if (el(elm)) el(elm).style.display = 'block'}
+function showInline(elm) {if (el(elm)) el(elm).style.display = 'inline'}
+function hide(elm) {if (el(elm)) el(elm).style.display = 'none'}
+function toggle(elm) {if (el(elm)) el(elm).style.display = el(elm).style.display == 'block' ? 'none' : 'block'}
+
+function setClass(elm, name)   {if (el(elm)) el(elm).className = name}
+function hasClass(elm, c) {return el(elm).className.match("\\b" + c + "\\b")}
+function addClass(elm, c) {if (!hasClass(elm, c)) el(elm).className += " " + c;}
+function removeClass(elm, c) {el(elm).className = el(elm).className.replace(new RegExp("\\s*\\b" + c + "\\b"), "");}
+
+function setContent(elm, text) {if (el(elm)) el(elm).innerHTML = text}
+function addContent(elm, text) {if (el(elm)) el(elm).innerHTML += text}
+
+function nl2br(text) {return text.replace(/\n/g, "<br />");}
+
+function replaceQuotes(text)
+{
+	return text.replace('"', '&quot;');
+}
+function htmlspecialchars(text)
+{
+	var chars = Array("&", "<", ">", '"', "'");
+	var replacements = Array("&amp;", "&lt;", "&gt;", "&quot;", "'");
+	for (var i=0; i<chars.length; i++)
+	{
+		var re = new RegExp(chars[i], "gi");
+		if(re.test(text))
+		{
+			text = text.replace(re, replacements[i]);
+		}
+	}
+	   return text;
+}
+function addHandler(target, eventName, handler)
+{
+	if (target.attachEvent)
+	{
+		target.attachEvent('on'+eventName, handler);
+	}
+	else
+	{
+		target.addEventListener(eventName, handler, false);
+	}
+}
+
+
+function addLoadEvent(func)
+{
+	addHandler(window, 'load', func);
+}
+
+function forElementsInClass(classname, func)
+{
+	var elms = document.getElementsByTagName('*');
+	for (var i = 0; i < elms.length; i++)
+	{
+		var elm = elms[i];
+		if (!hasClass(elm, classname)) continue;
+		func(elm);
+	}
+}
+
+function fixHovers()
+{
+	forElementsInClass('hover', function(elm){
+		elm.onmouseover = function(){this.className = 'active';};
+		elm.onmouseout = function(){this.className = ''};
+	});
+}
+
+function addReportLinks()
+{
+	forElementsInClass('reportlink', function(elm)
+	{
+		var area = elm.href.indexOf('forum') != -1 ? 'forum' : 'site';
+		elm.onclick = function()
+		{
+			var url = elm.href;
+			var msg = prompt('Отправка сообщения об ошибке или нарушении\nКомментарий (не обязателен)', '');
+			if (msg == null) return false;
+			load_data(area == 'forum' ? '../report.php' : 'report.php', function(data)
+			{
+				if (data == 'OK')
+				{
+					// todo: display acknowledgement
+				}
+			}, false, {'url' : url, 'comment' : msg});
+			return false;
+		};
+		if (!elm.innerHTML)
+		{
+			elm.innerHTML = area == 'site' ? '[!]' : '[!]&nbsp;';
+		}
+		elm.title = 'сообщить администрации';
+	});
+}
+
+function addHintClick()
+{
+	forElementsInClass('hint', function(elm)
+	{
+		elm.onclick = function()
+		{
+			var display = elm.childNodes[1].style.display;
+			elm.childNodes[1].style.display = (display == 'block' ? '' : 'block');
+		};
+	});
+}
+
+function clear_selection()
+{
+	if (document.selection && document.selection.empty)
+	{
+		document.selection.empty();
+	}
+	else
+	{
+		var sel = window.getSelection();
+		sel.removeAllRanges();
+	}
+}
+
+
+// ########################
+// #### ajax functions ####
+// ########################
+
+var _data_handlers = {};
+var _data_urls = {};
+var _data_count = 0;
+var _data_sid = Math.round(Math.random() * 9000) + 1000;
+var _data_timeout = 15000;
+
+function exec_script(href, id, postvars)
+{
+	var req;
+	var postdata = '';
+	if (postvars)
+	{
+		for (var i in postvars)
+		{
+			postdata += encodeURIComponent(i);
+			postdata += '=';
+			postdata += encodeURIComponent(postvars[i]);
+			postdata += '&';
+		}
+	}
+	postdata += 'js_id=' + id;
+	if (typeof session_id != 'undefined')
+	{
+		postdata += '&s=' + encodeURIComponent(session_id);
+	}
+	if (window.XMLHttpRequest)
+	{
+		req = new XMLHttpRequest();
+		req.onreadystatechange = function(){_processonchange(id)};
+		req.open("post", href, true);
+		req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		req.send(postdata);
+	}
+	else if (window.ActiveXObject && (req = new ActiveXObject("Microsoft.XMLHTTP")))
+	{
+		req.onreadystatechange = function(){_processonchange(id)};
+		req.open("post", href, true);
+		req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		req.send(postdata);
+	}
+	else
+	{
+		href += (href.indexOf('?') == -1 ? '?' : '&') + postdata;
+		var span = null;
+		span = document.body.appendChild(document.createElement('SPAN'));
+		span.style.display = 'none';
+		span.innerHTML = '.<s'+'cript></' + 'script>';
+		setTimeout(function() {
+			var s = span.getElementsByTagName("script")[0];
+			s.language = "JavaScript";
+			if (s.setAttribute) s.setAttribute('src', href); else s.src = href;
+		}, 10);
+	}
+
+	setTimeout(function() {
+		if (!_data_handlers[id])
+		{
+			return;
+		}
+		var req = _data_handlers[id].req;
+		var foo = _data_handlers[id].handler;
+		_release_id(id);
+		req.abort();
+		foo();
+	}, _data_timeout);
+
+	return req;
+}
+
+function _processonchange(id)
+{
+	if (!_data_handlers[id])
+	{
+		return;
+	}
+	var req = _data_handlers[id].req;
+	var foo = _data_handlers[id].handler;
+	if (req.readyState == 4)
+	{
+		if (req.status == 200 && req.responseText.substring(0, 13) == '_return_data(')
+		{
+			eval(req.responseText);
+		}
+		else
+		{
+			_release_id(id);
+			foo();
+		}
+	}
+}
+
+function load_data(href, handler, allow_dupe, postvars)
+{
+	if (!allow_dupe && _data_urls[href])
+	{
+		return false;
+	}
+	var id = _data_sid + _data_count++;
+	_data_urls[href] = id;
+
+	var req = exec_script(href, id, postvars);
+	_data_handlers[id] =
+	{
+		handler: handler,
+		url: href,
+		req: req
+	};
+	return true;
+}
+
+function _release_id(id)
+{
+	delete _data_urls[_data_handlers[id].url];
+	delete _data_handlers[id];
+}
+
+function _return_data(id, data)
+{
+	if (!_data_handlers[id])
+	{
+		return;
+	}
+	var foo = _data_handlers[id].handler;
+	if (foo)
+	{
+		_release_id(id);
+		foo(data);
+	}
+}
+
+// #################
+// #### cookies ####
+// #################
+
+function setcookie(name, value, days)
+{
+	if (days)
+	{
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		var expires = "; expires=" + date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getcookie(name)
+{
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i = 0; i < ca.length; i++)
+	{
+		var c = ca[i];
+		while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+	}
+	return null;
+}
+
+function unsetcookie(name)
+{
+	setcookie(name, "", -1);
+}
+
+function set_select_options(sel, options)
+{
+	var cur = sel.options[sel.selectedIndex].value;
+	var new_index = 0;
+	var i = 1;
+	sel.options.length = 1;
+	for (var k in options)
+	{
+		sel.options.length++;
+		sel.options[i].value = k;
+		sel.options[i].text = options[k];
+		if (k == cur)
+		{
+			new_index = i;
+		}
+		i++;
+	}
+	sel.selectedIndex = new_index;
+}
+
+function insertText(name, text, resetsel, newline)
+{
+	var elm = document.getElementById(name);
+	if (elm.value.charAt(elm.selectionStart + 1) != '\n' && newline)
+	{
+		text += '\n';
+	}
+	elm.focus();
+	if (document.selection)
+	{
+		document.selection.createRange().text = text;
+		return;
+	}
+	var newText = elm.value.substring(0, elm.selectionStart);
+	newText += text;
+	newText += elm.value.substring(elm.selectionEnd);
+	var oldPos = elm.scrollTop;
+	
+	var oldStart = elm.selectionStart;
+	elm.value = newText;
+	elm.scrollTop = oldPos;
+	elm.selectionStart = oldStart;
+	elm.selectionEnd = oldStart + text.length;
+	if (resetsel)
+	{
+		elm.selectionStart = elm.selectionEnd;
+	}
+}
+
+function getSelectedText(name)
+{
+	var elm = document.getElementById(name);
+	if (document.selection)
+	{
+		return document.selection.createRange().text;
+	}
+	return elm.value.substring(elm.selectionStart, elm.selectionEnd);
+}
+
+function discard_resource(id)
+{
+	var answer = confirm("Вы уверены, что хотите отказаться от ресурса? Вы останетесь автором ресурса, однако он не будет отображаться в списке ваших ресурсов. Кроме того, весь опыт, полученный за этот ресурс, будет снят.");
+	if (!answer)
+	{
+		return 0;
+	}
+	$.ajax(
+	{  
+		type: 'POST',
+		url: 'resource.php',   
+		data: 'do=discard&id=' + id,
+		success: function(text)
+		{
+			var div = document.getElementById('res' + id);
+			div.innerHTML = '';
+		}
+	});
+}
+
+function change_files(resid, pid, divname)
+{
+	$.ajax(
+	{  
+		type: 'POST',
+		url: 'resource.php',   
+		data: 'do=changefiles&id=' + resid + '&pid=' + pid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.tmpaid)
+			{
+				$('#tmpaid').val(result.tmpaid);
+				document.getElementById(divname).innerHTML = result.field;
+				load_fileuploader();
+				return
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function getLoading(centered)
+{
+	return centered ? "<div style='width: 100%; text-align: center'><img src='/design/loading.gif' /></div>" : "<img src='design/loading.gif' />";
+}
+
+function takeTask(pid, tid, cancel, frommenu)
+{
+	var div = document.getElementById("report-" + pid + "-" + tid);
+	if (div) div.innerHTML = getLoading(true);
+	
+	$.ajax(
+	{  
+		type: "POST",
+		url: "task.php",   
+		data: "do=" + ( cancel ? 'canceltask' : 'taketask') + "&id=" + pid + "&taskid=" + tid + "&frommenu=" + (frommenu ? 1 : 0),
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				if (div) refreshTask(pid, tid, frommenu);
+				if (frommenu)
+				{
+					var span = document.getElementById('takeTaskLink');
+					span.innerHTML = cancel  ? 'Взять' : 'Отказаться';
+					span.onclick = function(){takeTask(pid, tid, !cancel, frommenu);};
+				}
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function deleteTask(pid, tid)
+{
+	$.ajax(
+	{  
+		type: "POST",
+		url: "task.php",   
+		data: "do=delete_task&id=" + pid + "&taskid=" + tid ,
+		success: function(text)
+		{
+			result = eval( "(" + text + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+			}
+			firemsg('Задание удалено');
+			location = "tasks";
+			return;
+		}
+	});
+}
+
+function refreshTask(pid, tid, frommenu)
+{
+	$.ajax(
+	{  
+		type: "POST",
+		url: "task.php",   
+		data: "id=" + pid + "&taskid=" + tid + (frommenu ? "&frommenu=1" : ''),
+		success: function(text)
+		{
+			result = eval( "(" + text + ")" );
+			if (result.error || !result.task)
+			{
+				firemsg('Ошибка! ' + result.error);
+			}
+			document.getElementById("report-" + pid + "-" + tid).parentNode.innerHTML = result.task;
+			InitJQElements();
+			return;
+		}
+	});
+}
+
+
+function getAbsolutePos(el)
+{
+	var r = { x: el.offsetLeft, y: el.offsetTop };
+	if (el.offsetParent)
+	{
+		var tmp = getAbsolutePos(el.offsetParent);
+		r.x += tmp.x;
+		r.y += tmp.y;
+	}
+	return r;
+}
+
+var hasNewComments = false;
+var baseWindowTitle = document.title;
+var commentUpdaterLock = 0;
+
+function resetWindowTitle() {
+	hasNewComments = false;
+	document.title = baseWindowTitle;
+	var icon = $("[rel='shortcut icon']");
+	var cache = icon.clone();
+	cache.attr("href", "/favicon.ico");
+	icon.replaceWith(cache);
+}
+
+function changeCommentsPage(page, compage, paginator, notfork, id)
+{
+	pagid = paginator.parentNode.id;
+	
+	$('#comments').slideToggle('fast');
+	NProgress.start();
+	$.ajax(
+	{  
+		type: "POST",
+		url: "project.php",   
+		data: "&page=" + page + (id > 0 ? '&id=' + id : "") + (compage >= 0 ? "&compage=" + compage : "&compage=0&comments=1" ) + (notfork ? "&notfork=1" : ''),
+		success: function(responseText)
+		{
+			resetWindowTitle();
+			
+			document.getElementById('comments').innerHTML = responseText;
+			txt2Ini('#comments');
+			InitJQElements();
+			$('#comments').slideToggle('fast');
+			NProgress.done();
+			
+			if (pagid == 'paginator-bottom')
+			{
+				paginator = document.getElementById(pagid);
+				paginator_top = getAbsolutePos(paginator).y;
+				window.scrollTo(0, paginator_top);
+			}
+		},
+		error: function () {
+			NProgress.done();
+		}
+	});
+}
+
+function sendReportComment(pid, tid)
+{
+	formName = "report-form-" + pid + "-" + tid;
+	task = document.getElementById("loading-" + pid + "-" + tid)
+	temp = task.innerHTML;
+	task.innerHTML = getLoading(false);
+	$("#" + formName ).ajaxSubmit(function(responseText)
+	{
+		result = eval( "(" + responseText + ")" );
+		if (result.error)
+		{
+			task.innerHTML = temp;
+			firemsg('Ошибка! ' + result.error);
+			return;
+		}
+		firemsg('Тикет обновлен!');
+		if (result.header) updateHeader(result.header);
+		refreshTask(pid, tid);
+	});
+}
+
+function reviveComment(postid, counter)
+{
+	tagid = 'comment' + counter;
+	document.getElementById(tagid).innerHTML = getLoading(true);
+	$.ajax(
+	{  
+		type: "POST",
+		url: "comment.php",   
+		data: "do=revive&postid=" + postid + "&counter=" + counter,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			document.getElementById(tagid).innerHTML = result;
+			txt2Ini('#' + tagid);
+			InitJQElements();
+			addReportLinks();
+			document.getElementById('comment' + postid + '-counter').innerHTML = counter;
+		}
+	});
+}
+
+function deleteComment(postid, counter)
+{
+	tagid = 'comment' + counter;
+	document.getElementById(tagid).innerHTML = getLoading(true);
+	$.ajax(
+	{  
+		type: "POST",
+		url: "comment.php",   
+		data: "do=kill&postid=" + postid + "&counter=" + counter,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			document.getElementById(tagid).innerHTML = result;
+			document.getElementById('comment' + postid + '-counter').innerHTML = counter;
+			txt2Ini('#' + tagid);
+			addReportLinks();
+		}
+	});
+}
+
+function constructUserLink(username)
+{
+	var reg = /[^a-zA-Z0-9]+/;
+	if (reg.exec(username) != null || /\s/.exec(username) != null || /^[0-9](.*)/.exec(username))
+	{
+		return "~~" + username + "~~";
+	}
+	return "~" + username;
+}
+function insertNick(username)
+{
+	var text = constructUserLink(username) + ", ";
+	insertText('input_comment', text, true, false);
+}
+
+function copy_txt() {
+	txt_quote="";
+	if (window.getSelection) {
+		txt_quote = window.getSelection().toString();
+	} else if (document.getSelection) {
+		txt_quote = document.getSelection();                
+	} else if (document.selection) {
+		txt_quote = document.selection.createRange().text;
+	}  
+}
+
+function addQuote(postid)
+{
+	var sel = txt_quote;
+
+	$.ajax(
+	{  
+		type: "POST",
+		url: "comment.php",   
+		data: "do=quote&postid=" + postid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			text = constructUserLink(result.username) + ":\n";
+			if (sel.length < 1) 
+			{
+				text += "> " + result.comment.split(/\n\r|[\n\r]/).join("\n> ");
+			} else {
+				text += "((цитата \n" + sel + "\n))";
+			}
+
+			insertText('input_comment', text, true, true)
+		}
+	});
+}
+
+function editComment(postid, trg_btn)
+{
+	var btn = $(trg_btn);
+	var comment = btn.closest("[data-post-id='" + postid + "']");
+	var textbody = comment.find(".textbody");
+	var height = textbody.height();
+	
+	if (textbody.hasClass("muted") && textbody.find(".spoiler").length > 0) {
+		var control = textbody.find(".control");
+		var cut = textbody.find(".cut");
+		if (cut.css('display') != 'block') {
+			control.click();
+		}
+		textbody = cut;
+	}
+	
+	
+	textbody.html(getLoading(false));
+	NProgress.start();
+	$.ajax({
+		type: "POST",
+		url: "comment.php",
+		data: {
+			do: "edit",
+			postid: postid
+		},
+		success: function (data) {
+			NProgress.done();
+			var json = eval("(" + data + ")");
+			if (json.error) {
+				firemsg("Ошибка! " + json.error);
+				return;
+			}
+			
+			btn.hide();
+			
+			textbody.html(json.comment);
+			$("#edit-form-" + postid + ' textarea').height(Math.max(height, 50));
+			load_fileuploader();
+		}
+	});
+}
+
+function doEditComment(postid)
+{
+	var editBtn = $("#comment-" + postid + "-edit");
+	var comment = editBtn.closest("[data-post-id='" + postid + "']");
+	var textbody = comment.find(".textbody");
+	
+	if (textbody.find(".spoiler").length > 0) {
+		var control = textbody.find(".control");
+		var cut = textbody.find(".cut");
+		if (cut.css('display') != 'block') {
+			control.click();
+		}
+		textbody = cut;
+	}
+	
+	var text = $("#edit-form-" + postid + ' textarea').val();
+	
+	NProgress.start();
+	$.ajax({
+		type: "POST",
+		url: "comment.php",
+		data: {
+			do: "doedit",
+			postid: postid,
+			pagetext: text
+		},
+		success: function (data) {
+			NProgress.done();
+			var json = eval("(" + data + ")");
+			if (json.error) {
+				firemsg('Ошибка! ' + json.error);
+				return;
+			}
+			editBtn.show();
+			
+			textbody.html(json.comment);
+			txt2IniObject(textbody);
+			addReportLinks();
+		}
+	});
+}
+
+function showCommentPreview(pagetext_id, button)
+{
+	$('#' + button.id).button('loading');
+	
+	pagetext = document.getElementById(pagetext_id).value;
+	$.post(
+		'resource.php', {'do': 'preview', text: pagetext}, 
+		function(responseText)
+		{
+			$('#' + button.id).button('reset');
+			
+			result = eval( "(" + responseText + ")" );
+			if (result.text)
+			{
+				showPreview(result.text);
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function showСommentText(postid)
+{
+	var editBtn = $("#comment-" + postid + "-edit");
+	var comment = editBtn.closest("[data-post-id='" + postid + "']");
+	var textbody = comment.find(".textbody");
+	
+	if (textbody.find(".spoiler").length > 0) {
+		var control = textbody.find(".control");
+		var cut = textbody.find(".cut");
+		if (cut.css('display') != 'block') {
+			control.click();
+		}
+		textbody = cut;
+	}
+	
+	$.ajax(
+	{  
+		type: "POST",
+		url: "comment.php",   
+		data: {
+			do: "show",
+			postid: postid
+		},
+		success: function(responseText)
+		{
+			var result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			editBtn.show();
+			textbody.html(result.comment);
+			txt2IniObject(textbody);
+		}
+	});
+}
+
+function cancelEditComment(postid)
+{
+	var editForm = document.getElementById("edit-form-" + postid);
+	editForm.parentNode.removeChild(editForm);
+	showСommentText(postid);
+}
+
+function showResponseComments(responseText, statusText)
+{
+	document.getElementById('comments').innerHTML = responseText;
+}
+
+function goPage(e)
+{
+	if (e.keyCode == 17)
+	{
+		ctrl = true;
+	}
+	else if(ctrl && (e.keyCode == 37 || e.keyCode == 39))
+	{
+		paginator = document.getElementById('paginator-' + (e.keyCode == 37 ? 'left' : 'right'));
+		if (paginator.onclick)
+		{
+			paginator.click();
+			return;
+		}
+		location = paginator.href;
+	}
+}
+
+function report(url, text)
+{
+	$.ajax({
+		type: 'POST',
+		url: 'history.php',
+		data: 'url=' + encodeURIComponent(url) + '&text='+text
+	});
+}
+
+function ctrlEnter(e, buttonid)
+{
+	if(e.keyCode == 17)
+	{
+		ctrl = true;
+	}
+	else if(e.keyCode == 13 && ctrl)
+	{
+		document.getElementById(buttonid).click();
+	}
+}
+function Enter(e, buttonid)
+{
+	if(e.keyCode == 13)
+	{
+		document.getElementById(buttonid).click();
+	}
+}
+function ctrlUp(e)
+{
+	ctrl = false;
+}
+function sendComment(pid, resourceid, tmpid)
+{
+	if (!resourceid || !pid)
+	{
+		return;
+	}
+	
+	var input_comment = $('#input_comment').val();
+	var button = document.getElementById('send-comment-' + resourceid);
+	var caption = button.value;
+	
+	var commentForm = $("#comment_form");
+	
+	button.value = '';
+	button.disabled = true;
+	$('#send-comment-' + resourceid).css('background-image', 'url("design/loading.gif")');
+	$('#send-comment-' + resourceid).css('background-repeat', 'no-repeat');
+	$('#send-comment-' + resourceid).css('background-position', 'center center');
+	
+	var action = 'comment.php';
+	var object = {
+			id: pid,
+			do: 'post',
+			pageid : resourceid, 
+			message : input_comment, 
+			tmpid : tmpid 
+		};
+	
+	task = document.getElementById('task-status');
+	if (task)
+	{
+		action = 'task.php';
+		object.status = task.value;
+		object.perfomer = $('#perfomer').val();
+	}
+	
+	commentUpdaterLock++;
+	NProgress.start();
+	$.ajax({
+		type: 'POST',
+		url: action,
+		data: object,
+		success: function (responseText) {
+			result = eval( "(" + responseText + ")" );
+			if (result.message != 'OK')
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			if (result.header) updateHeader(result.header);
+			document.getElementById('comments').innerHTML = result.comments;
+			
+			if (result.streak_info)
+			{
+				var time = $("#streak_timer").data('value');
+				$("#streak_info").html(result.streak_info);
+				if (!time)
+				{
+					streak_timer();
+				}
+			}
+
+			txt2Ini('#comments');
+			addReportLinks();
+			InitJQElements();
+			
+			var assigned = document.getElementById('perfomer');
+			var perfomer = document.getElementById('task-perfomer');
+			var newassigned = document.getElementById('newassigned');
+			if (perfomer && assigned && assigned.value)
+			{
+				perfomer.innerHTML = "<a href='user/" + assigned.value + "'>" + assigned.value + "</a>";
+				assigned.value = '';
+			} else if (newassigned && assigned && assigned.value)
+			{
+				newassigned.innerHTML = ", исполняет <b id='task-perfomer'><a href='user/" + assigned.value + "'>" + assigned.value + "</a></b>";
+				assigned.value = '';
+			}
+			
+			$('#input_comment').val('');
+			commentForm.find("[name='files[id]']").val(result.newtmpid);
+			commentForm.find(".files > .items").empty();
+		},
+		complete: function() {
+			commentUpdaterLock--;
+			NProgress.done();
+			button.value = caption;
+			button.disabled = false;
+			$('#send-comment-' + resourceid).css('background-image', 'none');
+		}
+	});
+}
+
+function removeResource(id, pid)
+{
+	var span = document.getElementById("remove-" + id);
+	
+	answer = confirm("Вы подтверждаете удаление ресурса?");
+	if (!answer)
+	{
+		return 0;
+	}
+	if (span)
+	{
+		span.innerHTML = 'удалить ' + getLoading(false);
+	}
+	
+	$.ajax(
+		{  
+			type: "POST",
+			url: "project.php",   
+			data: "do=killpage&name=" + pid + "&page=" + id,
+			success: function(responseText)
+			{
+				result = eval( "(" + responseText + ")" );
+				if (result.message == 'OK')
+				{
+					updateHeader(result.header);
+					var resource = document.getElementById("res" + id);
+					if (resource)
+					{
+						resource.style['display'] = 'none';
+					}
+					else
+					{
+						firemsg('Ресурс удален!');
+					}
+					return;
+				}
+				firemsg('Ошибка! ' + result.error);
+			}
+		});
+}
+
+function trashResource(id, pid)
+{
+	var span = document.getElementById("trashit-" + id);
+	
+	answer = confirm("Вы хотите отправить этот ресурс в помойку? Это действие может быть отменено менеджерами.");
+	if (!answer)
+	{
+		return 0;
+	}
+	if (span)
+	{
+		span.innerHTML = 'в помойку ' + getLoading(false);
+	}
+	
+	$.post("resource.php", {'do' : 'move', 'id' : id, 'trash' : 1},
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				firemsg('Ресурс перемещен!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function moveResource()
+{
+	var id = $('#resource-move').val();
+	var project = $('#project-move').val();
+	var fromproject = $('#from-project-move').val();
+	$.post("resource.php", {
+			'do': 'move', 
+			'id': id, 
+			'from': fromproject, 
+			'ptitle': project
+		},
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				firemsg('Ресурс перемещен!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function changeShowMain(id, pid, takeoff)
+{
+	var span = document.getElementById("changeshowmain-" + id);
+	var menuspan = document.getElementById("changeshowmainmenu");
+	var showmain;
+	
+	if (menuspan)
+	{
+		menuspan.onclick = '';
+	}
+	if (span)
+	{
+		span.onclick = '';
+		showmain = span.innerHTML;
+		span.innerHTML += getLoading(false);
+	}
+	$.ajax(
+	{  
+		type: "POST",
+		url: "project.php",   
+		data: "do=changeshowmain&name=" + pid + "&page=" + id + "&takeoff=" + (takeoff ? '1' : '0' ),
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (span) span.innerHTML = showmain;
+			if (result.message == 'OK')
+			{
+				updateHeader(result.header);
+				
+				text = (result.showmain == 2)  ? 'Снять с публикации' : 'Опубликовать';
+				var textstate = document.getElementById("res-"+id+"-statetext");
+				if (textstate)
+				{
+					switch(result.showmain)
+					{
+						case 0:
+							textstate.innerHTML = "не публикуется"; break;
+						case 1:
+							textstate.innerHTML = "заявлен на публикацию"; break;
+						case 2:
+							textstate.innerHTML = "опубликован"; break;
+					}					
+				}
+
+				if (span)
+				{
+					span.innerHTML = (result.showmain == 2)  ? 'Снять с публикации' : 'Опубликовать';
+					span.onclick = function(){changeShowMain(id, pid)};
+					if (document.getElementById("showmain-takeoff-" + id))
+					{
+						$("#showmain-takeoff-" + id).remove();
+					}
+				}
+				if (menuspan)
+				{
+					menuspan.innerHTML = text;
+					menuspan.onclick = function(){changeShowMain(id, pid)};
+					$("#showmain").removeClass('resource-show_main-0');
+					$("#showmain").removeClass('resource-show_main-1');
+					$("#showmain").removeClass('resource-show_main-2');
+					$("#showmain").addClass('resource-show_main-' + result.showmain);
+					document.getElementById("showmain").innerHTML = ((result.showmain == 2)  ? 'Опубликован' : 'Не публикуется');
+					if (document.getElementById("showmain-takeoff-menu"))
+					{
+						$("#showmain-takeoff-menu").remove();
+					}
+					if (document.getElementById("approved-menu"))
+					{
+						$("#approved-menu").remove();
+					}
+				}
+				else
+				{
+					var resource = document.getElementById("res" + id);
+					//resource.style['display'] = 'none';
+				}
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+	
+}
+
+function showTaskFastAnswer(id, pid, show)
+{
+	var answer = document.getElementById('report-answer-' + pid + '-' + id);
+	var answerLink = document.getElementById('report-answer-link-' + pid + '-' + id);
+	
+	answer.style['display'] = show ? 'inline-block' : 'none';
+	answerLink.onclick = function(){showTaskFastAnswer(id, pid, !show);};
+}
+
+function taskFilter()
+{
+	var elem = document.getElementById('filter');
+	var url = 'ajax=1&filter=' + elem.value;
+	var tasks = document.getElementById('tasks');
+	
+	elem = document.getElementById('pid');
+	if (elem.value)
+	{
+		url += '&id=' + elem.value;
+	}
+	tasks.innerHTML = "<div style='width: 100%; text-align: center'><img src='design/loading.gif' /></div>";
+	$.ajax({  
+			type: 'POST',
+			url: 'task.php',   
+			data: url,
+			success: function(text)
+			{
+				result = eval( "(" + text + ")" );
+				if (result.error)
+				{
+					firemsg('Ошибка! ' + result.error);
+				}
+				tasks.innerHTML = result.message ? result.message : result.task;
+				InitJQElements();
+			}
+		});
+}
+
+function setSkin(skinSelect)
+{
+	var skinId = document.getElementById(skinSelect).value;
+	document.getElementById("stylesheet").href = 'design/v8/css/css_' + skinId + '/style.css';
+	if (skinId == 7)
+	{
+		document.getElementById("styleboot").href = 'design/v8/css/dark.css';
+	}
+	else
+	{
+		document.getElementById("styleboot").href = 'design/v8/css/bootstrap.min.css';
+	}
+}
+function setNarrow(narrow)
+{
+	newclass = 'notnarrow';
+	removeclass = 'narrow';
+	if (narrow)
+	{
+		newclass = 'narrow';
+		removeclass = 'notnarrow';
+	}
+
+	$('#container').addClass(newclass);
+	$('#container').removeClass(removeclass);
+}
+
+function setSkinId(skinId)
+{
+	document.getElementById("stylesheet").href = 'design/skin' + skinId + '/style.css';
+}
+
+function userFilter()
+{
+	var filter = $('#userFilter').val();
+	filtername = (filter != '0' ? '/' + (filter == 1 ? 'admin' : 'elite' ) : '' );
+	document.location = 'users' + filtername;
+}
+
+function changeValue(id, size, script, action)
+{
+	var span = document.getElementById(id);
+	var value = span.innerHTML;
+	if (value == '[добавить]')
+	{
+		value = '';
+	}
+	span.innerHTML = "<input id='input-" + id + "' style='width:" + size + "px' value=\"" + replaceQuotes(value) + "\" />"
+		+ "<input type='button' id='button-" + id + "' value='OK'>";
+	span.onclick = '';
+	
+	var button = document.getElementById('button-' + id);
+	button.onclick = function(){saveValue(id, size, script, action);};
+}
+
+function saveValue(id, size, script, action)
+{
+	var span = document.getElementById(id);
+	var input = document.getElementById('input-' + id);
+	
+	$.ajax({  
+		type: 'POST',
+		url: script,   
+		data: action + '&value=' + input.value,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				var value = $.trim(input.value);
+				if (!value)
+				{
+					value = '[добавить]';
+				}
+				span.innerHTML = htmlspecialchars(value);
+				span.onclick = function(){changeValue(id, size, script, action);};
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function suspicious(userid, checkbox)
+{
+		$.ajax({  
+		type: 'POST',
+		url: 'user.php',   
+		data: 'do=suspicious&userid=' + userid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				firemsg('Подозрительность изменена!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+			checkbox.checked = !checkbox.checked;
+		}
+	});
+}
+
+function closeProject(pid, button)
+{
+	if (!confirm('Вы действительно хотите закрыть проект?'))
+	{
+		return false;
+	}
+	$.ajax({  
+		type: 'POST',
+		url: 'project.php',   
+		data: 'do=close&id=' + pid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				updateHeader(result.header);
+				firemsg('Проект закрыт!');
+				button.parentNode.innerHTML = '<b>Закрыт</b>';
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function updateProject(pid)
+{
+	project = document.getElementById('project-' + pid);
+	project.innerHTML = getLoading(true);
+	$.ajax({  
+		type: 'POST',
+		url: 'projects.php',   
+		data: 'id=' + pid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			updateHeader(result.header);
+			project.innerHTML = result.project;
+		}
+	});
+}
+
+
+function addUser(pid, guest)
+{
+	var comment;
+	var adduserforce = 0;
+	var username = document.getElementById(guest ? 'addguest' : 'adduser').value;
+	
+	if (!username)
+	{
+		firemsg('Вы не ввели имя пользователя!');
+		return;
+	}
+	if (!guest)
+	{
+		comment = $('#adduser-comment').val();
+		if (document.getElementById('adduser-force'))
+		{
+			adduserforce = document.getElementById('adduser-force').checked ? 1 : 0;
+		}
+	}
+	
+	$.post(
+		'project.php', { 'do' : 'add_user', 'id' : pid, 'username' : username, 'comment' : comment, 'adduserforce' : adduserforce, 'addguest' : (guest ? 1 : 0) },
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			if (result.userid)
+			{
+				document.getElementById(guest ? 'addguest' : 'adduser').value = '';
+				updateUser(result.userid, pid)
+				firemsg(guest ? 'Временный участник добавлен' : 'Пользователь ' + ( adduserforce ? 'добавлен' : 'приглашен'));
+			}
+		}
+	);
+}
+
+function InviteUser(pid, username)
+{
+	if (!username)
+	{
+		firemsg('Кого приглашать?');
+		return;
+	}
+
+	comment = prompt('Введите текст приглашения: (не обязательно)', '');
+	
+	$.post(
+		'project.php', { 'do' : 'add_user', 'id' : pid, 'username' : username, 'comment' : comment },
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			if (result.userid)
+			{
+				firemsg('Пользователь приглашен');
+			}
+		}
+	);
+}
+
+function updateUser(userid, pid)
+{
+	user = document.getElementById('user-' + userid);
+	if (user)
+	{
+		user.innerHTML = "<td colspan='5'>" + getLoading(true) + "</td>";
+	}
+	$.ajax({  
+		type: 'POST',
+		url: 'users.php',   
+		data: 'userid=' + userid + '&pid=' + pid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			if (user)
+			{
+				$('#user-' + userid).remove();
+			}
+			place = document.getElementById('status-' + result.status);
+			if (!place)
+			{
+				if (!result.stitle)
+				{
+					return;
+				}
+				place = document.getElementById('user_list');
+				place.innerHTML += "<tr id='status-" + result.status + "'><td colspan='4' class='title'>" + result.stitle + "</td></tr>";
+			}
+			$('#status-' + result.status).after("<tr id='user-" + userid + "'>" + result.user + "</tr>");
+		}
+	});
+}
+
+function doProject(action, pid, subject, userid)
+{
+	var con = false;
+	var doaction = 'save_user_status';
+	var comment = '';
+	
+	switch (action)
+	{
+		case 'delete' :
+			con = confirm('Вы уверены, что хотите удалить из проекта пользователя ' + subject + '?'); break;
+		case 'canceloffer' :
+			con = confirm('Вы уверены, что хотите отменить приглашение пользователю ' + subject + '?'); break;
+		case 'fire' :
+			comment = prompt('Укажите причину исключения: (не обязательно)', '');
+			con = confirm('Вы уверены, что хотите исключить пользователя ' + subject + '?'); break;
+		case 'toactive' :
+			comment = prompt('Введите текст приглашения: (не обязательно)', '');
+			con = confirm('Вы уверены, что хотите выслать приглашение на полноправное участие пользователю ' + subject + '?'); break;
+		case 'fire_g' :
+			con = confirm('Вы уверены, что хотите исключить временного участника ' + subject + '?'); break;
+		case 'reaccept' :
+			con = confirm('Вы уверены, что хотите принять обратно пользователя ' + subject + '?'); break;
+		case 'again_accept' :
+			con = confirm('Вы уверены, что хотите принять обратно пользователя ' + subject + '?'); break;
+		case 'again_decline' :
+			con = confirm('Вы уверены, что хотите отклонить заявку пользователя ' + subject + '?'); break;
+		case 'addhelp' :
+			con = confirm('Вы уверены, что хотите сделать модератором пользователя ' + subject + '?'); break;
+		case 'removehelp' :
+			con = confirm('Вы уверены, что хотите снять права модератора с ' + subject + '?'); break;
+		case 'addlead' :
+			con = confirm('Вы уверены, что хотите сделать руководителем ' + subject + '?'); break;
+		case 'removelead' :
+			con = confirm('Вы уверены, что хотите снять с руководителя ' + subject + '?'); break;
+		case 'unban' :
+			con = confirm('Вы уверены, что хотите разбанить ' + subject + '?'); break;
+		case 'unreadonly' :
+			con = confirm('Вы уверены, что хотите снять статус read-only с ' + subject + '?'); break;
+		case 'declinejoin' :
+			con = confirm('Вы уверены, что хотите отклонить заявку ' + subject + '?'); break;
+		case 'acceptjoin' :
+			con = confirm('Вы уверены, что хотите принять заявку ' + subject + '?'); break;
+		
+		case 'join':
+			doaction = 'save_status';
+			con = confirm('Вы уверены, что хотите вступить в проект ' + subject + '?'); break;
+		case 'joinoffer':
+			doaction = 'save_status';
+			comment = prompt('Введите текст заявки: (не обязательно)', '');
+			con = confirm('Вы уверены, что подать заявку на вступление в проект ' + subject + '?'); break;
+		case 'accept':
+			doaction = 'save_status';
+			con = confirm('Вы уверены, что хотите войти в проект ' + subject + '?'); break;
+		case 'decline':
+			doaction = 'save_status';
+			con = confirm('Вы уверены, что хотите отказаться от вступления в проект ' + subject + '?'); break;
+		case 'quit':
+			doaction = 'save_status';
+			comment = prompt('Укажите причину ухода: (не обязательно)', '');
+			con = confirm('Вы уверены, что хотите покинуть проект ' + subject + '?'); break;
+		case 'reoffer':
+			doaction = 'save_status';
+			con = confirm('Вы уверены, что хотите подать заявку на повторное вступление в проект ' + subject + '?'); break;
+		case 'cancel':
+			doaction = 'save_status';
+			con = confirm('Вы уверены, что хотите отказаться от повторного вступления в проект ' + subject + '?'); break;
+		case 'notmoder':
+			doaction = 'save_status';
+			con = confirm('Вы уверены, что хотите отказаться от модераторства проекта ' + subject + '?'); break;
+		case 'canceljoin':
+			doaction = 'save_status';
+			con = confirm('Вы уверены, что хотите отменить заявку на вступление в проект ' + subject + '?'); break;
+		default:
+			con = false;
+	}
+	if (con)
+	{
+		if (comment == null)
+		{
+			comment = '';
+		}
+		url = 'do=' + doaction + '&what=' + action + '&id=' + pid + '&comment=' + comment;
+		if (doaction != 'save_status')
+		{
+			url += '&userid=' + userid;
+		}
+		NProgress.start();
+		$.ajax({  
+			type: 'POST',
+			url: 'project.php',   
+			data:  url,
+			success: function(responseText)
+			{
+				NProgress.done();
+				result = eval( "(" + responseText + ")" );
+				if (result.message == 'OK')
+				{
+					updateHeader(result.header);
+					if (action == 'join' || action == 'joinoffer')
+					{
+						firemsg(action == 'join' ? 'Вы вступили в проект!' : 'Вы подали заявку на вступление в проект!' );
+						document.getElementById('joinoffer').innerHTML = '';
+						return;
+					}
+					if (doaction == 'save_status')
+					{
+						updateProject(pid);
+						return;
+					}
+					updateUser(userid, pid);
+					return;
+				}
+				firemsg('Ошибка! ' + result.error);
+			 }
+		});
+	}
+}
+
+function reoffer(pid)
+{
+	var comment = prompt('Укажите причину возвращения: (не обязательно)', '');
+	if (comment == null)
+	{
+		comment = '';
+	}
+	var con = confirm('Вы уверены, что хотите подать заявку на повторное вступление в проект?');
+	if (!con)
+	{
+		return;
+	}
+	$.post('project.php', {'do': 'save_status', 'what': 'reoffer', 'id': pid, 'comment' : comment}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				firemsg('Заявка подана!');
+				document.getElementById('reoffer').innerHTML = '';
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		 }
+	);
+}
+
+function savePerm(id, type, userid, perm, value, newclass)
+{
+	var select = document.getElementById(perm);
+	var span = document.getElementById('stat-' + perm);
+	
+	span.innerHTML = getLoading(false);
+	$.ajax({  
+		type: 'POST',
+		url: 'project.php',   
+		data:  'id=' + id + '&type=' + type + '&userid=' + userid + '&perm=' + perm + '&value=' + value + '&do=save_perm' ,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				$('#perm-'+perm+'--1').removeClass('no');
+				$('#perm-'+perm+'--1').removeClass('yes');
+				$('#perm-'+perm+'--1').removeClass('reyes');
+				
+				$('#perm-'+perm+'-0').removeClass('no');
+				$('#perm-'+perm+'-1').removeClass('yes');
+				$('#perm-'+perm+'-2').removeClass('reyes');
+				
+				$('#perm-' + perm + '-' + value).addClass(newclass);
+				span.innerHTML = 'ok';
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function registerGit(Dealer, id)
+{
+	if (Dealer != 'github' && Dealer != 'bitbucket')
+	{
+		firemsg('Ошибка! Неизвестный домен.');
+		return false;
+	}
+
+	var button = document.getElementById('git-' + Dealer);
+	var state = document.getElementById('git-state-' + Dealer);
+
+	$.post(
+		'gitAPI.php', {
+			'do': 'checkgit',
+			'dealer': Dealer,
+			'projectid': id,
+		}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				if (result.gtype == 'register')
+				{
+					firemsg(Dealer+': хук зарегестрирован в проекте!"');
+					button.innerHTML = 'Узнать hook для '+Dealer;
+					state.innerHTML = "<span class='highlight'>Не подтвержден</span> - Сделайте коммит на "+Dealer;
+				}
+
+				$("#gitinfo-dialog .modal-body").html("Ваш хук для <b>"+Dealer+"</b>\n\n<hr>1. <span class='muted'><i>Скопируйте хук:</i></span><br><br><input style='width: 95%;' type='text' onkeydown='return false;' onclick='this.setSelectionRange(0, this.value.length);' value='" + result.hook + "'/></span><hr>" + "2. <span class='muted'>Зайдите в свой репозиторий на сайте " + Dealer + ", и в настройках репозитория "+"создайте новый webhook (post)</span><br><br>3. <span class='muted'>Вставьте полученный хук с XGM.</span><br><br>4. <span class='muted'>Сделайте коммит в репозитории, после чего хук должен стать подтвержденным. В проекте появится новый инфо-блок \"Коммиты\"</span>"+"<hr>"+"Более подробно: <br><a href='/help/xgm-git'>Как подключить ваш git репозиторий к Проекту на XGM?</a>");
+				$("#gitinfo-dialog").modal("show");
+
+				return true;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);	
+}
+
+function gitUpdateState(id, Dealer)
+{
+	if (Dealer != 'github' && Dealer != 'bitbucket')
+	{
+		firemsg('Ошибка! Неизвестный домен.');
+		return false;
+	}
+
+	var state = document.getElementById('git-state-' + Dealer);
+	var enabled = 0;
+
+	if(state.checked)
+	{
+		enabled = 1;
+	}
+
+	$.post(
+		'gitAPI.php', {
+			'do': 'update',
+			'dealer': Dealer,
+			'projectid': id,
+			'enabled': enabled,
+		}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				var state = document.getElementById('git-state-label-' + Dealer);
+
+				if (enabled)
+				{
+					state.innerHTML = "<span class='highlight2'>Работает</span>";
+				}
+				else
+				{
+					state.innerHTML = "<span class='highlight3'>Скрыт</span>";					
+				}
+
+				return true;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);	
+}
+
+function menuBan(formName)
+{
+	$("#" + formName ).ajaxSubmit({ success:
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				updateHeader(result.header);
+				if (document.getElementById('user_list'))
+				{
+					updateUser(result.userid, result.projectid)
+				}
+				firemsg('Пользователи забанен!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function ban()
+{
+	var projectid = $('#ban-projectid').val();
+	var userid = $('#ban-userid').val();
+	var period = $('#ban-period').val();
+	var type = $('#ban-type').val();
+	var comment = $('#ban-comment').val();
+	
+	$.post(
+		'project.php', {
+			'do': 'save_user_status',
+			'id': projectid,
+			'userid': userid,
+			'what': type,
+			'period': period,
+			'comment' : comment
+		}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				updateHeader(result.header);
+				if (document.getElementById('user_list'))
+				{
+					updateUser(result.userid, result.projectid)
+				}
+				firemsg('Пользователи забанен!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function removeCategory(id, pid)
+{
+	var cat = document.getElementById('cat-' + id);
+	
+	$.ajax({  
+		type: 'POST',
+		url: 'category.php',   
+		data:  'id=' + id + '&projectid=' + pid + '&do=delete',
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				cat.innerHTML = '';
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function editCategory(id, pid)
+{
+	var cat = document.getElementById('cat-edit-' + id);
+	
+	$.ajax({  
+		type: 'POST',
+		url: 'category.php',   
+		data:  'id=' + id + '&projectid=' + pid + '&do=edit',
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.form)
+			{
+				cat.innerHTML = result.form;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+
+function saveCategory(id, pid)
+{
+	var category = document.getElementById('category-' + id).value;
+	var totag = document.getElementById('totag-' + id).checked;
+	var defrate = document.getElementById('defaultrate-' + id).value;
+	var template = document.getElementById('template-' + id).value;
+	var description = document.getElementById('description-' + id).value;
+	
+	var defxp = 0;
+	if (document.getElementById('defaultxp-' + id))
+	{
+		defxp = document.getElementById('defaultxp-' + id).value;
+	}
+	$.post(
+		'category.php', {
+			'do': 'save',
+			'id': id,
+			'projectid': pid,
+			'category': category,
+			'totag': (totag ? 1 : 0),
+			'defaultxp': defxp,
+			'defaultrate': defrate,
+			'template': template,
+			'description' : description
+		}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.id)
+			{
+				findcat = document.getElementById('cat-' + id)
+				if (findcat)
+				{
+					findcat.innerHTML = result.category;
+					var editcat = document.getElementById('cat-edit-' + id);
+					editcat.innerHTML = '';
+					return;
+				}
+				categories = document.getElementById('category-list');
+				categories.innerHTML += "<li id='cat-" + result.id + "'>" + result.category + "</li>";
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function saveAttribute(id, catid, pid)
+{
+	attribute = prompt('Введите имя поля:', '');
+	if (!attribute)
+	{
+		return false;
+	}
+	
+	$.post(
+		'category.php', {'do': 'save_field', 'id': catid, 'projectid': pid, 'attrid': id, 'attribute': attribute }, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.id)
+			{
+				findattr = document.getElementById('attr-' + id)
+				if (findattr)
+				{
+					findattr.innerHTML = result.attribute;
+					return;
+				}
+				attributes = document.getElementById('cat-attributes-' + catid);
+				attributes.innerHTML += result.attribute;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+function deleteAttribute(id, catid, pid)
+{
+	var attribute = document.getElementById('attr-' + id);
+	
+	$.ajax({  
+		type: 'POST',
+		url: 'category.php',   
+		data: 'do=delete_field&id='+catid+'&projectid='+pid+'&attrid='+id,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				$(attribute).remove();
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function saveContent(pid)
+{
+	var title = $('#content-title').val();
+	var type = $('#content-type').val();
+	var name = $('#content-name').val();
+	
+	$.post(
+		'content.php', {'do': 'save', 'projectid': pid, 'title': title, 'type': type, 'entity': name}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.id)
+			{
+				contents = document.getElementById('content-list');
+				contents.innerHTML += result.content;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function shoutboxpost()
+{
+	var message = $('#sbmessage').val();
+	var channelId = $('#sbchannelid').val();
+	if(!channelId && channelId !== '0') {
+        channelId = 1;
+	}
+	var curPage = $('#currentPage').val();
+
+    $('.shoutbox-container input, .shoutbox-container button').attr('disabled', 'disabled');
+    $('.shoutbox-container .fa-send').hide();
+    $('.shoutbox-container .fa-spinner').show();
+
+	$.post(
+		'shoutbox.php', {'do': 'add', 'ajax': 1, 'message': message, 'channelid': channelId},
+		function(responseText)
+		{
+            $('.shoutbox-container .fa-send').show();
+            $('.shoutbox-container .fa-spinner').hide();
+
+            $('.shoutbox-container input, .shoutbox-container button').removeAttr('disabled');
+			result = eval( "(" + responseText + ")" );
+			if (result.bits)
+			{
+				if (curPage > 1)
+				{
+					firemsg("Успешно отправлено!");
+				}
+				else
+				{
+					contents = document.getElementById('shoutbits');
+					contents.innerHTML = result.bits;					
+				}
+
+				$('#sbmessage').val("").focus();
+				return;
+			}
+            $('#sbmessage').val(message);
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function ShoutboxDelete(shoutid, action)
+{
+	var curPage = $('#currentPage').val();
+
+	$.post(
+		'shoutbox.php', {'do': 'delete', 'action': action, 'shoutid': shoutid, 'page':curPage}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.bits)
+			{
+				
+				contents = document.getElementById('shoutbits');
+				contents.innerHTML = result.bits;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);	
+}
+
+function ShoutboxUpdate()
+{
+	if (getcookie("shoutbox-AutoUpdate") == 1)
+	{
+		var curPage = $('#currentPage').val();
+		if (curPage <= 1)
+		{
+			setTimeout(ShoutboxUpdate, 15000);
+		}
+	}
+
+	$.post(
+		'shoutbox.php', {'do': 'update'}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.bits)
+			{
+				contents = document.getElementById('shoutbits');
+				contents.innerHTML = result.bits;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function ShoutboxSettings()
+{
+	//setcookie('shoutbox-PostToTwiling', ($('#sbvisible').is(":checked") ? 1 : 0), 365);
+	setcookie('shoutbox-AutoUpdate', ($('#sbauto_update').is(":checked") ? 1 : 0), 365);
+	setcookie('shoutbox-DisplayReports', ($('#sbdisplay_reports').is(":checked") ? 1 : 0), 365);
+	
+
+	if (getcookie("shoutbox-AutoUpdate") == 1)
+	{
+		var curPage = $('#currentPage').val();
+		if (curPage <= 1)
+		{
+			setTimeout(ShoutboxUpdate, 1000);
+		}
+	}
+}
+
+function editContent(contentid, pid)
+{
+	$.post(
+		'content.php', {'do' : 'editForm', 'contentid' : contentid, 'projectid' : pid},
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.form)
+			{
+				var editDiv = document.getElementById('edit-content-' + contentid);
+				editDiv.innerHTML = result.form;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function doEditContent(contentid, pid)
+{
+	var title = $('#content-' + contentid + '-title').val();
+	var type = $('#content-' + contentid + '-type').val();
+	var name = $('#content-' + contentid + '-name').val();
+	
+	$.post(
+		'content.php', {'do': 'save', 'contentid' : contentid, 'projectid': pid, 'title': title, 'type': type, 'entity': name}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.id)
+			{
+				var contentli = document.getElementById('content-' + result.id);
+				contentli.innerHTML = result.content;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function moveContent(contentid, pid, up)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'content.php',   
+		data: 'contentid=' + contentid + '&projectid=' + pid + '&do=move&up=' + up,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.finded)
+			{
+				content = document.getElementById('content-' + contentid);
+				finded = document.getElementById('content-' + result.finded);
+				
+				swap = content.innerHTML;
+				content.innerHTML = finded.innerHTML;
+				finded.innerHTML = swap;
+				
+				swap = content.id;
+				content.id = finded.id;
+				finded.id = swap;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function removeContent(contentid, pid)
+{
+	var content = document.getElementById('content-' + contentid);
+	
+	$.ajax({  
+		type: 'POST',
+		url: 'content.php',   
+		data: 'contentid=' + contentid + '&projectid=' + pid + '&do=delete',
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				$(content).remove();
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function addContentToMenu(contentid, pid)
+{
+	var link = document.getElementById('to-menu-' + contentid);
+	
+	$.ajax({  
+		type: 'POST',
+		url: 'content.php',   
+		data: 'contentid=' + contentid + '&projectid=' + pid + '&do=tomenu',
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				link.innerHTML = (link.innerHTML == '<i class="icon-minus-sign"></i>' ? '<i class="icon-plus-sign"></i>' : '<i class="icon-minus-sign"></i>');
+				link.title = (link.title == 'убрать из меню' ? 'добавить в меню' : 'убрать из меню');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function reward(formName)
+{
+	$("#" + formName ).ajaxSubmit({ success:
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				firemsg('Награда добавлена!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+function doReward(type, pid, userid)
+{
+	var xpmod = 0;
+	var rate = 0;
+	var comment = '';
+	
+	if (type == 'xpmod')
+	{
+		xpmod = prompt('Введите количество опыта для добавления');
+		if (xpmod == null) return;
+		firemsg(parseInt(xpmod));
+		if (!parseInt(xpmod))
+		{
+			firemsg('Награда указана некорректно');
+			return;
+		}
+	}
+	else
+	{
+		rate = prompt('Введите количество рейтинга для добавления');
+		if (rate == null) return;
+		if (!parseInt(rate))
+		{
+			firemsg('Награда указана некорректно');
+			return;
+		}
+	}
+	if (!rate && !xpmod)
+	{
+		firemsg('Награда не указана.');
+		return;
+	}
+	comment = prompt('Укажите причину награды (необязательно)');
+	if (comment == null) return;
+	$.ajax({  
+		type: 'POST',
+		url: 'project.php',   
+		data: 'do=reward&id='+pid+'&userid='+userid+'&xpmod='+xpmod+'&rate='+rate+'&comment='+comment,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				if (type == 'rate')
+				{
+					var span = document.getElementById('rate-'+userid+'-'+pid);
+					span.innerHTML = parseInt(span.innerHTML) + parseInt(rate);
+				}
+				
+				firemsg('Награда добавлена!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function iniWarnList()
+{
+	$("#warnlist").dialog({
+		autoOpen: false,
+		width: 700,
+		open: function(event, ui) {darknessShow(true);},
+		beforeclose: function(event, ui) {darknessShow(false);},
+		buttons: {
+			"Закрыть": function() {$(this).dialog("close");}
+		}
+	});
+}
+
+function iniPreview()
+{
+	$("#preview-dialog").modal({
+		show: false
+	});
+	$("#expand-votes-dialog").modal({
+		show: false
+	});
+}
+
+function iniRepost()
+{
+	$("#repost-dialog").modal({
+		show: false
+	});
+	$("#repost-dialog-target-project").autocomplete({minLength: 2, source: 'projects.php?do=autocomplete'});
+	
+	$("#repost-dialog-submit").on("click", function(event) {
+		$("#repost-dialog").modal('hide');
+		sendRepostRequest();
+	});
+}
+
+function iniCreateTask()
+{
+	$("#create-task-dialog").modal({
+		show: false
+	});
+	
+	$("#create-task-dialog-user").autocomplete({
+		minLength: 2,
+		delay: 300,
+		source: "users.php?do=autocomplete"
+	});
+	
+	$("#create-task-btn").click(function(event) {
+		sendCreateTaskRequest();
+	});
+}
+
+function iniBangun()
+{
+	warnGunOpened = false;
+	$("#bangun").dialog({
+		autoOpen: false,
+		open: function(event, ui) {darknessShow(true);},
+		beforeclose: function(event, ui) {darknessShow(false);},
+		buttons: {
+			"Забанить": function() {ban("banForm"); $(this).dialog("close");},
+			"Закрыть": function() {$(this).dialog("close");}
+		},
+		width: 510
+	});
+}
+function iniPmForm()
+{
+	$("#pmform").dialog({
+		autoOpen: false,
+		open: function(event, ui) {darknessShow(true);},
+		beforeclose: function(event, ui) {darknessShow(false);},
+		buttons: {
+			"Отправить": function() {sendPM(); $(this).dialog("close");},
+			"Закрыть": function() {$(this).dialog("close");}
+		},
+		width: 640
+	});
+}
+
+function inigitinfo()
+{
+	$("#gitinfo").dialog({
+		autoOpen: false,
+		open: function(event, ui) {darknessShow(true);},
+		beforeclose: function(event, ui) {darknessShow(false);},
+		buttons: {
+			"Закрыть": function() {$(this).dialog("close");}
+		},
+		width: 600
+	});
+}
+
+function iniMove()
+{
+	$("#move").dialog({
+		autoOpen: false,
+		open: function(event, ui) {darknessShow(true);},
+		beforeclose: function(event, ui) {darknessShow(false);},
+		buttons: {
+			"Переместить": function() {moveResource(); $(this).dialog("close");},
+			"Закрыть": function() {$(this).dialog("close");}
+		},
+		width: 385
+	});
+}
+
+function deleteFavorite(id)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'profile.php',   
+		data: 'do=delete_favorite&id=' + id,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			$('#favorite-' + id).remove();
+			if (document.getElementById("favorites-index-" + id))
+			{
+				$('#favorites-index-' + id).remove();
+			}
+		}
+	});
+}
+function addFavoriteFromIndex()
+{
+	addFavorite($('#favorites-index-title').value, document.getElementById('favorites-index-url').val())
+	$('#favorites-index-title').val('');
+	$('#favorites-index-url').val('');
+}
+function addFavoriteFromDialog()
+{
+	addFavorite($('#favorite-title').val(), $('#favorite-url').val())
+	$('#favorite-title').val('');
+	$('#favorite-url').val('');
+}
+function addFavoriteThisPage()
+{
+	var title = document.title.replace('- XGM', '');
+	title = title.replace(/\((.*)\)/, '');
+	addFavorite(title, document.location.href);
+}
+function addFavorite(title, url)
+{
+	var id = 0;
+	if (document.getElementById('favorite-id'))
+	{
+		id = $('#favorite-id').val();
+		$('#favorite-id').val(null);
+	}
+	$.post('profile.php', {'do' : 'save_favorite', 'title' : title, 'url' : url, 'id' : id},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.favorite)
+			{
+				result.favorite = (result.favorite == '-----' ? "<hr id='favorite-'" + id + " />" : result.favorite);
+				if (id)
+				{
+					document.getElementById('favorite-' + id).innerHTML = result.favorite;
+				}
+				else
+				{
+					if (document.getElementById('favorites-list'))
+					{
+						document.getElementById('favorites-list').innerHTML += result.favorite;
+					}
+				}
+				if (document.getElementById('favorites-index-list'))
+				{
+					if (id)
+					{
+						var old = document.getElementById('favorites-index-' + id);
+						$(old).after(result.favoritesindex);
+						$(old).remove();
+					}
+					else
+					{
+						document.getElementById('favorites-index-list').innerHTML += result.favoritesindex;
+					}
+				}
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+function moveFavorite(id, up)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'profile.php',   
+		data: 'id=' + id + '&do=move&up=' + up,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.finded)
+			{
+				var favorite = document.getElementById('favorites-index-' + id);
+				var finded = document.getElementById('favorites-index-' + result.finded);
+				
+				var swap = favorite.innerHTML;
+				favorite.innerHTML = finded.innerHTML;
+				finded.innerHTML = swap;
+				
+				swap = favorite.id;
+				favorite.id = finded.id;
+				finded.id = swap;
+				
+				updateHeader(result.header);
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+function bangunOpen(projectid, userid)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'project.php',   
+		data: 'do=ban&id='+ projectid + '&userid=' + userid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.banform)
+			{
+				document.getElementById('bangun').innerHTML = result.banform;
+				$("#bangun").dialog("open");
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function managerOpen(title, pid, pname)
+{
+	projectlink =  window.location.origin + "/p/" + (pname ? pname : pid);
+	document.getElementById('pmform').innerHTML = "" +
+		"<form class='form-horizontal' id='pmform' name='pmform' action='user.php' method='post'>" +
+		"<input type='hidden' id='pm-userid' value='0'> <input type='hidden' id='pm-manager' value='1'>" +
+		"<textarea style='display: none' id='pm-title'>Проект __" + title + "__ (" + projectlink + ")</textarea>" +
+		"<div class='control-group'><label class='control-label'>Кому:</label><div class='controls'><b>Менеджерам</b></div></div>" +
+		"<div class='control-group'><label class='control-label'>Тема:</label><div class='controls'><b>Проект <a href='" + projectlink + "'>" + title + "</a></b></div></div>" +
+		"<div class='control-group'><span class='btn btn-mini disabled content-justify-help' rel='tooltip' data-title='Помощь' data-placement='left' data-html='true' " + 
+		"data-original-title='Менеджеру можно писать по любым вопросам, связанных с проектами. Вы можете обратиться к нему за советом или помощью в вопросах управления проектом, его огранизации. " +
+		"Вы также можете попросить его о повышении уровня или смене каких-то параметров (например, названия) проекта, которые сами изменить не можете. Не забудьте указать причину вносимых изменений," +
+		" иначе в вашей просьбе может быть отказано.' onmouseover='$(this).tooltip(\"show\")'><i class='icon-info-sign'></i></span>" +
+		"<label class='control-label'>Текст сообщения:</label><div class='controls'><textarea class='input-block-level' id='pm-message' style='height: 100px'></textarea></div></div></form>";
+
+	$("#pmform").dialog("open");
+}
+
+function PmOpen(users, title)
+{	
+	$.ajax({  
+		type: 'POST',
+		url: 'user.php',   
+		data:  {
+			'do': 'pm',
+			'users': users,
+			'title': title
+		},
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.pmform)
+			{
+				document.getElementById('pmform').innerHTML = result.pmform;
+				$("#pmform").dialog("open");
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function expandPM()
+{
+	var users = $('#pm-users').val();
+	var title = $('#pm-title').val();
+	var message = $('#pm-message').val();
+	
+	document.location.href = "/mail/create?users=" + encodeURI(users) + '&title=' + encodeURI(title) + '&message=' + encodeURI(message);
+}
+
+function updatePMBox(action) {
+	var $container = $("#pm-list-container");
+	
+	NProgress.start();	
+	$.post('user.php', {
+			'do': 'getinbox',
+			'action': action
+		},
+		function (data) {
+			NProgress.done();
+			
+			var json = eval("(" + data + ")");
+			if (json.html) {
+				$container.empty().html(json.html);
+				return;
+			}
+			
+			firemsg("Ошибка! " + json.error);
+		}
+	);
+}
+
+function MailSubscribe(type, id, isGuest)
+{
+    if (isGuest)
+    {
+        var mail = prompt('Укажите ваш email для подписки');
+
+        var re = /\S+@\S+\.\S+/;
+        var result = re.test(mail);
+
+        if (!result)
+        {
+            fire("Ошибка, email введен неправильно. Попробуйте еще раз.");
+            return MailSubscribe(type, id, isGuest);
+        }
+    }
+    NProgress.start();
+    $.post('mail.php', {
+            'do': 'subscribe',
+            'type': type,
+            'mail': mail,
+            'id': id
+        },
+        function (data) {
+            NProgress.done();
+
+            var json = eval("(" + data + ")");
+            if (json.status) {
+
+                $("#subscribe-project-button-"+id).replaceWith(json.html);
+                return;
+            }
+
+            firemsg("Ошибка! " + json.error);
+        }
+    );
+}
+
+function getPMList()
+{
+	var result = [];
+	
+	$("[data-action='selector']:checked").each(function (index, e) {
+		result[index] = $(e).attr('value');
+	});
+	
+	return result;
+}
+
+function updatePmunreadCounter(count) {
+	$(".counter-message-total-unread").text(count);
+	$(".counter-message-badge-unread").toggle(count > 0); 
+}
+
+function updatePmfavCounter(count) {
+	$(".counter-message-total-fav").text(count);
+	$(".counter-message-badge-fav").toggle(count > 0);
+}
+
+function updatePmInboxCounter(count) {
+	$(".counter-message-total-inbox").text(count);
+}
+
+function updatePmOutboxCounter(count) {
+	$(".counter-message-total-outbox").text(count);
+}
+
+function updatePmAllCounters(unreadCount, favCount, inboxCount, outboxCount) {
+	updatePmunreadCounter(unreadCount);
+	updatePmfavCounter(favCount);
+	updatePmInboxCounter(inboxCount);
+	updatePmOutboxCounter(outboxCount);
+}
+
+function readPMList() {
+	var ids = getPMList();
+	if (ids.length <= 0) {
+		firemsg('Нужно выбрать хотя бы одно сообщение для выполнения данного действия!');
+		return false;
+	}
+	
+	NProgress.start();
+	$.post('user.php', {
+			'do': 'readpm',
+			'ids': ids.join(',')
+		},
+		function (data) {			
+			NProgress.done();
+			
+			var json = eval("(" + data + ")");
+			
+			if (json['status'] == 'OK') {
+				firemsg('Сообщения помечены, как прочитанные!');
+				
+				$list = $();
+				for (var i = 0; i < ids.length; i++) {
+					$list = $list.add("#pm-" + ids[i]);
+				}
+				$list.removeClass("pm-unread");
+				$list.find("[data-action='read']").remove();
+				
+				updatePmunreadCounter(json['pmunread']);
+				
+				return;
+			}
+				
+			firemsg("Ошибка! " + json.error);
+		}
+	);
+}
+
+function readPM(sender) {
+	var $btn = $(sender);
+	NProgress.start();
+	
+	$.post('user.php', {
+			'do': 'readpm',
+			'ids': $btn.attr('data-target')
+		},
+		function (data) {			
+			NProgress.done();
+			
+			var json = eval("(" + data + ")");
+			if (json['status'] == 'OK') {
+				firemsg('Сообщение помечено, как прочитанное!');
+				
+				var parent = $("#pm-" + $btn.attr("data-target"));
+				if (parent)
+					parent.removeClass("pm-unread");
+				$btn.remove();
+				updatePmunreadCounter(json['pmunread']);
+				
+				return;
+			}
+				
+			firemsg("Ошибка! " + json.error);
+		}
+	);
+}
+
+// one, few, many
+function strCounting(val, arrayStr) {
+	const one = 0;
+	const few = 1;
+	const many = 2;
+	
+	if (val == 0) {
+		return val + " " + arrayStr[many];
+	} else {
+		var v = val % 10;
+		if (val >= 10 && val <= 20) {
+			return val + " " + arrayStr[many];
+		} else if (v == 1) {
+			return val + " " + arrayStr[one];
+		} else if (v > 0 && v < 5) {
+			return val + " " + arrayStr[few];
+		} else {
+			return val + " " + arrayStr[many];
+		};
+	}
+	
+	return val;
+}
+
+function removePMList()
+{
+	var ids = getPMList();
+	if (ids.length <= 0) {
+		firemsg('Нужно выбрать хотя бы одно сообщение для выполнения данного действия!');
+		return false;
+	}
+	
+	if (!confirm('Вы действительно хотите удалить ' + strCounting(ids.length, ['сообщение', 'сообщения', 'сообщений']) + '?')) {
+		return false;
+	}
+	
+	NProgress.start();
+	$.post('user.php', {
+			'do': 'removepm',
+			'ids': ids.join(',')
+		},
+		function (data) {
+			NProgress.done();
+			
+			var json = eval("(" + data + ")");
+			if (json['status'] == 'OK') {
+				firemsg('Сообщения удалены из вашей папки!');
+				
+				$list = $();
+				for (var i = 0; i < ids.length; i++) {
+					$list = $list.add("#pm-" + ids[i]);
+				}
+				
+				$list.remove();
+				updatePmAllCounters(json['pmunread'], json['favcount'], json['inboxcount'], json['outboxcount']);
+				
+				return;
+			}
+			
+			firemsg('Ошика! ' + result.error);
+		}
+	);
+	
+	return false;
+}
+
+function removePM(sender, id, isViewMode)
+{
+	var $btn = $(sender);
+	
+	if (!confirm('Вы действительно хотите удалить сообщение?')) {
+		return false;
+	}
+	
+	NProgress.start();
+	$.post('user.php', {
+			'do': 'removepm',
+			'ids': id
+		},
+		function (data) {
+			NProgress.done();
+			
+			var json = eval("(" + data + ")");
+			if (json['status'] == 'OK') {
+				firemsg('Сообщение удалено из вашей папки!');
+
+				if (isViewMode) {
+					document.location.href = "/mail";
+					return;
+				}
+				
+				var parent = $($btn.attr('data-parent'));
+				if (parent)
+					parent.remove();
+				
+				updatePmAllCounters(json['pmunread'], json['favcount'], json['inboxcount'], json['outboxcount']);
+				
+				return;
+			}
+			
+			firemsg('Ошика! ' + json.error);
+		}
+	);
+	
+	return false;
+}
+
+function favouritePMList(isFav)
+{
+	var ids = getPMList();
+	if (ids.length <= 0) {
+		firemsg('Нужно выбрать хотя бы одно сообщение для выполнения данного действия!');
+		return false;
+	}
+	
+	NProgress.start();
+	$.post('user.php', {
+			'do': 'favouritepm',
+			'ids': ids.join(','),
+			'flag': isFav
+		},
+		function (data) {
+			NProgress.done();
+			
+			var json = eval("(" + data + ")");
+			if (json['status'] == "OK") {
+				var $list = $();
+				for (var i = 0; i < ids.length; i++) {
+					$list = $list.add("#pm-" + ids[i]);
+				}
+				
+				if (isFav)
+					firemsg('Теперь сообщения являеются важными!');
+				else
+					firemsg('Сообщения больше не является важными!');
+				
+				var html = isFav ? "<i class=\"icon-star\"></i>" : "<i class=\"icon-star-empty\"></i>"; 
+				
+				$list.find("[data-action='fav']")
+					.html(html)
+					.attr('title', isFav ? 'Снять поментку важное' : 'Пометить как важное')
+					.attr('onclick', 'favouritePM(this, ' + !isFav + ')');
+				
+				updatePmfavCounter(json['favcount']);
+			}
+		}
+	);
+}
+
+function favouritePM(sender, isFav, isViewMode)
+{
+	$btn = $(sender);
+	var id = $btn.attr("data-target");
+	
+	NProgress.start();
+	$.post('user.php', {
+			'do': 'favouritepm',
+			'ids': id,
+			'flag': isFav
+		},
+		function (data) {
+			NProgress.done();
+			
+			var json = eval("(" + data + ")");
+			if (json['status'] == 'OK') {
+				if (isFav)
+					firemsg('Теперь сообщение является важным!');
+				else
+					firemsg('Сообщение больше не является важным!');
+				
+				var html = isFav ? "<i class=\"icon-star\"></i>" : "<i class=\"icon-star-empty\"></i>";
+				if (isViewMode)
+					html += " " + (isFav ? 'Важное' : 'Не важное');
+				
+				$btn.html(html);
+				$btn.attr('title', isFav ? 'Снять поментку важное' : 'Пометить как важное');
+				$btn.attr('onclick', 'favouritePM(this, ' + !isFav + ', ' + isViewMode + ')');
+				
+				updatePmfavCounter(json['favcount']);
+				
+				return;
+			}
+			
+			firemsg('Ошика! ' + result.error);
+		}
+	);
+	
+	return false;
+}
+
+function sendPM(backURL)
+{
+	var users = $('#pm-users').val();
+	var title = $('#pm-title').val();
+	var message = $('#pm-message').val();
+	var manager = $('#pm-manager').val();
+	var tmpid = $('#pm-tmpid').val();
+	
+	NProgress.start();
+	$.post(
+		'user.php', {
+			'do': 'sendpm', 
+			'tmpid': tmpid,
+			'users' : users, 
+			'title': title, 
+			'message': message, 
+			'manager': manager
+		}, 
+		function(responseText) {			
+			NProgress.done();
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				firemsg('Сообщение отправлено!');
+				
+				if (backURL)
+					document.location.href = backURL;
+				
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+	
+	return false;
+}
+
+function selectPM(messageId) {
+	var $list = $("[data-action='selector']");
+	var totalCount = $list.length;
+	var selectedCount = 0;	
+	
+	$list.each(function(index, e) {
+		if ($(e).is(":checked")) {
+			selectedCount++;
+		}
+	});
+	
+	var $selector = $("#pm-checkbox-selector");
+	
+	if (messageId) {
+		$selector.get(0).checked = selectedCount == totalCount;
+	} else {
+		$list.each(function(index, e) {
+			e.checked = $selector.is(":checked");
+		});
+	};
+}
+
+function openWarnHistory(userid)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'warning.php',   
+		data: 'do=warnlist&userid=' + userid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'nowarns')
+			{
+				firemsg('У пользователя предупреждений не было.');
+				return;
+			}
+			if (result.warnlist)
+			{
+				document.getElementById('warnlist').innerHTML = result.warnlist;
+				$("#warnlist").dialog("open");
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function openMove(id, pid)
+{
+	document.getElementById('move').innerHTML = "<table class='form-table' style='width: 100%'><tr><td><input id='project-move' placeholder='Проект-приемник'/></td></tr></table>";
+	document.getElementById('move').innerHTML += "<input id='resource-move' type='hidden' value='" + id + "' />";
+	document.getElementById('move').innerHTML += "<input id='from-project-move' type='hidden' value='" + pid + "'/>";
+	$("#project-move").autocomplete({minLength: 2, source: 'projects.php?do=autocomplete'});
+	$("#move").dialog("open");
+}
+
+function deleteWarn(id)
+{
+	con = confirm('Вы действительно хотите снять предупреждение?');
+	if (!con)
+	{
+		return false;
+	}
+	$.ajax({  
+	type: 'POST',
+	url: 'warning.php',
+	data: 'do=remove&warningid=' + id,
+	success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				warntr = document.getElementById('warn-' + id);
+				warntr.innerHTML = '';
+				firemsg('Предупреждение снято');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function subscribeProject(id, menu, button, stylehack)
+{
+	var onclick = button.onclick;
+	button.onclick = '';
+	
+	$.ajax({  
+		type: 'POST',
+		url: 'project.php',   
+		data: 'do=subscribe&id=' + id,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			button.onclick = onclick;
+			if (result.action)
+			{
+				subscribe = document.getElementById(menu ? 'subscribeMenu-i' : 'subscribe-i-' + id);
+				subscribe_class = (result.action == 'Подписаться' ? "favourite_xgm.gif" : "favourite.gif" );
+				
+				//addClass(subscribe , subscribe_class);
+				subscribe.src = "./design/v8/icons"+stylehack+"/"+subscribe_class;
+				
+				firemsg(result.action == 'Отписаться' ? 'Вы подписались на проект: теперь в ленте будут отображаться его ресурсы' : 'Вы отписались от проекта: теперь в ленте не будут отображаться его ресурсы!' );
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function subscribeResource(btn, id)
+{
+	NProgress.start();
+	$.ajax({  
+		type: 'POST',
+		url: 'resource.php',   
+		data: 'do=subscribe&id=' + id,
+		success: function(responseText)
+		{
+			NProgress.done();
+			result = eval( "(" + responseText + ")" );
+			
+			if (result.error) {
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			
+			if (result.action == 'Отписаться')
+			{
+				$(btn).html('<i class="icon-comment"></i> Убрать этот ресурс из личной ленты.');
+				firemsg('Теперь вы будете видеть новые комментарии к этом ресурсу в личной ленте.');
+			} else {
+				$(btn).html('<i class="icon-comment"></i> Добавить этот ресурс в вашу личную ленту.');
+				firemsg('Теперь вы не будете видеть новые комментарии к этом ресурсу в личной ленте.');
+			}
+			
+		}
+	});
+}
+
+function setPage(event, url, anchor, input)
+{
+	if (event.keyCode != 13)
+	{
+		return;
+	}
+	page = input.value;
+	location = url + "/" + page + anchor;
+}
+
+function delete_project(id)
+{
+	killres = false;
+	if (confirm("Вы хотите удалить и ресурсы проекта?"))
+	{
+		killres = true;
+	}
+	if (confirm("Вы действительно хотите удалить проект" + (killres ? " вместе со всеми ресурсами?" : "?")))
+	{
+		$.ajax({  
+			type: 'POST',
+			url: 'project.php',   
+			data: 'do=kill&id=' + id + (killres ? "&killres=1" : ''),
+			success: function(responseText)
+			{
+				result = eval( "(" + responseText + ")" );
+				if (result.message == 'OK')
+				{
+					updateHeader(result.header);
+					document.getElementById('project-' + id).innerHTML = '';
+					firemsg('Проект удален.');
+					return;
+				}
+				firemsg('Ошибка! ' + result.error);
+			}
+		});
+	}
+	return false;
+}
+
+foo = function (f)
+{
+	fire = window.alert;
+	window.alert = function (text) {
+		report(window.location, text);
+		f(text);
+	}
+} (window.alert);
+
+
+function preview(name)
+{
+	NProgress.start();
+	text = document.getElementById(name).value;
+	tmpaid = $('#tmpaid').val();
+	insertimages = false;
+	if (document.getElementById('insertimages'))
+	{
+		insertimages = document.getElementById('insertimages').checked;
+	}
+	$.post(
+		'resource.php', {'do': 'preview ', tmpaid: tmpaid, insertimages: (insertimages ? 1 : 0), text: text}, 
+		function(responseText)
+		{
+			NProgress.done();
+			result = eval( "(" + responseText + ")" );
+			if (result.text)
+			{
+				showPreview(result.text);
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function showPreview(text)
+{
+	$("#preview-dialog .modal-body").html(text);
+	$("#preview-dialog").modal("show");
+	txt2Ini("#preview-dialog");
+	setTimeout(function() {
+		$("#preview-dialog .modal-body").scrollTop(0);
+	}, 400);
+}
+
+function txt2IniObject($object) {
+	$object.find(".magiclink").magiclink();
+	$object.find(".gallery").gallery();
+	$object.find(".spoiler").spoiler();
+	$object.find(".tabs").tabs();
+	$object.find(".texttabs").texttabs();
+}
+
+function txt2Ini(cssClass)
+{
+	$((cssClass ? cssClass + ' ' : '' ) + '.magiclink').magiclink();
+	$((cssClass ? cssClass + ' ' : '' ) + '.gallery').gallery();
+	$((cssClass ? cssClass + ' ' : '' ) + '.spoiler').spoiler();
+	$((cssClass ? cssClass + ' ' : '' ) + '.tabs').tabs();
+	$((cssClass ? cssClass + ' ' : '' ) + '.texttabs').texttabs();
+}
+
+function hideGroup(key)
+{
+	groups_closed[key] = 'closed';
+}
+
+function saveGroup(key)
+{
+	if (typeof groups_closed[key] == 'undefined') groups_closed[key] = 'open';
+	
+	var status = (groups_closed[key] == 'closed' ? 'open' : 'closed');
+	if (status == 1)
+	{
+		unsetcookie('menucat-' + key);
+		return;
+	}
+	setcookie('menucat-' + key, status, 365);
+}
+
+function slideGroup(key)
+{
+	if (typeof groups_closed[key] == 'undefined') groups_closed[key] = 'open';
+	
+	groups_closed[key] = ((groups_closed[key] == 'open') ? 'closed' : 'open');
+	$('#group-'+key).slideToggle('fast');
+	
+	buttonid = '#slide-button-' + key;
+	$(buttonid).removeClass('icon-chevron-down icon-chevron-up');
+	$(buttonid).addClass((groups_closed[key] == 'closed') ? 'icon-chevron-down' : 'icon-chevron-up');
+}
+
+function checkPassword()
+{
+	password = document.getElementById("password").value;
+	username = document.getElementById("username").value;
+	$.ajax({  
+		type: 'POST',
+		url: 'login.php',   
+		data: 'do=login&ajax=1&username=' + username + '&password=' + password,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				document.getElementById("loginform").submit();
+				return true;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+	return false;
+}
+
+function saveTag(id)
+{
+	tag = document.getElementById("tag-" + id);
+	save_span = document.getElementById("tag-" + id + "-confirm");
+	
+	title = document.getElementById("tag-" + id + "-title").value;
+	name = document.getElementById("tag-" + id + "-name").value;
+	visible = document.getElementById("tag-" + id + "-visible").checked;
+	
+	loading = document.getElementById("tag-" + id + "-ok");
+	loading.innerHTML = getLoading();
+	
+	$.post(
+		'tags.php', {'do': 'save', 'id' : id, 'title': title, 'visible': (visible ? 1 : 0), 'name': name}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				updateHeader(result.header);
+				loading.innerHTML = 'OK';
+				save_span.innerHTML = '<i class="icon-ok"></i>';
+				return;
+			}
+			loading.innerHTML = '<span class="warning">FAIL</span>';
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function deleteTag(id)
+{
+	tag = document.getElementById("tag-" + id);
+	
+	$.post(
+		'tags.php', {'do': 'delete', 'id' : id}, 
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.message == 'OK')
+			{
+				updateHeader(result.header);
+				tag.innerHTML = '';
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function darknessShow(on)
+{
+	$('#darkness').css('display', (on ? 'block' : 'none' ));
+}
+
+function updateHeader(header)
+{
+	//not needed
+	//if (header) document.getElementById('header').innerHTML = header;
+}
+
+function paginationIni()
+{
+	ctrl = false;
+	$('body').bind('keydown', goPage);
+	$('body').bind('keyup', ctrlUp);
+}
+
+function saveSettings()
+{
+	NProgress.start();
+	var style = $('#skinSelect').val();
+	var timezoneoffset = $('#timezoneoffset').val();
+	var blogdesign = $('#blogdesign').val();
+	var message = document.getElementById('message');
+	var narrow = (document.getElementById('narrow').checked ? 1 : 0);
+	var noshadows = (document.getElementById('no-shadows').checked ? 1 : 0);
+	
+	message.innerHTML = getLoading();
+	$.ajax({  
+		type: 'POST',
+		url: 'profile.php',   
+		data: 'do=save_settings&styleid=' + style + '&blogdesign=' + blogdesign + '&timezoneoffset=' + timezoneoffset + '&narrow=' + narrow + '&noshadows=' + noshadows,
+		success: function(responseText)
+		{
+			NProgress.done();
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				message.innerHTML = 'Сохранено...';
+				return true;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function cancelIndexPage(pid)
+{
+	NProgress.start();
+	$.ajax({
+		type: 'POST',
+		url: 'project.php', 
+		data: {
+			do: 'cancelindex',
+			id : pid
+		},
+		success: function(responseText) {
+			NProgress.done();
+			var result = eval( "(" + responseText + ")" );
+			
+			if (result == 'OK') {
+				firemsg('Статус главной снят! Теперь на главной проекта будет отображаться список ресурсов.');
+				return true;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function setIndexPage(pid, pageid) {
+	NProgress.start();
+	$.ajax({
+		type: 'POST',
+		url: 'project.php', 
+		data: {
+			do: 'setindex',
+			id: pid,
+			pageid: pageid
+		},
+		success: function(responseText) {
+			NProgress.done();
+			var result = eval( "(" + responseText + ")" );
+			
+			if (result == 'OK') {
+				firemsg('Главная страница изменена! Теперь на главной проекта будет отображаться эта страница.');
+				return true;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function searchOpen()
+{
+	if (typeof searchstatus == 'undefined') searchstatus = false;
+	if (typeof timer == 'number')
+	{
+		clearTimeout(timer);
+	}
+	
+	timer = setTimeout(checkAndClose, 3000);
+	$('#search').slideToggle('fast');
+	searchstatus = !searchstatus;
+	if (searchstatus)
+	{
+		document.getElementById('search_field').focus();
+	}
+}
+
+function checkAndClose()
+{
+	text = $('#search_field').val();
+	if (searchstatus && !text && !searchfocus)
+	{
+		$('#search').slideToggle('slow');
+		searchstatus = false;
+	}
+}
+function startSearchTimer()
+{
+	clearTimeout(timer);
+	timer = setTimeout(checkAndClose, 3000);
+}
+function searchMouseOver()
+{
+	clearTimeout(timer);
+}
+function enterOpen()
+{
+	
+}
+function checkField(field, action, resid, projectid, warnid)
+{
+	var script = 'resource.php';
+	if (action == 'check_pname' || action == 'check_ptitle')
+	{
+		script = 'project.php';
+	}
+	$.post(
+		script, {'do' : action, 'id' : resid, 'pid' : projectid, 'field' : field.value},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				document.getElementById(warnid).innerHTML = '';
+				return false;
+			}
+			document.getElementById(warnid).innerHTML = result.warning;
+		}
+	);
+}
+
+function checkResource()
+{
+	if($('#resource-title').length == 0) { return true; } // element doesn't exist
+	var title = $('#resource-title').val();
+	if (!title)
+	{
+		firemsg('Не заполнено обязательное поле "Заголовок"');
+		return false;
+	}
+	return true;
+}
+
+function scrollUp()
+{
+	window.scrollTo(0, 0);
+}
+
+function checkCreateTask()
+{
+	var pid = $('#task-pid').val();
+	if (!pid || pid == 0)
+	{
+		firemsg('Проект не выбран');
+		return false;
+	}
+	return true;
+}
+
+function openInner(button)
+{
+	var display = button.childNodes[1].style.display;
+	button.childNodes[1].style.display = (display == 'block' ? '' : 'block');
+}
+
+function addRelativeProject(id, title)
+{
+	$.post(
+		'project.php', {'do' : 'relative', 'id' : id, 'relative' : document.getElementById(title).value},
+		function (responseText)
+		{
+			var relative_menu = document.getElementById('group-relativeprojects');
+			var last_relative = document.getElementById('last-relative');
+			
+			result = eval( "(" + responseText + ")" );
+			if (result.relative_menu && relative_menu)
+			{
+				document.getElementById(title).value = '';
+				relative_menu.innerHTML += result.relative_menu;
+				$("#relative-menu").autocomplete({minLength: 2, source: "projects.php?do=autocomplete"});
+			}
+			if (result.relative && last_relative)
+			{
+				last_relative.id = '';
+				var tr = last_relative.parentNode.parentNode;
+				$(tr).after("<tr><td colspan='3'>" + result.relative + "</td></tr>");
+			}
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+			}
+		}
+	);
+}
+function saveAdminNote(userid)
+{
+	$.post(
+		'user.php', {'do' : 'adminnote', 'userid' : userid, 'note' : $('#adminnote').val()},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			document.getElementById('adminnotes').innerHTML += result.note;
+			$('#adminnote').val('');
+			firemsg('Заметка добавлена!');       
+		}
+	);
+}
+function openFavorites()
+{
+	$('#favorites').slideToggle('fast');
+}
+function changeModule(projectid, moduleid, module)
+{
+	$.post(
+		'module.php', {'do' : 'save', 'id' : moduleid, 'projectid' : projectid },
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			var img = document.getElementById('module-' + moduleid + '-img');
+			var span = document.getElementById('module-' + moduleid);
+			img.src = 'design/images/module-' + module + (result.status == 'on' ? '-on' : '' ) + '.png';
+			span.innerHTML = (result.status == 'on' ? '[выключить]' : '[включить]' );
+			firemsg('Модуль ' + (result.status == 'on' ? 'включен' : 'выключен'));       
+		}
+	);
+}
+
+function editOpt(id, attrid, categoryid, projectid, del)
+{
+	var newname = '';
+	if (!del)
+	{
+		newname = prompt('Введите новое название раздела');
+		if (!newname || newname == null)
+		{
+			return;
+		}
+	}
+	$.post(
+		'category.php', {'do' : 'save_opt', 'id' : categoryid, 'attrid' : attrid, 'projectid' : projectid, 'optid' : id, 'title' : newname, 'delete' : (del ? 1 : 0 )},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			document.getElementById('opt-' + id + '-title').innerHTML = newname;
+			if (del)
+			{
+				$('#opt-' + id).remove();
+			}
+		}
+	);
+}
+
+function editThematic(id)
+{
+	$.post('thematic.php', {'do' : 'edit', 'id' : id},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.thematic_form)
+			{
+				$('#thematic-' + id).after("<tr id='thematic-edit-" + id + "'><td colspan='6'>" + result.thematic_form + "</td></tr>");
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function saveThematic(id)
+{
+	var title = document.getElementById("thematic-title-" + id);
+	var name = document.getElementById("thematic-name-" + id);
+	var description = document.getElementById("thematic-description-" + id);
+	var visible = document.getElementById("thematic-visible-" + id);
+	var def = document.getElementById("thematic-default-" + id);
+	$.post(
+		'thematic.php', {
+			'do' : 'save',
+			'id' : id,
+			'title' : title.value,
+			'name' : name.value,
+			'description' : description.value,
+			'visible' : (visible.checked ? 1 : 0),
+			'default' : (def.checked ? 1 : 0 )
+		},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			
+			title.value = name.value = description.value = '';
+			visible.checked = def.checked = false;
+			if (!id)
+			{
+				var table = document.getElementById('thematics');
+				var tr = document.createElement('tr');
+				tr.id = "thematic-" + result.id;
+				tr.innerHTML = result.thematic_bit;
+				table.appendChild(tr)
+			}
+			else
+			{
+				var tr = document.getElementById('thematic-' + id);
+				tr.innerHTML = result.thematic_bit;
+				$("#thematic-edit-" + id).remove();
+			}
+		}
+	);
+}
+
+function deleteThematic(id)
+{
+	$.post('thematic.php', {'do' : 'delete', 'id' : id},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				$('#thematic-' + id).remove();
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function turnThematic(name, value)
+{
+	var img = document.getElementById("thematic-" + name);
+	value = (value ? 0 : 1);
+	setcookie('thematic-' + name, value, 10*365);
+	img.src = "files/thematics/" + name + '_' + (value ? 'down' : 'up') + '.png';
+	img.onclick = function(){turnThematic(name, value)};
+	
+	//setTimeout(function(){window.location = window.location;}, 100);
+}
+
+function ChangeFeed(id, offset)
+{
+	if (!offset) {
+		offset = 0;
+	}
+	
+	NProgress.start();
+	feeddiv = document.getElementById('feeddiv');
+	setcookie('feed-active-tab', id, 10*365);
+	$("#feed-switcher-1").removeClass('active');
+	$("#feed-switcher-2").removeClass('active');
+	$("#feed-switcher-3").removeClass('active');
+	$("#feed-switcher-4").removeClass('active');
+	$("#feed-switcher-5").removeClass('active');
+	$("#feed-switcher-" + id).addClass('active');
+	$('#feeddiv').hide( "highlight" );
+	$.post('comment.php', {
+			'do': 'changefeed', 
+			'postid': id,
+			'offset': offset
+		},
+		function (responseText)	{
+			result = eval( "(" + responseText + ")" );
+			NProgress.done();
+			if (result.feedcache)
+			{
+				feeddiv.innerHTML = result.feedcache;
+				$('#feeddiv').show( "highlight" );
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		});
+
+}
+
+function ChangeMyContent(id)
+{
+	NProgress.start();
+	mycontentdiv = document.getElementById('mycontentdiv');
+	mycontentdiv.innerHTML = getLoading(true);
+	setcookie('mycontent-active-tab', id, 10*365);
+	$("#mycontent-switcher-1").removeClass('status-active');
+	$("#mycontent-switcher-2").removeClass('status-active');
+	if (id==1) {
+		$("#mycontent-ajaxhide-1").removeClass('ajax-hidden');
+		$("#mycontent-ajaxhide-2").addClass('ajax-hidden');
+	} else {
+		$("#mycontent-ajaxhide-2").removeClass('ajax-hidden');
+		$("#mycontent-ajaxhide-1").addClass('ajax-hidden');
+	}
+	
+	$("#mycontent-switcher-" + id).addClass('status-active');
+
+	$.post('project.php', {'do' : 'change_my_content', 'switch_id' : id},
+		function (responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.content_cache)
+			{
+				mycontentdiv.innerHTML = result.content_cache;
+				return;
+			}
+			mycontentdiv.innerHTML = result.error;
+			NProgress.done();
+		}
+	);
+	
+}
+
+function editUserPage(userid)
+{
+	NProgress.start();
+	page = document.getElementById('userpage_data');
+	page.innerHTML = getLoading(true);
+	$.ajax(
+	{  
+		type: "POST",
+		url: "user.php",   
+		data: "do=editpage&userid=" + userid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			page.innerHTML = result.userpage_txt2;
+			NProgress.done();
+		}
+	});
+}
+
+function showUserPagePreview(pagetext_id, button)
+{
+	$('#' + button.id).button('loading');
+	
+	pagetext = document.getElementById(pagetext_id).value;
+	$.post(
+		'resource.php', {'do': 'preview', text: pagetext}, 
+		function(responseText)
+		{
+			$('#' + button.id).button('reset');
+			
+			result = eval( "(" + responseText + ")" );
+			if (result.text)
+			{
+				showPreview(result.text);
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	);
+}
+
+function sendUserPage(userid)
+{
+	var input_page = $('#userpage_data_edit').val();
+	var button = document.getElementById('userpage_send');
+	var caption = button.value;
+	NProgress.start();
+	button.value = '';
+	button.disabled = true;
+	$('#userpage_send').css('background-image', 'url("design/loading.gif")');
+	$('#userpage_send').css('background-repeat', 'no-repeat');
+	$('#userpage_send').css('background-position', 'center center');
+	
+	var action = 'user.php';
+	var object = { 'do': 'send_user_page', 'userid': userid, 'text' : input_page }
+
+	$.post(action, object, function (responseText)
+		{
+			button.value = caption;
+			button.disabled = false;
+			$('#userpage_send').css('background-image', 'none');
+			
+			result = eval( "(" + responseText + ")" );
+			if (result.message != 'OK')
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+
+			document.getElementById('userpage_data').innerHTML = result.userpage_txt2;
+			txt2Ini('#userpage_data');
+			NProgress.done();
+		}
+	);
+}
+
+/* ===================================================================================================================================== */
+
+/* ####################################### */
+/*                REGISTER                 */
+/* ####################################### */
+
+function getRegImage()
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'register.php',   
+		data: 'do=get_reg_image',
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.imagehash)
+			{
+				$('#imagehash').val(result.imagehash);
+				document.getElementById('image').src = "forum/image.php?type=regcheck&imagehash=" + result.imagehash;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});		
+}
+
+function checkEmail()
+{
+	span = document.getElementById('check-email');
+	var reg = /^[._A-Za-z0-9-]+@[.a-z0-9-]+(\.[a-z]{2,4})$/;
+	if (!reg.exec($('#email').val()))
+	{
+		span.innerHTML = '<span class="text-error">Не правильный формат почты (пр. user@yandex.ru)</span>';
+		return false;
+	} 
+	else 
+	{
+		span.innerHTML = '<span class="text-success">принято</span>';
+	}
+}
+
+function checkPasswordReg()
+{
+	span = document.getElementById('check-password');
+	pass = $('#passwordreg').val();
+	if (pass.length < 4)
+	{
+		span.innerHTML = '<span class="text-warning">Слабый пароль</span>';
+		return false;
+	}
+	if (pass.length >= 4)
+	{
+		span.innerHTML = '<span class="text-success">Нормальный пароль</span>';
+		return false;
+	}
+}
+
+function checkPasswordConf()
+{
+	span = document.getElementById('check-password-confirm');
+	if (document.getElementById("passwordreg").value != document.getElementById("confirmpassword").value)
+	{
+		span.innerHTML = '<span class="text-error">пароли не совпадают</span>';
+		return false;
+	}
+	else
+	{
+		span.innerHTML = '<span class="text-success">пароли совпадают</span>';
+	}
+}
+
+function checkUsername(registration)
+{
+	span = document.getElementById('check-username');
+	username = $('#usernamereg').val();
+	if (username.length < 4)
+	{
+		span.innerHTML = '<span class="text-error">Ник должен быть длинее</span>';
+		return false;
+	}
+		
+	$.ajax({  
+		type: 'POST',
+		url: 'register.php',   
+		data: 'do=check_login&username=' + username
+			+ ( registration ? '&imagehash=' + $('#imagehash').value + '&imagestamp=' + document.getElementById('imagestamp').val() : '' ),
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg(result.error);
+				return false;
+			}
+			if (result.imagehash)
+			{
+				$('#imagestamp').val('');
+				$('#imagehash').val(result.imagehash);
+				document.getElementById('image').src = "forum/image.php?type=regcheck&imagehash=" + result.imagehash;
+				return false;
+			}
+			if (result == 1)
+			{
+				span.innerHTML = '<span class="text-success">Ник свободен</span>';
+				if (registration)
+				{
+					$("#registration_form").submit();
+				}
+				return true;
+			}
+			span.innerHTML = '<span class="text-warning">Ник занят или некорректен</span>';
+			return false;
+		}
+	});
+}
+
+function iniRegistration()
+{
+	getRegImage();
+}
+
+/* ####################################### */
+/*                  DIALOGS                */
+/* ####################################### */
+
+
+/*
+function slidepreview()
+{
+    slidebox = document.getElementById('slidebox');
+
+    var action = 'slider.php';
+    var object = {  'do': 'preview',
+        'title': $("#sltitle").val(),
+        'text': $("#sltext").val(),
+        'url' : $("#slurl").val(),
+        'caption': $("#slcaption").val(),
+        'image': $("#slimage").val(),
+        'color': $("#slcolor").val()
+    }
+
+    $.post(action, object, function (responseText)
+    {
+        result = eval( "(" + responseText + ")" );
+        if (result.html_test)
+        {
+            slidebox.innerHTML = result.html_test;
+            InitJQElements();
+            return;
+        }
+        firemsg('Ошибка! ' + result.error);
+    });
+
+    return false;
+}
+*/
+
+// *************
+// WARNGUN
+// *************
+
+function iniWarngun()
+{
+	warnGunOpened = false;
+	$("#warngun").dialog({
+		autoOpen: false,
+		buttons: {
+			"Применить": function() {doWarn(); $(this).dialog("close"); warnGunOpened = false;},
+			"Закрыть": function() {warnGunOpened = false; $(this).dialog("close");}
+		},
+		width: 400
+	});
+}
+
+function warngunOpenUser(userid, username)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'warning.php',   
+		data: 'do=warn&userid=' + userid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.warngun)
+			{
+				warnGunOpened = true;
+				gun = document.getElementById('warngun');
+				gun.innerHTML = result.warngun;
+				$("#warngun").dialog("open");
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function warngunOpen(commentid, userid, username)
+{
+	if (warnGunOpened)
+	{
+		targets = document.getElementById('warngun-targets');
+		postids = document.getElementById('warngun-postids');
+		
+		targets.innerHTML += ', ' + "<a href='user/" + username + "'>" + username + "</a>";
+		postids.value += ',' + commentid;
+		return;
+	}
+		
+	$.ajax({  
+		type: 'POST',
+		url: 'warning.php',   
+		data: 'do=warn&postid=' + commentid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.warngun)
+			{
+				warnGunOpened = true;
+				gun = document.getElementById('warngun');
+				gun.innerHTML = result.warngun;
+				$("#warngun").dialog("open");
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function doWarn()
+{
+
+	postids = $('#warngun-postids').val();
+	postids = postids.split(',');
+	
+	$("#warngunForm").ajaxSubmit({ success:
+		function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.warntext)
+			{
+				for(i = 0; i < postids.length; i++)
+				{
+					warn = document.getElementById('warn-' + postids[i]);
+					if (warn)
+						warn.innerHTML = '[+] ' + result.warntext;
+				}
+				firemsg('Предупреждение выдано!');
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+	return false;
+}
+
+function shotWarning(userid, comment, level, time)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'warning.php',   
+		data: 'do=dowarn'
+			+'&userid='+userid
+			+'&warncomment='+comment
+			+'&level='+level
+			+'&bantime='+time,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.warntext)
+			{
+				firemsg(result.warntext)
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function shotVoteBan(userid, time)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'warning.php',   
+		data: 'do=voteban'
+			+'&userid='+userid
+			+'&bantime='+time,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.warntext)
+			{
+				firemsg(result.warntext)
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+// *************
+// FAVORITES
+// *************
+
+function addFavoriteOpen(id)
+{
+	$('#favorite_dialog').modal('toggle');
+	$.ajax({  
+		type: 'POST',
+		url: 'profile.php',   
+		data: 'do=add_favorite' + '&id=' + id,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.favoriteform)
+			{
+				document.getElementById('favoritesAdditional').innerHTML = result.favoriteform;
+				$("#favoritesAdditional").dialog("open");
+				$("#favorite-url").autocomplete({minLength: 2, source: "projects.php?do=autocomplete"});
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function iniFavoritesAdditional()
+{
+	$("#favoritesAdditional").dialog({
+		autoOpen: false,
+		open: function(event, ui) {darknessShow(true);},
+		beforeclose: function(event, ui) {darknessShow(false);},
+		buttons: {
+			"Сохранить": function() {addFavoriteFromDialog(); $(this).dialog("close");},
+			"Закрыть": function() {$(this).dialog("close");}
+		},
+		width: 385
+	});
+}
+
+// *************
+// XGM PAGE
+// *************
+
+function turnProjects(id,contenttype)
+{
+	NProgress.start();
+	var link = document.getElementById('pfilter-'+id);
+	var check = link.title == 'Скрыть ресурсы' ? false : true;
+	link.title = check ? 'Скрыть ресурсы' : 'Показать ресурсы';
+	if (!check)
+	{
+		document.getElementById('pfilter-'+id).innerHTML = '<i class="icon-minus icon-white"></i>';
+	}
+	else
+	{
+		document.getElementById('pfilter-'+id).innerHTML = '<i class="icon-plus icon-white"></i>';
+	}
+
+	setcookie('pfilter-' + id, check, 10*365);
+	document.getElementById('index').innerHTML = getLoading(true);
+	$.post(contenttype+'.php', {'update' : 1}, function (responseText) {
+		result = eval( "(" + responseText + ")" );
+		document.getElementById('index').innerHTML = result.index;
+		txt2Ini('#index');
+		InitJQElements();
+		NProgress.done();
+		ChangeFeed(1);
+	});
+}
+
+function sendRepostRequest()
+{
+	var resourceId = $("#repost-dialog-resourceid").val();
+	var fromProjectId = $("#repost-dialog-fromprojectid").val();
+	var toProjectId = $("#repost-dialog-target-project").val();
+	var isNeedUp = $("#repost-dialog-up").is(":checked");
+	var status = $("#repost-dialog-status").val();
+	var isNeedConfrim = true;
+	
+	NProgress.start();
+	$.ajax({
+		type: "POST",
+		url: "project.php",
+		data: {
+			"do": "repostres",
+			"page": resourceId,
+			"status": status,
+			"id": fromProjectId,
+			"ptitle": toProjectId,
+			"isup": isNeedUp ? 1 : 0,
+			"isconfrim": isNeedConfrim ? 1 : 0
+		},
+		success: function(data) {
+			NProgress.done();
+			var json = eval('(' + data + ')');
+			if (json.error) {
+				firemsg('Ошибка! ' + json.error);
+				return;
+			};
+			
+			firemsg(json.text);
+		}
+	});
+}
+
+function createTask(projectid, foruser, resourceid, titleTxt2, title) {
+	if (foruser == null)
+		foruser = "";
+	if (resourceid == null)
+		resourceid = 0;
+	if (titleTxt2 == null)
+		titleTxt2 = "";
+	
+	if (title == null) {
+		$("#create-task-dialog-title-block").hide();
+	} else {
+		$("#create-task-dialog-title").html(title);
+		$("#create-task-dialog-title-block").show();
+	}
+	$("#create-task-dialog-title-txt2").val(titleTxt2);
+	
+	$("#create-task-dialog-user").val(foruser);
+	$("#create-task-dialog-resource").val(resourceid);
+	$("#create-task-dialog-project").val(projectid);
+	$("#create-task-dialog-period").val(0);
+	$("#create-task-dialog-text").val("");
+	$("#create-task-dialog-rate").val("");
+	
+	$("#create-task-dialog").modal('show');
+}
+
+function sendCreateTaskRequest() {
+	var foruser = $("#create-task-dialog-user").val();
+	var text = $("#create-task-dialog-text").val();
+	var pid = $("#create-task-dialog-project").val();
+	var period = $("#create-task-dialog-period").val();
+	var resource = $("#create-task-dialog-resource").val();
+	var rate = $("#create-task-dialog-rate").val();
+	var title = $("#create-task-dialog-title").val();
+	var titleTxt2 = $("#create-task-dialog-title-txt2").val();
+	
+	if (titleTxt2 != null && titleTxt2.length > 0) {
+		text = "Тема: " + titleTxt2 + "\n" + text;
+	}
+	
+	NProgress.start();
+	$.post('task.php', {
+			'do': 'create_task',
+			'id': pid,
+			'pagetext': text,
+			'assigned': foruser,
+			'rate': rate,
+			'period': period
+		})
+		.success(function(data) {
+			NProgress.done();
+			var json = eval('(' + data + ')');
+			if (json.error) {
+				firemsg('Ошибка! ' + json.error);
+				return;
+			}
+			$("#create-task-dialog").modal('hide');
+			firemsg('Задание создано!');
+		})
+		.error(function() {
+			NProgress.done();
+			firemsg('Ошибка!');
+		});
+}
+
+function repostresource(id, status, frompid)
+{
+	$("#repost-dialog-target-project").val("");
+	$("#repost-dialog-resourceid").val(id);
+	$("#repost-dialog-fromprojectid").val(frompid);
+	$("#repost-dialog-status").val(status);
+	$("#repost-dialog-up").attr("checked", true);
+	
+	if (status) {
+		$("#repost-dialog").modal('show');
+	} else {
+		sendRepostRequest();
+	}
+	
+	return false;
+}
+
+function confrimresource(id, takeoff, pid, isLink)
+{
+	var link = document.getElementById("confres-" + id);
+
+	if (link)
+	{
+		$(link).removeAttr('onclick');
+	}
+	
+	NProgress.start();
+	$.ajax(
+	{  
+		type: "POST",
+		url: "project.php",   
+		data: "do=confrimres&page=" + id + "&takeoff=" + takeoff + "&id=" + pid,
+		success: function(responseText)
+		{
+			NProgress.done();
+			result = eval( "(" + responseText + ")" );
+
+			if (result.message == 'OK')
+			{
+				if (link)
+				{
+					if (result.showmain == 0) {
+						inner = '<i class="icon-remove-sign"></i>';
+						text = 'Убрать с главной страницы';
+						$(link).attr('onclick','confrimresource('+ id +', ' + 0 + ', ' + pid + ')');
+						firemsg('Ресурс был опубликован на главной странице.');
+					} else {
+						inner = '<i class="icon-ok-sign"></i>';
+						text = 'Опубликовать на главную';
+						$(link).attr('onclick','confrimresource('+ id +', ' + 1 + ', ' + pid + ')');
+						firemsg('Ресурс был убран с главной страницы сайта.');
+					}
+					
+					if (isLink) {
+						$(link).text(text);
+					} else {
+						$(link).html(inner);
+						$(link).attr('title', text);
+					}
+				}
+
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+	
+}
+
+function firemsg(message)
+{
+	//xgm fire analog
+	$.stickr({note:message,className:'firefly',position:{left:0,top:0}});
+	return true;
+}
+
+function tooglefu(id,buttonid)
+{
+	button = $(buttonid);
+	if(!button.hasClass("active"))
+	{
+		$(id).show();
+	}
+	else
+	{
+		$(id).hide();
+	}
+	button.button('toggle');
+}
+
+function VoteProjectLike(id, val)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'vote.php',   
+		data: 'type=project&id=' + id + '&sign=1',
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+				$("#likeproject-"+id).text("Мне нравится +" + (val + 1)).addClass("btn-success disabled").attr("onclick", "");
+			} 
+			else 
+			{
+				firemsg('Ошибка! ' + result.error);
+			}
+		}
+	});
+}
+
+function vote(id, sign, type, valueP, valueM)
+{
+	if (sign > 0)
+	{
+		var bsign = 1;
+	}
+	else
+	{
+		var bsign = 0;
+	}
+	$.ajax({  
+		type: 'POST',
+		url: 'vote.php',   
+		data: 'type=' + type + '&id=' + id + '&sign=' + bsign,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result == 'OK')
+			{
+
+				var plus = document.getElementById('plus-' + id);
+				var minus = document.getElementById('minus-' + id);
+				var voter = document.getElementById('voter-' + id);
+				var total = document.getElementById('votertotal-' + id);
+
+				if (type != 'resource')
+				{
+					if (bsign)
+					{
+						valueP += sign;
+						$(voter).addClass('voted-up');
+					}
+					else
+					{
+						valueM -= sign;
+						$(voter).addClass('voted-down');
+					}
+					
+					if ((valueP - valueM) > 0)
+					{
+						$(total).removeClass('vote-negative');
+						$(total).removeClass('vote-notvoted');
+						$(total).addClass('vote-positive');
+					}
+					if ((valueP - valueM) < 0)
+					{
+						$(total).removeClass('vote-positive');
+						$(total).removeClass('vote-notvoted');
+						$(total).addClass('vote-negative');
+					}
+					if ((valueP - valueM) == 0)
+					{
+						$(total).removeClass('vote-positive');
+						$(total).removeClass('vote-negative');
+						$(total).addClass('vote-notvoted');
+					}
+
+					total.innerHTML = valueP - valueM;
+					$(voter).attr('data-original-title','Голосов: <b class="highlight2">+'+valueP+'</b> / <b class="highlight">-'+valueM+'</b>');
+					$(plus).parent().removeClass('enabled');
+					$(plus).parent().addClass('disabled');
+					plus.onclick = '';
+					minus.onclick = '';
+				} 
+				else 
+				{
+					var levelbar = document.getElementById('levelbar-' + id);
+
+					if (bsign)
+					{
+						valueP += sign;
+						$(plus).addClass('btn-success');
+					}
+					else
+					{
+						valueM -= sign;
+						$(minus).addClass('btn-danger');
+					}
+					$(levelbar).parent().prop('title', 'Рейтинг +'+valueP+' / -'+valueM+'');
+
+					plus.innerHTML = "Мне нравится <b>+"+valueP+"</b>";
+					minus.innerHTML = "- "+valueM;
+					$(plus).addClass('disabled');
+					$(minus).addClass('disabled');
+
+					plus.onclick = '';
+					minus.onclick = '';
+
+					if (( valueP+valueM > 0 ))
+					{
+						var newwidth = 2.4 * valueP / ( (valueP + valueM) / 100); // 2.4 - 1% - 240px width;
+						levelbar.style.width = newwidth + 'px';
+					}
+				}
+
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function learn_ability(index, oldname)
+{
+	if (index == 'rollback')
+	{
+		con = confirm('Очки потраченные на одноразовые способности включая эту - возвращены не будут.Вы действительно хотите сбросить все способности?');
+		if (!con)
+		{
+			return false;
+		}		
+	}
+
+	newname = '';
+	if (index == 'change_name')
+	{
+		newname = prompt('Введите имя пользователя (от 4 до 15 символов).Если имя нарушает правила сайта, ваш аккаунт может быть заблокирован без предупреждений.', oldname);
+		if (!newname)
+		{
+			return false;
+		}	
+	}
+
+	$.ajax({  
+		type: 'POST',
+		url: 'abilitys.php',   
+		data: 'do=learn&ability='+index+( newname ? '&newname='+newname : ''),
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.html)
+			{
+				var newcount = Number($("#abilitys-infobar-counter").html())-1;
+				var childs = result.childs;
+
+				$("#ability-"+index).replaceWith(result.html);
+				$("#abilitys_free_points").html(newcount);
+				$("#abilitys-infobar-counter").html(newcount);
+				if (newcount <= 0)
+				{
+					$("#abilitys-infobar").remove();
+					$("#abilitys-giftbar").remove();
+					$("#abilitys-giftbar-normal").show();
+				}
+
+				if (childs)
+				{
+					for (var item in childs) 
+					{
+						$("#ability-"+item).replaceWith(childs[item]);
+					};
+				}
+
+				InitJQElements();
+				return;
+			}
+			if (result.message)
+			{
+				$("#abilities-page").html(result.message);
+			}
+			else
+			{
+				firemsg('Ошибка! ' + result.error);
+			}
+		}
+	});
+}
+
+function explain_res_vote(resid)
+{
+	var item = $("#explain-button-"+resid);
+	var content = item.attr('data-content');
+	var count = item.attr('data-count');
+
+	if (!content || content.length === 0) 
+	{
+		$.post("/vote.php", 
+		{
+			"explainid": resid,
+		})
+		.success(function (data) 
+		{
+			var result = eval('( ' + data + ' )');
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			
+			item.attr("data-content", result.userbits);
+			item.attr("data-count", result.count);
+			if (result.userbits)
+			{
+				if (result.count >= 60)
+				{
+					$("#expand-votes-dialog .modal-body").html(item.attr("data-content"));
+					$("#expand-votes-dialog").modal("show");
+				}
+				else
+				{
+					item.popover('show');
+				}
+			}
+		});
+	}
+	else
+	{
+		if (count >= 60)
+		{
+			$("#expand-votes-dialog").modal("show");
+		}
+		else
+		{		
+			item.popover('toogle');
+		}
+	}
+	
+}
+
+function explain_user_votes(userid)
+{
+	var item = $("#explain-button-"+userid);
+	var content = item.attr('data-content');
+
+	if (!content || content.length === 0) 
+	{
+		$.post("/vote.php", 
+		{
+			"explainuser": userid,
+		})
+		.success(function (data) 
+		{
+			var result = eval('( ' + data + ' )');
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			
+			item.attr("data-content", result.userbits);
+
+			if (result.userbits)
+			{
+				$("#expand-votes-dialog .modal-body").html(item.attr("data-content"));
+				$("#expand-votes-dialog").find(".modal-header > h3").text('Статистика рейтинга'); 
+				$("#expand-votes-dialog").modal("show");
+			}
+		});
+	}
+	else
+	{
+		$("#expand-votes-dialog").modal("show");
+	}
+	
+}
+
+function deny_rating_group(rowid, group, from, to)
+{
+	if (String(rowid).length < 8)
+	{
+		var isgroup = true;
+		var item = $("#rating-group-"+rowid);
+	}
+	else
+	{
+		var isgroup = false;
+		var item = $("#rating-bar-"+rowid);
+	}
+	
+	$.post("/statistic.php", 
+	{
+		"index": 'denygroup',
+		"group": group,
+		"from": from,
+		"to": to,
+	})
+	.success(function (data) 
+	{
+		var result = eval('( ' + data + ' )');
+		if (result.error)
+		{
+			firemsg('Ошибка! ' + result.error);
+			return;
+		}
+		if (result.ok)
+		{
+			item.remove();
+			if (isgroup)
+			{
+				$(".group-child-"+rowid).remove();
+			}
+		}
+
+	});	
+}
+
+function analyze_livestream()
+{
+	//stream every five seconds
+	setTimeout(analyze_livestream, 5000);	
+
+	var stream = $("#monitor-stream");
+	var from = $("#monitor-stream").data('last');
+
+	$.ajax({
+		type: 'POST',
+		url: "statistic.php", 
+		data:
+			"index=monitor" +
+			"&top=ajax" +
+			"&from=" + from,
+		success: function(responseText) 
+		{
+			//mark viewed
+			$(".monitor-new").removeClass("monitor-new");
+
+			result = eval( "(" + responseText + ")" );
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			if (result.result == 'ok')
+			{
+				$("#monitor-top").after(result.bits);
+				$("#monitor-stream").data('last', result.last);
+			}
+		}
+	});				
+
+}
+
+function Search(index)
+{
+	var query = $('#sear_query').val();
+	var project = $('#sear_ptitle').val();
+	$("#sear_submit").button('loading');
+
+	NProgress.start();
+	$.ajax({  
+		type: 'POST',
+		url: 'search.php',   
+		data: 
+			'index=' + index + 
+			'&query=' + query + 
+			'&ptitle=' + project +
+			'&ajax=1',
+		success: function(responseText)
+		{
+			NProgress.done();
+			result = eval( "(" + responseText + ")" );
+			if (result.html)
+			{
+				document.getElementById('search').innerHTML = result.html;
+				txt2Ini('#search');
+				InitJQElements();
+
+				//search engine init
+				$("#sear_ptitle").autocomplete({minLength: 2, source: "projects.php?do=autocomplete"});
+
+				
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function relationship(rel_userid, action, profileid)
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'relationship.php',   
+		data: 'action=' + action + '&rel_userid=' + rel_userid + '&profileid=' + profileid,
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.success)
+			{
+				firemsg(result.success);
+				if (profileid)
+				{
+					document.getElementById('relationships').innerHTML = result.html;
+				}
+			}
+			else
+			{
+				firemsg('Ошибка! ' + result.error);
+			}
+		}
+	});
+}
+
+function pollvote_bits_init() {
+	var set = $(".poll-userbit"); 
+	set.on("click", function() {
+		var item = $(this);
+		var element = this;
+		set.each(function (index, e) {
+			if (e != element) {
+				var content = $(e).attr('data-content');
+				if (content && content.length > 0) {
+					$(e).popover('hide');
+				}
+			}
+		});
+		
+		var content = item.attr('data-content');
+		if (!content || content.length === 0) {
+			var voteid = $(this).attr("data-voteid");
+			$.post("/vote.php", {
+				"pollid": $(this).attr("data-pollid"),
+				"voteid": voteid,
+				"getusers": 1
+			})
+			.success(function (data) {
+				var result = eval('( ' + data + ' )');
+				if (result.error)
+				{
+					firemsg('Ошибка! ' + result.error);
+					return;
+				}
+				
+				if (result.userbits)
+				{
+					item.attr("data-content", result.userbits);
+					item.popover('show');
+					return;
+				}
+			});
+		}
+	});
+}
+
+function pollvote(pollid, voteid)
+{
+	userbits = '#popover'+pollid+'-'+voteid;
+	$(userbits).innerHTML = '';
+	
+	$.ajax({  
+		type: 'POST',
+		url: 'vote.php',   
+		data: {
+			"pollid": pollid,
+			"voteid": voteid,
+			"getusers": 0
+		},
+		success: function(responseText)
+		{
+			result = eval('( ' + responseText + ' )');
+			if (result.error)
+			{
+				firemsg('Ошибка! ' + result.error);
+				return;
+			}
+			
+			if (result.html)
+			{
+				$("#pollblock" + pollid).html(result.html);
+				pollvote_bits_init();
+				return;
+			}
+		}
+	});
+}
+
+// auth mine
+function authmine()
+{
+	$.ajax({  
+		type: 'POST',
+		url: 'user.php',   
+		data: 
+			'do=mine_auth&ajax=1',
+
+		success: function(responseText)
+		{
+			result = eval( "(" + responseText + ")" );
+			if (result.successtext)
+			{
+				document.getElementById('authmine_text').innerHTML = result.successtext;
+				return;
+			}
+			firemsg('Ошибка! ' + result.error);
+		}
+	});
+}
+
+function InitJQElements()
+{
+	$('[rel="tooltip"]').tooltip();
+
+	var intervalID;
+	jQuery('[rel="userinfobox"]').hover(
+		function () {
+			var popup = jQuery(this).find(".inner");
+
+			intervalID=setTimeout(
+				function() {
+					popup.show();
+				}, 0);
+
+		},
+		function () {
+			jQuery(this).find(".inner").hide();
+			clearInterval(intervalID);
+		}
+	);
+	
+	pollvote_bits_init();
+}
+
+function log_diff_changes() 
+{
+	var dmp = new diff_match_patch();
+	var build = document.getElementById('logbuild').value;
+	var after = document.getElementById('logafter').value;
+	var d = dmp.diff_main(build, after);
+	dmp.diff_cleanupSemantic(d);
+	var ds = dmp.diff_prettyHtml(d);
+	document.getElementById('logoutput').innerHTML = "<pre>"+ds+"</pre>";
+}
+function page_diff_changes() 
+{
+	var dmp = new diff_match_patch();
+	var build = document.getElementById('sltext').value;
+	var after = document.getElementById('slhtml').value;
+	var d = dmp.diff_main(build, after);
+	dmp.diff_cleanupSemantic(d);
+	var ds = dmp.diff_prettyHtml(d);
+	document.getElementById('diff').innerHTML = "<pre>"+ds+"</pre>";
+}
+
+function streak_timer()
+{
+	var time = $("#streak_timer").data('value');
+	
+	if (time > 0)
+	{
+		minutes = Math.floor(time / 60);
+		seconds = time - (minutes*60);
+
+		if (time >= 60)
+		{
+			if (seconds < 10)
+			{
+				seconds = "0"+seconds;
+			}
+			document.getElementById("streak_timer").innerHTML = minutes+":"+seconds+"с";
+		}
+		else
+		{
+			document.getElementById("streak_timer").innerHTML = seconds+"с";
+		}
+
+		if (time <= 1)
+		{
+			$("#streak_info").remove();
+		}
+		else
+		{
+			$("#streak_timer").data('value',time-1);
+			setTimeout(streak_timer, 1000);				
+		}
+		
+	}
+
+}
+
+//by mail@recens.ru
+$.stickr = function(o) {
+	var o = $.extend({
+		time:5000,
+		speed:'slow',
+		note:null,
+		className:null,
+		sticked:false,
+		position:{top:0,right:0}
+	}, o);
+	var stickers = $('#jquery-stickers');
+	if (!stickers.length) {
+		$('body').prepend('<div id="jquery-stickers"></div>');
+		var stickers = $('#jquery-stickers');
+		stickers.css('position','fixed').css(o.position);
+		stickers.css('z-index','5001');
+		stickers.css('top','70px');
+	}
+	var stick = $('<div class="stick"></div>');
+	stickers.append(stick);
+	if (o.className) stick.addClass(o.className);
+        stick.html(o.note);
+	if (o.sticked) {
+		var exit = $('<div class="exit"></div>');
+		stick.prepend(exit);
+		exit.click(function(){
+			stick.fadeOut(o.speed,function(){
+				$(this).remove();
+			})
+		});
+	} else {
+		setTimeout(function(){
+			stick.fadeOut(o.speed,function(){
+				$(this).remove();
+			});
+		}, o.time);
+	}
+};
+
+//*******************************************************
+//	Modal dialog patch
+//		- hide vertical scroll when modal dialog is opening
+//*******************************************************
+
+$(function() {
+	$counter = 0;
+	
+	$body = $("body");
+	$("*").on("show.bs.modal", function(e) {
+		$counter++;
+		$body.addClass("overlapped-mode");
+	});
+	
+	$("*").on("hidden.bs.modal", function(e) {
+		$counter--;
+		if ($counter <= 0) {
+			$body.removeClass("overlapped-mode");
+			$counter = 0;
+		}
+	});
+});
+
+//*******************************************************
+//Unity Web Player
+//*******************************************************
+
+function InitUnityPlayer(width, height) {
+	var unityWebPlayerConfig = {
+		width: width,
+		height: height,
+		params: {
+				enableDebugging: "0",
+				disableContextMenu: true,
+			},	
+	};
+	var u = new UnityObject2(unityWebPlayerConfig);
+	
+	var $missingScreen = jQuery(".unityPlayer").find(".missing");
+	var $brokenScreen = jQuery(".unityPlayer").find(".broken");
+	$missingScreen.hide();
+	$brokenScreen.hide();
+	
+	u.observeProgress(function (progress) {
+		switch(progress.pluginStatus) {
+			case "broken":
+				$brokenScreen.find("a").click(function (e) {
+					e.stopPropagation();
+					e.preventDefault();
+					u.installPlugin();
+					return false;
+				});
+				$brokenScreen.show();
+			break;
+			case "missing":
+				$missingScreen.find("a").click(function (e) {
+					e.stopPropagation();
+					e.preventDefault();
+					u.installPlugin();
+					return false;
+				});
+				$missingScreen.show();
+			break;
+			case "installed":
+				$missingScreen.remove();
+			break;
+			case "first":
+			break;
+		}
+	});
+	
+	return u;
+}
+
+function init_comment_updater() {
+	var lastcommentid = 0;
+	var lockObject = 0;
+	var commentblock = $(".comment-block");
+	var commentUpdateBtn = $(".new-comment-button");
+	
+	if (commentblock.size() === 0 || commentUpdateBtn.size() === 0) {
+		return;
+	}
+	
+	var windowTitleCounter = 0;
+
+	var loadComments = function(loadComments) {
+		var onlymsg = 0;
+		if (!loadComments) {
+			onlymsg = 1;
+		}
+		
+		
+		commentblock = $(".comment-block");
+		commentUpdateBtn = $(".new-comment-button");
+		if (commentblock.size() === 0 || commentUpdateBtn.size() === 0) {
+			return;
+		}
+		
+		var projectid = commentblock.data("project-id");
+		var resourceid = commentblock.data("resource-id");
+		
+		if (commentUpdaterLock > 0) {
+			return;
+		}
+		
+		commentblock.find("div.comment").each(function (index, element) {
+			var comment = $(element);
+			var postid = comment.data('post-id');
+			if (postid > lastcommentid)
+				lastcommentid = postid;
+		});
+		
+		if (lastcommentid == 0)
+			lastcommentid = 1;
+		
+		if (lastcommentid > 0) {
+			if (lockObject === 0) {
+				lockObject = 1;
+				if (!onlymsg)
+					NProgress.start();
+					
+				commentUpdaterLock++;
+				$.ajax({
+					url: 'project.php',
+					method: 'POST',
+					data: {
+						'pageid': resourceid,
+						'id': projectid,
+						'lastcomment': lastcommentid,
+						'countmsg': onlymsg
+					},
+					success: function(data) {
+						commentUpdaterLock--;
+						lockObject = 0;							
+						if (onlymsg > 0) {
+							if (data) {
+								commentUpdateBtn
+									.html(data)
+									.show();
+								
+								hasNewComments = true;
+								windowTitleCounter = 0;
+							}
+						} else {
+							NProgress.done();
+							if (data) {
+								if (commentblock.data('is-empty')) {
+									commentblock.html(data);
+								} else {
+									commentblock.html(commentblock.html() + data);
+								}
+								commentblock.data('is-empty', false);
+								txt2IniObject(commentblock);
+								
+								commentUpdateBtn.hide();
+								resetWindowTitle();
+							}
+						}
+					},
+					error: function() {
+						commentUpdaterLock--;
+						if (!onlymsg) {
+							NProgress.done();
+						}
+						lockObject = 0;
+					}
+				});
+			}
+		}
+	}
+	
+	var blinkTitle = function() {
+		if (hasNewComments) {
+			if (windowTitleCounter++ % 2 == 0) {
+				document.title = "Новый комменатрий - " + baseWindowTitle;
+				var icon = $("[rel='shortcut icon']");
+				var cache = icon.clone();
+				cache.attr("href", "/favicon_new.ico");
+				icon.replaceWith(cache);
+			} else {
+				document.title = baseWindowTitle;
+				var icon = $("[rel='shortcut icon']");
+				var cache = icon.clone();
+				cache.attr("href", "/favicon.ico");
+				icon.replaceWith(cache);
+			}
+		}
+	}
+	
+	var comments = $("#comments");
+	comments.on('click', '.new-comment-button', function () {
+		var pagination = $(".pagination > ul");
+		var currentPage = pagination.data('current');
+		var lastPage = pagination.data('count');
+		
+		if (currentPage == lastPage) {
+			loadComments(1);
+		} else {
+			pagination.find("a[data-page='" + lastPage + "']").click();
+		}
+	});
+	
+//	window.setInterval(loadComments, 5000);
+	window.setInterval(blinkTitle, 700);
+}
+
+$(function() {	
+	var $unityPlayerDialog = $("#unity-player-dialog").modal({
+		keyboard: false,
+		show: false
+	});
+	var $unityPlayerSettingsDialog = $("#unity-player-settings-dialog").modal({
+		show: false
+	});
+	var $unityPlayerStartBtnList = $unityPlayerSettingsDialog.find("[data-action='run']");
+	
+	var $player = $("#unityWebPlayer");
+	$("[data-action='unity-player-open']").each(function () {
+		var $gameBtn = $(this);
+		$gameBtn.click(function() {
+			if ($gameBtn.attr("data-target")) {
+				$unityPlayerSettingsDialog.find(".modal-header > h3").text("Настройка запуска: " + $gameBtn.attr("data-title"));
+				$unityPlayerSettingsDialog.modal("show");
+				
+				$unityPlayerStartBtnList.unbind();
+				$unityPlayerStartBtnList.click(function () {
+					$unityPlayerSettingsDialog.modal("hide");
+					
+					var $run = $(this);
+					var resolution = $run.attr("data-resolution");
+					var width, height;
+					
+					$unityPlayerDialog.find(".modal-header > h3").text($gameBtn.attr("data-title")); 
+					$unityPlayerDialog.modal("show");
+					
+					if (resolution == "window") {
+						firemsg("Window Mode not implemented!!!");
+						return;
+					} else {
+						$unityPlayerDialog.removeClass("r400x300 r800x600 r1366x768 rfullscreen");
+						$unityPlayerDialog.addClass("r" + resolution);
+						if (resolution === "fullscreen") {
+							width = $unityPlayerDialog.width();
+							height = $unityPlayerDialog.height() - 40;
+						} else {
+							var parts = resolution.split('x');
+							width = parts[0];
+							height = parts[1];
+						}
+					}
+					
+					var u = InitUnityPlayer(width, height);
+					u.initPlugin($player[0], $gameBtn.attr("data-target"));
+				});				
+			} else {
+				firemsg('Error!');
+			}
+		});
+	});
+});
+
+// ----------------------------------------------
+$(function() {
+    var $modal = $("#project-medals-dialog").modal({
+        show: false
+    });
+
+    $("[data-action='show-project-medals']").click(function(e) {
+        e.preventDefault();
+        var $link = $(e.currentTarget);
+        var $loader = $modal.find("[data-role='loader']");
+        var $content = $modal.find("[data-role='content']");
+        $loader.show();
+        var url = $link.attr('href');
+        NProgress.start();
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function(data) {
+                NProgress.done();
+                $loader.hide();
+                $content
+                    .html(data)
+                    .show();
+            },
+            error: function() {
+                NProgress.done();
+                $modal.modal('hide');
+                firemsg('Error!');
+            }
+        });
+
+        $modal.modal('show');
+    });
+});
+
+// ----------------------------------------------
+var __tag_list = {
+	'bold': '**',
+	'italic': '__',
+	'striked': '--',
+	'monowidth': '""',
+	'red': '!!',
+	'green': '++',
+	'blue': '??',
+};
+
+var __tag_block_list = {
+	'list': {
+		'start': 	'',
+		'line': 	'- ',
+		'end': 		''
+	},
+	'code': {
+		'start': 	'((код ',
+		'line':		'',
+		'end':		'))'
+	},
+	'align-center': {
+		'start':	'((центр ',
+		'line':		'',
+		'end':		'))'
+	},
+	'align-right': {
+		'start':	'((вправо ',
+		'line':		'',
+		'end':		'))'
+	},
+};
+
+function apply_tag(target, tag) {
+	var start = target.selectionStart;
+	var end = target.selectionEnd;
+	var len = end - start;
+	var value = $(target).val();
+	var beforeSelected = value.substring(0, start);
+	var selected = len > 0 ? value.substring(start, end) : "";
+	var affterSelected = value.substring(end);
+	
+	selected = tag + selected + tag;
+	if (len > 0) {
+		end += tag.length * 2;
+	} else {
+		start = end = start + tag.length;
+	}
+	
+	target.value = beforeSelected + selected + affterSelected;
+	target.selectionStart = start;
+	target.selectionEnd = end;
+}
+
+function apply_block_tag(target, tag) {
+	var start = target.selectionStart;
+	var end = target.selectionEnd;
+	var value = $(target).val();
+	
+	var selected = "";
+	var _start = start;
+	var _end = end;
+	
+	selected = value.substring(start, end);
+	
+	// Look forward
+	var isEndLine = false;
+	for (var i = _end; i < value.length; i++) {
+		if (value.charAt(i) == "\n") {
+			isEndLine = (i == end);
+			break;
+		}
+		selected = selected + value.charAt(i);
+		_end = i;
+	}
+	
+	if (isEndLine && start != end) { 
+		// Look backward
+		for (var i = _start - 1; i >= 0; i--) {
+			if (value.charAt(i) == "\n") {
+				break;
+			}
+			selected = value.charAt(i) + selected;
+			_start = i;
+		}
+	}
+	
+	var len = _end - _start;
+	
+	if (len > 0) {		
+		var lines = selected.split("\n");
+		
+		for (var i = 0; i < lines.length; i++) {
+			lines[i] = tag["line"] + lines[i];
+		}
+		selected = 
+			(tag["start"].length > 0 ? tag["start"] + "\n" : "") + 
+			lines.join("\n") +
+			(tag["end"].length > 0 ? "\n" + tag["end"] : "");  
+	} else {
+		selected = (_start > 0 ? "\n" : "") + 
+			(tag["start"].length > 0 ? tag["start"] + "\n" : "") + 
+			tag["line"] +
+			(tag["end"].length > 0 ? "\n" + tag["end"] : "");
+	}
+	
+	// Insert result text 
+	value = value.substring(0, _start) + selected + value.substring(isEndLine ? _end : _end + 1);
+	$(target).val(value);
+	
+	target.selectionEnd = target.selectedStart = _start + selected.length;
+}
+
+$(document).on('click', '.editor-toolbar a[data-role="format"]', function(e) {
+	e.preventDefault();
+	
+	var $this = $(this);
+	var target = $($this.data('target'));
+	if (target.length > 0) {
+		var action = $this.data('action');
+		if (__tag_list[action]) {
+			target[0].focus();
+			apply_tag(target[0], __tag_list[action]);
+		}
+	}
+});
+
+$(document).on('click', '.editor-toolbar a[data-role="format-block"]', function(e) {
+	e.preventDefault();
+	
+	var $this = $(this);
+	var target = $($this.data('target'));
+	if (target.length > 0) {
+		var action = $this.data('action');
+		if (__tag_block_list[action]) {
+			target[0].focus();
+			apply_block_tag(target[0], __tag_block_list[action]);
+		}
+	}
+});
+
+$(document).on('click', '.editor-toolbar a[data-role="fullscreen"]', function(e) {
+	e.preventDefault();
+	
+	var $this = $(this);
+	var target = $($this.data('target'));
+	if (target.length > 0) {
+		var parent = target.parent(".control-group");
+		parent.toggleClass("fullscreen");
+		$("body").toggleClass("fullscreen-mode", parent.hasClass("fullscreen"));
+		
+		target.focus();
+	}
+});
+
+$(document).on('keydown', 'textarea', function(e) {
+	var keyCode = e.keyCode || e.which;
+	
+	if (keyCode != 17 && e.ctrlKey && !e.shiftKey) {
+		var tagMap = {
+				66: __tag_list['bold'],			// Ctrl + B
+				73: __tag_list['italic'],		// Ctrl + I
+				83: __tag_list['striked'],		// Ctrl + S
+				77: __tag_list['monowidth'],	// Ctrl + M
+		};
+		if (tagMap[keyCode]) {			
+			e.preventDefault();
+			var tag = tagMap[keyCode];
+			
+			apply_tag(this, tagMap[keyCode]);
+		}
+	} else {
+		if (keyCode == 9) {
+			e.preventDefault();
+			var start = this.selectionStart;
+			var end = this.selectionEnd;
+			var value = $(this).val();
+			
+			if (start == end) {
+				value = value.substring(0, start) + "\t" + value.substring(end);
+				
+				$(this).val(value);
+				this.selectionStart = this.selectionEnd = start + 1;
+			} else {
+				var selected = value.substring(start, end);
+				
+				if (selected.indexOf("\n") < 0) {
+					value = value.substring(0, start) + "\t" + value.substring(end);
+					
+					$(this).val(value);
+					this.selectionStart = this.selectionEnd = start + 1;
+				} else {
+					var _start = start;
+					var _end = end;
+					
+					var isHasTab = false;
+					// Look backward
+					for (var i = _start - 1; i >= 0; i--) {
+						if (value.charAt(i) == "\n") {
+							isHasTab = ((i == (start - 1)) && (selected.charAt(0) == "\t"));
+							break;
+						}
+						selected = value.charAt(i) + selected;
+						_start = i;
+					}
+					
+					// Look forward
+					var isEndLine = false;
+					for (var i = _end; i < value.length; i++) {
+						if (value.charAt(i) == "\n") {
+							isEndLine = (i == end);
+							break;
+						}
+						selected = selected + value.charAt(i);
+						_end = i;
+					}
+					
+					// Apply tabs on every lines
+					var lines = selected.split("\n");
+					for(var i = 0; i < lines.length; i++) {
+						if (e.shiftKey) {
+							if (lines[i].indexOf("\t") == 0) {
+								lines[i] = lines[i].substring(1);
+								if (i == 0 && !isHasTab) {
+									start -= 1;
+								}
+								end -= 1;
+							}
+						} else {
+							lines[i] = "\t" + lines[i];
+							if (i == 0) {
+								start += 1;
+							}
+							end += 1;
+						}
+					}
+					selected = lines.join("\n");
+									
+					// Insert result text 
+					value = value.substring(0, _start) + selected + value.substring(isEndLine ? _end : _end + 1);
+					$(this).val(value);
+					this.selectionStart = start;
+					this.selectionEnd = end;
+				}
+			}
+		} else if (keyCode == 13) {
+			e.preventDefault();
+			
+			var start = this.selectionStart;
+			var end = this.selectionEnd;
+			var value = $(this).val();
+			
+			var _start = start;
+			// Look backward
+			for (var i = _start - 1; i >= 0; i--) {
+				if (value.charAt(i) == "\n") {
+					break;
+				}
+				_start = i;
+			}
+			
+			var tabCount = 0;
+			for (var i = _start; i < value.length; i++) {
+				if (value.charAt(i) != "\t") {
+					break;
+				}
+				tabCount++;
+			}
+			
+			var selected = "\n";
+			for (var i = 0; i < tabCount; i++) {
+				selected += "\t";
+			}
+			
+			value = value.substring(0, start) + selected + value.substring(end);			
+			$(this).val(value);
+			this.selectionStart = start + 1 + tabCount;
+			this.selectionEnd = end + 1 + tabCount;
+		}
+	}
+});
+
+function init_stream_controls() {
+	$("[data-action='stream-stop']").click(function(event) {
+		var control = $(event.currentTarget);
+		var streamId = control.data("stream-id");
+		$.ajax({
+			method: 'POST',
+			url: '/streams.php',
+			data: {
+				'do': 'close-active-stream',
+				'streamId': streamId
+			},
+			success: function (data) {
+				var json = eval("(" + data + ")");
+				if (json.status == 0) {
+					window.location.reload();
+				} else {
+					firemsg("Не удалось оставить трансляцию :(");
+				}
+			},
+			error: function() {
+                firemsg("Не удалось оставить трансляцию :(");
+			}
+		})
+	});
+
+    $("[data-action='stream-remove']").click(function(event) {
+        var control = $(event.currentTarget);
+        var streamId = control.data("stream-id");
+        $.ajax({
+            method: 'POST',
+            url: '/streams.php',
+            data: {
+                'do': 'remove-stream',
+                'streamId': streamId
+            },
+            success: function (data) {
+                var json = eval("(" + data + ")");
+                if (json.status == 0) {
+                    window.location.reload();
+                } else {
+                    firemsg("Не удалось удалить трансляцию :(");
+                }
+            },
+            error: function() {
+                firemsg("Не удалось удалить трансляцию :(");
+            }
+        })
+    });
+};
+
+function init_js_controls() {
+	$("[data-js-control='date-time-picker']").datetimepicker({
+		language: 'ru-RU',
+		pickSeconds: false
+	});
+}
+
+$(document).ready(function() {
+	$(".fancybox").fancybox();
+	streak_timer();
+	init_comment_updater();
+	init_stream_controls();
+	init_js_controls();
+	InitJQElements();
+});
+
+
+;

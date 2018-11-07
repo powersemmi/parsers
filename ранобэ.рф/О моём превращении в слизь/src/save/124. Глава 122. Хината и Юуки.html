@@ -1,0 +1,868 @@
+<html lang="ru-Ru"><head><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style>
+    <meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+    <meta name="wot-verification" content="cacab22e123ff52a7497">
+    <meta property="og:site_name" content="Ранобэ.рф">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="fragment" content="!">
+    <meta name="yandex-verification" content="51b039399a0e38a7">
+    
+    <meta name="theme-color" content="#fff">
+    <title>Глава 122. Хината и Юуки | О моём перерождении в слизь | Ранобэ.рф</title>
+    <link rel="icon" type="image/png" href="/public/images/favicon.png">
+    <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-7505887367641385.js"></script><script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" id="google_shimpl"></script><script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,400i,700,700i" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="/public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/build/css/frontend.b4cf76480fdb2de24251.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/build/css/chunks/PartPage.b4cf76480fdb2de24251.css"><script charset="utf-8" src="/build/js/chunks/PartPage.4f5508407ddd9a636943.js"></script><link rel="preload" href="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><meta name="description" content="Сюжетная арка «Гамбит владыки демонов»Решившись бросить вызов Юуки, Хината ощутила странное давление.Она действовала по плану, предполагая, что остаётся незамеченной.«Как ты меня заметил?»«О? Н..."><meta property="title" content="Глава 122. Хината и Юуки | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:title" content="Глава 122. Хината и Юуки | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:url" content="https://xn--80ac9aeh6f.xn--p1ai/tensei-shitara-slime-datta-ken/noindex-glava-122-hinata-i-yuuki/"><meta property="twitter:description" content="Сюжетная арка «Гамбит владыки демонов»Решившись бросить вызов Юуки, Хината ощутила странное давление.Она действовала по плану, предполагая, что остаётся незамеченной.«Как ты меня заметил?»«О? Н..."><meta property="twitter:title" content="Глава 122. Хината и Юуки | О моём перерождении в слизь | Ранобэ.рф"><meta property="article:section" content="Глава 122. Хината и Юуки"><meta property="article:published_time" content="2016-12-19T07:24:10+03:00"><meta property="article:modified_time" content="2016-12-19T07:24:10+03:00"><meta property="og:image" content="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/o-moyom-pererozhdenii-v-sliz-1519254998.png"><meta property="og:image:width" content="537"><meta property="og:image:height" content="240"><meta property="robots" content="noindex, nofollow"><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" as="script"></head>
+<body>
+    <div class="react" id="root"><div class="routers"><header class="header"><div class="header-topline"><div class="container"><div class="row"><div class="col-md-12 pr-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav></div></div></div></div><div class="header__main"><div class="container"><div class="row block-content-header"><div class="col-md-3"><a class="header__logo active" href="/"><img src="/public/images/logo.png" alt="Ранобэ.рф"></a></div><div class="header-wrapper-m " id="js-menu"><div class="header-wrapper-block"><div class="col-md-6 p-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav><div class="search-block opacity"><div class="section"><div class="Select is-clearable is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-3--value"><div class="Select-placeholder"><span>Поиск книги <i class="fa fa-book" aria-hidden="true"></i></span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-3--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span>+</span></span></div></div></div></div></div><div class="col-md-3 pr-0 user-panel"><div class=""><div class="header-btn text-right"><a class="cursor btn btn-transparent btn-white btn-auth">Авторизация</a><a class="cursor btn btn-white btn-transparent btn-register">Регистрация</a></div></div></div></div></div></div></div><a class="toggleMenu cursor burger-menu"><button class="toggleMenu c-hamburger c-hamburger--htx "><span class="toggleMenu">toggle menu</span></button></a><a class="profile_menu"><i class="fa fa-user" aria-hidden="true"></i></a></div><div><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script></div></header><div class="content default"><div id="partPage"><div class="floatingBookMenu default"><div class="container"><div class="bookName"><a href="/tensei-shitara-slime-datta-ken/"><img class="bookCover" src="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/mobile/o-moyom-pererozhdenii-v-sliz-1519254997.png">О моём перерождении в слизь</a></div><div class="bookLink"><a href="/tensei-shitara-slime-datta-ken/"></a></div><div class="bookChapters"><div class="prev-part"><a title="Глава 121. Хината и дети" href="/tensei-shitara-slime-datta-ken/noindex-glava-121-hinata-i-deti/"><div class="arrow-prev"></div></a><span>Предыдущая</span></div><div class="part-select"><div class="search-block"><div class="section default"><div class="Select has-value is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-2--value"><div class="Select-value" title="Глава 122. Хината и Юуки"><span class="Select-value-label">Глава 122. Хината и Юуки</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span><i class="fa fa-arrows-v" aria-hidden="true"></i></span></span></div></div></div></div></div><div class="next-part"><span>Следующая</span><a title="Глава 123. Предначертанное" href="/tensei-shitara-slime-datta-ken/noindex-glava-123-prednachertannoe/"><div class="arrow-next"></div></a></div></div></div></div><div class="container "><div class="wrap-content-part"><div><div class="row"><div class="col-lg-9"><div class="control-panel default"><div class="control"><div class="control-settings control-block togglePanel"><div class="icon icon-settings togglePanel"></div></div><span class="control-text">Размер текста</span></div><div class="control"><div class="control-mode control-block"><div class="icon icon-mode"></div></div><span class="control-text">Режим чтения</span></div><div class="control"><div class="control-bookmark control-block "><div class="icon icon-bookmark"></div></div><span class="control-text">Добавить закладку</span></div></div><article class="part-block"><div class="preloaderFilter none"><div class="preloaderWrapper"><i class="fi flaticon-loading"></i></div></div><div class="title default"><h1>О моём перерождении в слизь<p>Глава 122. Хината и Юуки</p></h1></div><div><div id="content" class="part-content content__block default font-size-17 line-height-25"><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p><em><strong>Сюжетная арка «Гамбит владыки демонов»</strong></em></p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Решившись бросить вызов Юуки, Хината ощутила странное давление.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Она действовала по плану, предполагая, что остаётся незамеченной.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Как ты меня заметил?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«О? Ни привета, сразу вопрос! Как бездушно, Хината».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Заткнись. С какой стати дети – наживка? Это с самого начала было ловушкой?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он пожал плечами.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Разве не ясно? Они стабилизировались и не годятся как материал для повторного вызова».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки улыбнулся, будто вопрос ничего не значил.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Ты сказал – повторного вызова?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Да. Знаешь ли, перед очередным вызовом приходится подождать, потому что он требует громадных затрат магической энергии.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И нужно продолжать вызывать, пока не получишь приличную пешку. Дети тоже сгодятся.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Только вот я не могу их больше использовать, потому что Римуру-сан стабилизировал их.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В результате мы не смогли выполнить заказ… очень неудачно вышло».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он произнёс эти слова так, будто пересказывая самую очевидную вещь в мире.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хотя его жесты и слова были выверены, чтобы успокоить собеседника, Хинате от них веяло подлинным ужасом.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Хм? То есть ты не знала?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если дети взрываются от нестабильной магической энергии, значит, условия для повторного вызова соблюдены.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Можно проделать ещё один вызов.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вот почему даже неудавшиеся вызовы приносят некоторую пользу».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ах, очень жаль, но даже популярный герой Масаюки в итоге оказался лишь мелочью… -</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Слова донеслись будто бы издалека, но разъярили Хинату.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ты, что такое человеческая жизнь, по-твоему? – наверное, хотелось ей сказать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хината не могла такого стерпеть: Юуки несколько раз вызывал людей, чтобы выполнить заказ делового партнёра.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Юуки-онитян, ты спас нас, разве нет?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В слезах спросила Элис.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Ха-ха, поняла наконец? Я сохранял вам жизнь лишь потому, что мог вас использовать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ну, Элис, грустное лицо тут не поможет.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я убью вас, когда вы исчерпаете свою полезность… другими словами, я сохраняю вам жизнь, пока вы мне полезны».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сурово ответил Юуки.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хладнокровная часть Хинаты пробудилась, подвигая её убить человека перед ней.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Нельзя позволить ему жить.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Ублюдок, ты манипулировал не только мной, но и детьми!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И где ещё одна девочка?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Где Хлоя Обер?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ты стёр память детей?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Выкрикнула Хината.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Неудачно вышло, выращивать жуков такая морока, и я заполучил мощную пешку…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Потом…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И когда твои чувства “застыли”, пока ты цеплялась за чувство отчаяния от того, что мать тебя бросила!.. Выражение твоего лица было бесценно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Действительно, очень жаль. Я создал крайне рациональную, безжалостную Хинату с огромным трудом, а теперь ты всего лишь обычный человек с сильным чувством справедливости.</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Кстати, кто такая Хлоя Обер?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>От этих слов Хината разозлилось.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако она успокоилась и подумала: непохоже, что Юуки лжёт, будто не знает, кто такая Хлоя О’Белл.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Что происходит? – повторяла Хината, сдерживая гнев.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Краем глаза она видела заплаканную Элис.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Достаточно, этому человеку нельзя больше позволять такие самодовольные речи. – подумала Хината, вынимая меч из комплекта Святого Духа, сжатого в Браслет.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тут же частички света заплясали вокруг неё. Когда танец прекратился, Хината оказалась во всеоружии.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Юуки, во имя нашей прежней дружбы я даю тебе возможность раскаяться.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поклянись, что прямо сейчас ты принесёшь извинения, расскажешь о своих преступлениях и возместишь ущерб от них».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Ха-ха, почему? За что мне извиняться?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Разве не таков закон джунглей в этом мире?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Плохи те, кто слаб, кто оказываются обманутыми, так?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Довольно с меня этой дряни!»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Гнев Хинаты был подобен ревущему пламени, её меч, сверкая, понёсся к Юуки.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Основным оружием этого нового снаряжения святого духа была катана. Прежде Хината использовала рапиру, способную ещё и рубить, но катана чуть толще её, при минимальной разнице в весе.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Разница в весе и инерции невелика, однако при использовании фехтовальных техник управляться с катаной было легче, чем с широким мечом.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Боевые качества равны, катана, может, чуть получше.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Новая броня святого духа была скопирована и проанализирована посредством способности владыки демонов, и теперь обладала лучшими качествами, чем прежде.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Короче, Хината двигалась в ней, будто в ней родилась.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки получил разрез на щеке, уклонившись от сверкнувшего меча с клоунским выражением на лице.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Красная линия, выступила капелька крови.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Прежнее выражение лица Юуки ушло, однако его насмешливое отношение к врагу никуда не делось.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Хе… Как удивительно. Я думал, что увернусь полностью. Что случилось, Хината? За такое короткое время твоя сила выросла. Пока на тебе висел паразит, ты росла как обычный человек».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мог и солгать, но Юуки открыл, что способен измерять силу целей, которых заразил паразитом.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это укладывалось в известное Хинате. Вопрос был – как близко Юуки подобрался к тому, чтобы завладеть силой, известной как «яйцо героя».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он Грандмастер Ассоциации Свободы, конечно, его способности высоки. Он превосходит искателей приключений уровня S.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранее, когда святая церковь сотрудничала с Ассоциацией Свободы, чтобы сообща победить злого дракона, Хинате довелось увидеть часть силы Юуки.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Без использования навыков он нанёс смертельный удар злому дракону, просто за счёт физической силы. Юуки заявлял, что его от природы крепкое тело – единственное, что он сохранил в этом мире.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Верить этому опасно. Наверняка у него есть и другие скрытые способности.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Потом, управляет ли им Владыка Демонов Казалим? Непохоже.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хотя было вполне возможно, что способность к контролю он получил от Владыки Демонов Казалима, Хината решила выяснить их связь.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если им на самом деле управляет Владыка Демонов, известный как «Магический Король», она хотела бы помочь. Она искренне надеялась, что им на самом деле управляют.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поэтому Хината решила напоследок проверить это. На всякий случай.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Юуки, тобой управляет Казалим?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Или... со мной сейчас говорит “Владыка Хаоса” Казалим?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В ответ Юуки кивнул, злобная ухмылка появилась на его лице.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Э? Ха, ха-ха-ха. Это правда. Или нет?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я, нет, мы Казалим!.. Шутка.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ха-ха-ха, поистине, ты очень интересна, Хината».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки продолжал хохотать, будто услышал что-то смешное.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Его смех раздавался эхом.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Даже хотя эта стойка была полна уязвимостей, она не собиралась атаковать. Она была ужасно искажённой, и Хинате стало не по себе.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Не отводя взгляда от смеющегося Юуки, она подала Фрицу сигнал.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Фриц тоже облачился в броню духа и был готов к бою.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В ответ на сигнал Хинаты он переместился так, чтобы защитить детей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дети тоже почувствовали, что Юуки ведёт себя странно, и сгрудились вокруг Элис, защищая её. Даже хотя они не могли осознать всё происходящее, они отлично поняли, что их использовали.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хината была просто счастлива, что никто из них не разразился слезами или не попытался атаковать его.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ничто не показывало, что детям промыты мозги, и даже в таком случае Фриц бы разобрался с этим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Фриц прикрыл детей, Хината сосредоточилась на Юуки.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Внезапно тот перестал смеяться:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Эй! С чего ты взяла, будто та мелочь мне ровня?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>С обычным, ничего не выражающим лицом спросил он Хинату, потом продолжил, не дожидаясь ответа.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Когда я был призван в этот мир, я странствовал в своём духовном теле, и тот червь (Казалим) приполз ко мне.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Пока я находился в мире духов, он всё похвалялся передо мной. Я не запомнил его слов, мне было неинтересно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кстати, если я правильно помню, то моя самопровозглашённая правая рука Кагали слилась с ним.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Меня заинтересовала его способность, я забрал её.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он искренне желал служить мне, поэтому оставил ему жизнь.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он много чего знает, так что по-своему небесполезен».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мисс Кагари.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Она заместитель главы Ассоциации Свободы.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Красавица, среди её предков были эльфы.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хината вспомнила, что позаботилась о ней, когда Кагари прибыла в этот мир.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Она архимаг, стремящийся познать истину, и похваляется наибольшей огневой мощью в Ассоциации Свободы.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Эту женщину, Кагари, Юуки мог счесть идеальной прислужницей. Она слилась с Казаримом, а не была подвергнута промыванию мозгов.</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Дело не просто в промывании мозгов и зондировании мыслей. Корни, которые пустил Юуки, глубоко проникли в её психику.</p></div></div><div class="yandex-block"><div id="yandex_rtb_R-A-240654-2"></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И ещё.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Эти слова подтверждали, что между Юуки и Казаримом действительно была связь. Он даже смог показать, что отнял способность у своего прислужника Казарима.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>То есть это всё слова Юуки.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хината решила, что он не лжёт. Даже учитывая обилие вариантов, от лжи пользы немного.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это значит, что беспокоиться о сознании Юуки и о том, чтобы привести его в нормальное состояние, бессмысленно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки всё так и задумал с самого начала, и все мы были частью его плана.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«…вот как. Значит, и доброе отношение, и добрая улыбка… всё это, и всё, что ты говорил, было только игрой?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«А, понял. Теперь я понял.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Другими словами, ты хотела помочь, полагая, будто мной управляет Казарим. Так?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Очень жаль! Это чушь. Управляю здесь я. Управляю только я».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки ответил на вопрос Хинаты с совершеннейшей издёвкой.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Учитывая всё произошедшее, казалось, Юуки нравятся причинять ей страдания.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Будто от удовольствия, его губы сложились в холодную усмешку.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хината обрела «Яйцо героя», когда преодолела ложь и обман, после того, как распознала все нестыковки, приобретя способность «Верный глаз».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Даже с её помощью она не увидела лжи в словах Юуки. Он просто излагал факты.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Говорить почти не о чем, заключила Хината.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Юуки… последний вопрос. Для чего тебе нужны эти вызовы?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Почему ты манипулировал Клэйменом и устроил восстание лорда орков, а потом развязал войну между Церковью и Темпестом?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ты понимаешь, что вверг мир в хаос?!»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Ха, ха-ха-ха. Интересные вещи ты говоришь.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Последнее, вот последнее да, всем вам конец.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ладно, я скажу.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Потому что мне это интересно, только и всего.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Какие ещё причины для этого нужны?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я собираюсь полностью объединить мир.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ангелы, Духи, Демоны – я желаю править ими всеми.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но увы, возможно ли править миром с моими нынешними способностями?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вот почему мне следует работать усердно и упорно».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Так Юуки ответил на вопрос Хинаты.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он назвал это не завоеванием мира, а достижением совершенного господства. Юуки желал получить абсолютную власть.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Причина была ещё более дикой, чем думала Хината.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мировое господство… это просто невозможно. Как здравый смысл не подсказал ему, что какими бы поразительными свойствами он не обладал, он не сможет властвовать над целым миром?!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он безумец! Хината почувствовала, как зловещий холод пробирается по её спине.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В глубине трепещущего сердца Хината понимала, что боится.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Не из-за его силы или чего-то подобного, скорее из-за серьёзности, с которой он заявил о своём ужасающем стремлении править миром.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И тогда…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«шарк-шарк-шарк»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звуки шагов раздались в коридоре.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Святая сущность, подобной которой Хината никогда не ощущала.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако таинственная сущность казалась неестественной, так как не имела цвета и чувств и двигалась будто бесцельно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«А, вот и она.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>К несчастью для тебя, Хината, исчез твой шанс на победу.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В поединке ты бы могла меня победить.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как и ожидалось, ты не смогла меня победить.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это игра. Просто игра.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я хочу править миром, а мир не желает мне уступать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ради своей победы я отдаю всего себя.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вам, ребята, тоже стоило бы отдать всех себя, чтобы остановить меня, да?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вы пренебрегли этим, потому и проиграли».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как только Юуки закончил речь, отворилась дверь, ведущая в коридор, и вошла девушка.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Её длинные чёрные волосы были собраны на затылке, она была одета в лёгкое снаряжение, полностью чёрное.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Более компактная версия святой брони Хинаты, совершенно не стесняющая движений.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Очень красивое лицо.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Рука её была на мече, висящем ниже талии.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Степенно девушка вошла внутрь.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это и был «истинный герой». Сильнейший.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Её глаза не имели блеска, покрытые чернейшей тьмой. Всё её тело излучало ауру священной неприкосновенности.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мощнейшая аура начала подавлять Хинату и детей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки вовсе не нуждался в уловках.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Не было нужды манипулировать детьми, просто его боевые способности многократно превосходили способности Хинаты. Вот и вся ловушка.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Это… Герой?.. Почему герой здесь?..»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Пробормотал Фриц за спиной Хинаты.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки радостно ответил:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«А, Клэймен всё-таки смог принести пользу.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я хотел, чтобы он пробудился как истинный владыка демонов, будучи моей пешкой, но у меня уже был Казалим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вместо этого я велел ему собрать всех владык демонов.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Таким образом, Люминаса, охранявшего “спящего героя”, не оказалось рядом.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Наверное, тебе неизвестно – известно ли тебе, что Люминас, управлявший “героем”, и есть настоящий правитель Святой Церкви Рубериуса?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я решил забрать её у Люминаса, чтобы использовать её эффективно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Благодаря всем вашим усилиям я получил полный контроль над героем.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Над детьми получить такую власть невозможно, чтобы вы знали. Вы беспокоились напрасно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но нужно сказать, что за вашими трепыханиями было забавно наблюдать!»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хината снова поняла, что он не лжёт, и мир вокруг неё будто исчез.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>То есть Юуки только что сказал, что истинный глава Церкви – владыка демонов Люминас.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если так, то столица Священной Империи Рубериус находится под властью владыки демонов.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Неудивительно, почему в Священной Империи Рубериус было неестественное ощущение присутствия монстров.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Так что система власти, установленная сотни тысяч лет назад, учение церкви – всё это было ложью.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>(Это значит… меня использовал не только Юуки, но и владыка демонов…)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но Хинатой дело не ограничивалось.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Всех, кто принадлежал к Священной Империи Рубериус и Западной Церкви, тоже использовали.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юуки продолжил обращаться к Хинате, объятой отчаянием.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Сделай одолжение, подумай секунду, Хината: не присоединишься ли ты ко мне?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кажется, ты обрела “Яйцо героя” и даже сумела его пробудить.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я всегда рад прибавлению в наших силах.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Учитывая, что мы из одной страны, я даже дам тебе какую-нибудь должность. Что скажешь?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Не смей! Ублюдкам вроде тебя не должно быть пощады.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Здесь и сейчас я покараю тебя за твои грехи!»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Отвергнув предложение Юуки, она плотнее взялась за меч.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако, вопреки своему решительному заявлению, она послала Фрицу сигнал отступать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Всё вышло куда хуже, чем можно было представить.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хината вступит в бой, а Фриц сможет воспользоваться путём к отступлению.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Неважно, какой ценой.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Противник был гораздо сильнее них, и это было лучшее, что она смогла придумать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Не скажу, что ждал другого ответа…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>А теперь – я ведь уже довольно долго говорю, правда?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ну, ты знаешь: рассказал о том, что происходит за кулисами, когда ко мне подступили как к главному злодею?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Всегда хотел это испытать, было чудесно и весело.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>А теперь главному злодею, который всё рассказал, полагается проиграть?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Гадаешь, поднял ли я флаг, готов ли к бою?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я приготовил и поднял роскошный флаг, так что как следует постарайся меня победить.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вдруг у тебя получиться пробудиться героем и разбить нас?».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>То были последние слова, которыми обменялись Хината и Юуки.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>А потом грянул бой.</p></div></div></div></div></article><div class="col-md-12 text-center"><div style="margin-bottom: 5px;" class="adsense-bottom"><div class="adsense-block"><ins class="adsbygoogle" style="display: block; text-align: center; height: 193px;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-7505887367641385" data-ad-slot="8181392956" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:769px;height:193px;" width="769" height="193" frameborder="0"></iframe></ins></ins></ins></div></div></div><ul class="default navigation-bottom"><li><a class="btn-prev btn-nav" href="/tensei-shitara-slime-datta-ken/noindex-glava-121-hinata-i-deti/"><i class="btn-icon-nav fi flaticon-left-arrow"></i><span>Предыдущая</span></a></li><li class=""><a class="btn-book btn-nav" href="/tensei-shitara-slime-datta-ken/"><i class="btn-icon-nav fi flaticon-open-book"></i><span>Оглавление</span></a></li><li class="next-part last"><a class="btn-next btn-nav btn-nav-right" href="/tensei-shitara-slime-datta-ken/noindex-glava-123-prednachertannoe/"><i class="btn-icon-nav fi flaticon-arrow-pointing-to-right"></i><span>Следующая</span></a></li></ul></div><div class="col-lg-3 pr-0 pl-0"><div class="money"><div><div></div><div><div class="adsense-right"><div class="adsense-block"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7505887367641385" data-ad-slot="2134859359" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:300px;height:600px;" width="300" height="600" frameborder="0"></iframe></ins></ins></ins></div></div></div></div></div></div></div></div></div></div></div></div><span class="redux-toastr" aria-live="assertive"><span><div class="top-left"></div><div class="top-right"></div><div class="top-center"></div><div class="bottom-left"></div><div class="bottom-right"></div><div class="bottom-center"></div></span></span><footer class="footer"><div class="footer-bottom"><div class="container"><div class="row"><div class="col-md-4 col-sm-8 col-xs-10"><div class="footer__copyright">© 2016-2018 Copyright: Ранобэ.рф</div></div><div class="col-md-4 col-md-offset-4 col-sm-4 col-xs-2"><ul class="footer__social list-inline text-right"><li><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i></a></li></ul></div></div></div></div><div class="scroll-to-top"><div class="btn-animate"><div class="btn-wrapper"><i class="fi flaticon-up-arrow"></i></div></div></div></footer></div></div>
+    <script src="/build/js/polyfill.b4cf76480fdb2de24251.js"></script>
+    <script src="/public/js/classList.min.js"></script>
+		<script src="/public/js/react.production.min.js"></script>
+		<script src="/public/js/react-dom.production.min.js"></script>
+		<script src="/build/js/frontend.b4cf76480fdb2de24251.js"></script>
+
+
+</body></html>

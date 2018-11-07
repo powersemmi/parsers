@@ -1,0 +1,648 @@
+<html lang="ru-Ru"><head><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style>
+    <meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+    <meta name="wot-verification" content="cacab22e123ff52a7497">
+    <meta property="og:site_name" content="Ранобэ.рф">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="fragment" content="!">
+    <meta name="yandex-verification" content="51b039399a0e38a7">
+    
+    <meta name="theme-color" content="#fff">
+    <title>Глава 4. Мой первый друг. | О моём перерождении в слизь | Ранобэ.рф</title>
+    <link rel="icon" type="image/png" href="/public/images/favicon.png">
+    <script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/osd.js"></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-7505887367641385.js"></script><script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" id="google_shimpl"></script><script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,400i,700,700i" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="/public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/build/css/frontend.b4cf76480fdb2de24251.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/build/css/chunks/PartPage.b4cf76480fdb2de24251.css"><script charset="utf-8" src="/build/js/chunks/PartPage.4f5508407ddd9a636943.js"></script><link rel="preload" href="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><meta name="description" content="Я был удивлен.Я не считал ситуацию опасной, но, ах, я был не прав.С драконом я вел себя невежливо, ибо был слепым, но теперь…- Эй, ты только что дал мне обещание, не забыл?- Шучу, просто шучу. Я вижу, я слышу, вы спасли..."><meta property="title" content="Глава 4. Мой первый друг. | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:title" content="Глава 4. Мой первый друг. | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:url" content="https://xn--80ac9aeh6f.xn--p1ai/tensei-shitara-slime-datta-ken/noindex-glava-4-moy-perviy-drug/"><meta property="twitter:description" content="Я был удивлен.Я не считал ситуацию опасной, но, ах, я был не прав.С драконом я вел себя невежливо, ибо был слепым, но теперь…- Эй, ты только что дал мне обещание, не забыл?- Шучу, просто шучу. Я вижу, я слышу, вы спасли..."><meta property="twitter:title" content="Глава 4. Мой первый друг. | О моём перерождении в слизь | Ранобэ.рф"><meta property="article:section" content="Глава 4. Мой первый друг."><meta property="article:published_time" content="2016-12-18T21:39:10+03:00"><meta property="article:modified_time" content="2016-12-18T21:39:10+03:00"><meta property="og:image" content="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/o-moyom-pererozhdenii-v-sliz-1519254998.png"><meta property="og:image:width" content="537"><meta property="og:image:height" content="240"><meta property="robots" content="noindex, nofollow"><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" as="script"><script id="https://an.yandex.ru/resource/context_static_r_6876.js" src="https://an.yandex.ru/resource/context_static_r_6876.js"></script></head>
+<body>
+    <div class="react" id="root"><div class="routers"><header class="header"><div class="header-topline"><div class="container"><div class="row"><div class="col-md-12 pr-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav></div></div></div></div><div class="header__main"><div class="container"><div class="row block-content-header"><div class="col-md-3"><a class="header__logo active" href="/"><img src="/public/images/logo.png" alt="Ранобэ.рф"></a></div><div class="header-wrapper-m " id="js-menu"><div class="header-wrapper-block"><div class="col-md-6 p-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav><div class="search-block opacity"><div class="section"><div class="Select is-clearable is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-3--value"><div class="Select-placeholder"><span>Поиск книги <i class="fa fa-book" aria-hidden="true"></i></span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-3--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span>+</span></span></div></div></div></div></div><div class="col-md-3 pr-0 user-panel"><div class=""><div class="header-btn text-right"><a class="cursor btn btn-transparent btn-white btn-auth">Авторизация</a><a class="cursor btn btn-white btn-transparent btn-register">Регистрация</a></div></div></div></div></div></div></div><a class="toggleMenu cursor burger-menu"><button class="toggleMenu c-hamburger c-hamburger--htx "><span class="toggleMenu">toggle menu</span></button></a><a class="profile_menu"><i class="fa fa-user" aria-hidden="true"></i></a></div><div><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script></div></header><div class="content default"><div id="partPage"><div class="floatingBookMenu default"><div class="container"><div class="bookName"><a href="/tensei-shitara-slime-datta-ken/"><img class="bookCover" src="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/mobile/o-moyom-pererozhdenii-v-sliz-1519254997.png">О моём перерождении в слизь</a></div><div class="bookLink"><a href="/tensei-shitara-slime-datta-ken/"></a></div><div class="bookChapters"><div class="prev-part"><a title="Глава 3. Первый разговор." href="/tensei-shitara-slime-datta-ken/noindex-glava-3-perviy-razgovor/"><div class="arrow-prev"></div></a><span>Предыдущая</span></div><div class="part-select"><div class="search-block"><div class="section default"><div class="Select has-value is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-2--value"><div class="Select-value" title="Глава 4. Мой первый друг."><span class="Select-value-label">Глава 4. Мой первый друг.</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span><i class="fa fa-arrows-v" aria-hidden="true"></i></span></span></div></div></div></div></div><div class="next-part"><span>Следующая</span><a title="Глава 5. Первые отголоски." href="/tensei-shitara-slime-datta-ken/noindex-glava-5-pervie-otgoloski/"><div class="arrow-next"></div></a></div></div></div></div><div class="container "><div class="wrap-content-part"><div><div class="row"><div class="col-lg-9"><div class="control-panel default"><div class="control"><div class="control-settings control-block togglePanel"><div class="icon icon-settings togglePanel"></div></div><span class="control-text">Размер текста</span></div><div class="control"><div class="control-mode control-block"><div class="icon icon-mode"></div></div><span class="control-text">Режим чтения</span></div><div class="control"><div class="control-bookmark control-block "><div class="icon icon-bookmark"></div></div><span class="control-text">Добавить закладку</span></div></div><article class="part-block"><div class="preloaderFilter none"><div class="preloaderWrapper"><i class="fi flaticon-loading"></i></div></div><div class="title default"><h1>О моём перерождении в слизь<p>Глава 4. Мой первый друг.</p></h1></div><div><div id="content" class="part-content content__block default font-size-17 line-height-25"><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я был удивлен.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я не считал ситуацию опасной, но, ах, я был не прав.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>С драконом я вел себя невежливо, ибо был слепым, но теперь…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Эй, ты только что дал мне обещание, не забыл?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Шучу, просто шучу. Я вижу, я слышу, вы спасли меня.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Хм, я думал, что это займет больше времени…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ох, слава богу.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>У него пускай и страшный облик, но добрый нрав.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако, его слова полны одиночества. Он из тех, кто вынужден страдать из-за внешности. Прямо как персонаж книги «Людоед, который плакал».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ну, что будешь делать теперь?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Пока что буду искать кого-нибудь из своего мира. Даже если не найду, это все равно хорошая идея.</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Конечно, было бы лучше, действительно найти я кого-нибудь, но при встрече я не знаю, кем он мне будет – другом или врагом. Останься я слепым, не смог бы лицезреть мир во время путешествий. Но теперь я вижу во всех направлениях. Благодаря этому, мне более не придется тратить всё время на поедание травы.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Впрочем, этот дракон…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Чем больше смотрю на него, тем ужасающе он выглядит. Секунду, разве он не сказал, что был запечатан 300 лет назад?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Кстати, господин Штормовой Дракон, вы говорили, что были запечатаны… Почему вас заперли здесь?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- А? Я же говорил, разве нет? Я несерьезно отнесся к противнику…&nbsp; А когда стал серьезен, было уже поздно, и я проиграл.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дракон с непонятной мне гордостью заявил о своем поражении. На самом деле, его наверняка одолели магией, поскольку сомневаюсь, что против дракона будут эффективны меч или копье…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ваш противник был силен?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Возможно, в мире существует некто сильнее этого монстра? Если так, то снаружи гораздо опаснее, чем я думал.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- А, он определенно был силен. У него была «божественная защита». Если не ошибаюсь, его называли «герой».[1]</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юша. «Герой» на японском. Персонаж множества игр, обладающий самыми разными обликами и невероятными силами. Наверняка, коли такой есть в этом мире, то он очень силен.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Это мне напомнило… Молва гласила, что он был призван из твоего мира.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Э? В моем мире был кто-то настолько сильный, но его все равно смогли призвать?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Нет, не думаю, что он был столь силен с самого начала. При призыве кого-либо из другого мира происходит много странностей. Во время переноса в душу закладываются специальные способности. Когда «вызванный» пребывает в новый мир, у него есть 100% шанс получить особые силы, а также дар в виде дополнительного навыка. Они сильно отличаются от тех, кто попадает в наш мир случайно, так как их души вынуждены переносить процесс призыва. Шанс успеха крайне мал – около 0,03%.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Говоря «призван»… Ты подразумеваешь магию?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Верно. Для призыва нужно 30 магов, а церемония занимает три дня. Вероятность успеха низка, а процесс сложен, но, если все получится, сильное «оружие» гарантированно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Хм? Оружие?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Да… Тот, кого призывают. Магия призыва засылает приглашение прямо в душу, поэтому призываемые, как правило, превращаются в нечто вроде марионеток, не способных противиться приказам призвавшего.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Какого?! Иными словами, ни один призванный не обладает правами человека?!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Права человека? Иногда люди из различных миров упоминают их, но здесь они – пустой звук. Абсолютная истина нашего мира – выживает сильнейший.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ясно…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мне, непривыкшему&nbsp; к устройству этого мира, было тяжело принять подобную истину.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Значит ли это, что все люди из других миров рассматриваются как рабы?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Нет… Но всё зависит от человека. Если призыватель решает не брать над человеком контроль, то призванные могут поступать так, как хотят: жить тихо и мирно, али податься в искателей приключений. По правде говоря, ко мне несколько раз приходили искатели приключений из других миров, чтобы повергнуть! Фува-ха-ха-ха!!!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Иными словами, подчинить насильно могут лишь при призыве…</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>- Есть прав или нет прав, это ведь не имеет значения, а? Я не так уж и много общался с людьми, поэтому не понимаю.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Вот как?.. Это потому, что ты – дракон, верно?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>А для дракона он очень хорошо разбирается в деталях. Мы можем говорить на многие темы и он, вроде как, в состоянии ответить почти на любой мой вопрос.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Какое-то время мы со Штормовым драконом беседовали, а я задавал различные вопросы.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как сражаться с героем? Как он выглядел?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Светлая кожа. Небольшие малиновые губы. Длинные блестящие черные волосы. Стройная фигура, не большой, но и не маленький, рост. Её глаза были скрыты за маской, но, очевидно, она была красавицей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Да, герой – девушка.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но все же, почему он гордится своим поражением? Шутит, не иначе! Я вздохнул.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Её оружием был изогнутый меч, именующийся «катаной». Она обладала уникальными навыками «абсолютный разрыв» и «вечная темница». Она сокрушила его, задействовав всю свою магическую силу. Он казался счастливым, описывая её.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>После разговора с драконом я пришел к выводу, что он, кажется, очень любит людей. Пускай и говорит, что не убивают атаковавших его людей только потому, что на мелочь силы тратить жалко. Если эта самая мелочь его, конечно, не выведет из себя…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Когда-то, еще 300 лет назад, произошли некоторые события, в ходе которых дракон оказался виноватым в появлении тлеющего пустыря на месте города. Из-за этого была вызвана Юша, запечатавшая его с помощью уникального навыка «вечная темница».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я не понимаю чувства дракона. Мне они чужды, остается только догадываться.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако, я не думаю, что Штормовой Дракон – злой.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он мне нравится, как личность.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Не думаю, что стоит его бояться.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поэтому,</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ладненько! Не хочешь ли ты… стать моим другом?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Спрашивать было весьма смущающее. Было бы лицо, так все пунцовое, не иначе.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Я и ты? Я, Штормовой Дракон, и ты, «слизь», хочешь быть моим другом? Ты не боишься меня?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Н-нет, не боюсь. Но если тебе неприятно…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ошибаешься!!! Мне не неприятно!!! Я этого не говорил!!!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- О, вот оно как? Тогда, каков твой ответ?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ну, тогда… Это значит… Раз такое дело… Если я говорю…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Почему-то кажется, что еще чуть-чуть, и я смогу увидеть лепестки цветов и нежно-розовые всполохи, а все вокруг засверкает.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Было бы замечательно, разговаривай со мной сейчас милая девушка. Но это невозможно, ибо предо мной переминался с лапы на лапу дракон с ужасающей внешностью, которая ни в коем случае не настраивает на романтический лад. Мда, вот ведь кадр.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Нет, не нравится мне это. Неприятно! Нашей дружбе конец! Уходи и не возвращайся!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ах ты ж!.. Ничего не поделаешь, так и быть. Я позволю тебе стать моим другом, будь благодарен!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Фух. Этот дракон не честен сам с собой. Ну, я тоже поступил не шибко честно, поэтому мы квиты. И вообще, чтоб я еще раз попытался завести дружбу с драконом-цундере.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Позаботься обо мне!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Да, пожалуйста, и ты обо мне!.. Ну, тогда, я должен дать тебе имя. И ты тоже должен как-то назвать меня.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ха? Зачем?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Это создаст связь между нашими душами. Частичка моей души будет у тебя, а частичка твоей – у меня. Наличие имени станет некой формой «божественной защиты». Сейчас ты «неназванный», но благодаря этому сможешь изменить табличку[2] с именем!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хм.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Другими словами, это нечто вроде фамилии. Нужно хорошенько подумать над этим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хотя, у меня ужасный вкус…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Так как ты Штормовой Дракон… «Буря»… звучит?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ах, аналогия шторм-буря… Кажется такой дешевкой.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Решено!!! Мне нравится, как это звучит!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Отлично, ему понравилось!</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>- С этого момента я, Штормовой Дракон, ношу имя Буря, а ты носишь имя Римел.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя было высечено на моей душе. Ни способности, ни внешность не изменились, но где-то в глубинах моей души что-то дрогнуло. Я был уверен в том, что это частица души Штормового Дракона.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вот так мы стали друзьями. Вернее, связанными душами, друзьями, что несет в себе гораздо более глубокое значение.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>***</p></div></div><div class="yandex-block"><div id="yandex_rtb_R-A-240654-2"></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>По сути, уникальный навык «вечная темница» запечатывал жертву в астральном пространстве, а значит должен был не допускать вмешательства из внешнего мира. В таком случае, крайне странно, что Штормовой Дракон способен общаться телепатически, когда все другие его способности запечатаны. Более того, даже спустя столько времени, сила печати не ослабла. Это ненормально…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Конечно, Буря не заметил сей факт, но заметил я.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- «Лады. Позволь мне попробовать разобраться с ним…» - говорю я и прикасаюсь к дракону.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как я и предполагал, печать, оставленная героем, находится на совершенно ином уровне.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Когда навык не сработал, возникла яркая вспышка, и меня откинуло назад. Печать, которую я попытался разрушить, получила незначительные повреждения в своей основе, но немедля восстановилась.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Для начала, как бы мне справиться с чужим уникальным навыком? Моя попытка решить это простым способом провалилась.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Неужели я ничего не могу сделать?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кстати об этом…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>…Хмпф.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вероятность успеха слишком низкая.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я глянул на темную прозрачную пленку, которая и являлась так называемой «вечной темницей». Мудрец сказал, что её невозможно уничтожить физическими атаками… Значит она, вероятно, служит неким подобием абсолютной защиты.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Когда ты атаковал героя, получила ли она ранения?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Хороший вопрос. Когда мы обменивались атаками, я уверен, что попал по ней несколько раз, но от этого не было никакого эффекта! «Ветер Смерти», «Черная Молния», «Секущий Шторм»! Я испробовал все свои атаки, и они попали в цель, но ничего противнице не сделали! Сейчас я готов посмеяться над разочарованием, постигшим меня тогда!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Штормовой Дракон очень долго возмущался, а под конец демонстративно фыркнул.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>При активации уникальный навык «вечная темница» работает как щит, останавливающий все атаки извне? Как удобно. Но разве не становишься практически непобедимым, если имеешь в наличии уникальные навыки «вечная темница» и «абсолютный разрыв»?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Не хочу я встретиться с таким человеком из трехсотлетнего прошлого.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но та девушка определенно была в разряде сильнейших[3].</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Впрочем, не это сейчас важно. Выходит, единственный возможный вариант сбежать отсюда, так это перенестись в форме духа?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Похоже, форма духа – единственный путь к побегу. Конечно, сбежать сможет только твое сознание, да и шансы невелики.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Нет необходимости называть точный процент успеха. Если я его назову, моральный настрой Бури может упасть, и шанс удачного переноса станет еще ниже.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Да? Есть способ сбежать?! На самом деле, спустя 100 лет заточения моя магия начала слабеть и слабеет по сей день! Моя демоническая энергия непрерывно покидает тело, и я не способен остановить её…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ясно, так вот почему концентрация демонической энергии здесь так высока?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Гм, энергия настолько плотная, что демоны не смогут приблизиться к ней, а на земле не вырастет трава. Единственное живое в моей пещере – редкие растения!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>А.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Трава Хипокут сразу пришла мне на ум.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>К слову, она ведь как раз является редчайшим лекарственным растением, не так ли?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ну, коль так, то мы должны попробовать сей метод спасения. Если у нас будет подходящий сосуд духа, то шансы на успех повысятся… Но я правда не понимаю, что же подразумевается под «сосудом духа»?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- …Если я рискну покинуть темницу в форме духа, то, полагаю, смогу собрать всю покинувшую моё тело демоническую энергию и преобразовать её в своеобразное ядро, должное стать новым телом. Если я где-то ошибусь, то, вероятно, погибну при перемещении. Хех, выходит, чтобы спастись, я должен перевоплотиться?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Этот дракон!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я, конечно, знал, что он весьма умен, но чтобы провести целую логическую цепочку и сделать такие же выводы, как и Великий Мудрец!..</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Тогда в чем проблема? Просто сде…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Однако, по правде говоря, моё ядро незаменимо… Пожалуйста, держи это в секрете. Моё текущее ядро составляет всю мою суть и всю суть моей силы. Если я создам новое, то оно станет новой жизнью, никак не связанной с моей текущей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я сказал, что не понимаю.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он объяснял до тех пор, пока я не понял.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В итоге же вышло…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тело Бури сформировано из огромного количество демонической энергии. Но эта энергия, на данный момент, крайне нестабильна и вылилась в окружающее пространство. А поскольку дракон заперт в ловушке, то не сможет, покинув тело (т.е. приняв духовную форму), своими силами собрать утерянную демоническую энергию. А спасение одного лишь сознания…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Невозможно, потому что нужен сосуд, верно?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если сознание покинет тело, то потеряет связь с демонической энергией, практически источником жизни дракона, и исчезнет. После этого где-то далеко-далеко родится новый штормовой дракон. Пускай этот новый дракончик и будет похож на Бурю, но, по сути, станет новым существом, потерявшим прежнюю личностью. А это бессмысленно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Шах и Мат. Затея провальна.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако… Возможно ли использовать на Буре «хищника»?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если так сделать, будет ли возможно проанализировать и вычленить эффект «вечной темницы», после чего аннулировать его?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это возможно?..</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если я объясню ему, будет ли он готов это сделать?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В противном случае, он растеряет всю свою демоническую энергию и погибнет.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я объяснил ему свою идею использования «хищника».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако, без корректировок от «Великого Мудреца» успех невозможен…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Буга-га-га-га! Интересно! Пожалуйста, дерзай! Я вверяю себя тебе!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ты и вправду так просто примешь эту идею?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Конечно! Остаться здесь, ожидая твоего возвращения, или отправиться вместе с тобой, пытаясь сломать «вечную темницу»? Разумеется, второй вариант звучит куда веселее! Если будем работать вместе, то, возможно, сможем разрушить «вечную темницу»!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вот как?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я буду не один, мы будем вместе.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звучит хорошо, не так ли?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>С помощью «хищника» и «великого мудреца» я перенесу Бурю во внешний мир, чтобы проанализировать его состояние и попытаться уничтожить эффект темницы.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поскольку он будет в моем желудке, то не подвергнется опасности исчезновения разума.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кажется, это хорошая идея.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Лады!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я приготовился.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я касаюсь дракона и активирую навык «хищник».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Его гигантское тело исчезает.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Было очень грустно. Даже если мы просто общались, после его исчезновения я чувствовал себя одиноко.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хотя, я боялся, что меня, как и в прошлый раз, оттолкнет от его тела, обозначив неудачу, но сейчас я не встретил никакого сопротивления.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И все же удивляет, как я так просто смог поглотить нечто настолько огромное.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Текущий объем занятого пространство в моем желудке был равен 25%...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Да сколько же там места?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он спросил!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Молясь про себя, я выбираю «да».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Статус</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Имя: Римел Буря[4]</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Слизь</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Защита: Эмблема Шторма</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: -</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: -</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: уникальный навык «великий мудрец», уникальный навык «хищник», навык «гидравлический двигатель», дополнительный навык «магическое восприятие»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Расовые способности: растворение, поглощение, самовоспроизведение</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивление: сопротивление изменению температуры, сопротивление физическим атакам, невосприимчивость к боли, сопротивление электричеству, сопротивление параличу</p></div></div></div></div></article><div class="col-md-12 text-center"><div style="margin-bottom: 5px;" class="adsense-bottom"><div class="adsense-block"><ins class="adsbygoogle" style="display: block; text-align: center; height: 193px;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-7505887367641385" data-ad-slot="8181392956" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:769px;height:193px;" width="769" height="193" frameborder="0"></iframe></ins></ins></ins></div></div></div><ul class="default navigation-bottom"><li><a class="btn-prev btn-nav" href="/tensei-shitara-slime-datta-ken/noindex-glava-3-perviy-razgovor/"><i class="btn-icon-nav fi flaticon-left-arrow"></i><span>Предыдущая</span></a></li><li class=""><a class="btn-book btn-nav" href="/tensei-shitara-slime-datta-ken/"><i class="btn-icon-nav fi flaticon-open-book"></i><span>Оглавление</span></a></li><li class="next-part last"><a class="btn-next btn-nav btn-nav-right" href="/tensei-shitara-slime-datta-ken/noindex-glava-5-pervie-otgoloski/"><i class="btn-icon-nav fi flaticon-arrow-pointing-to-right"></i><span>Следующая</span></a></li></ul></div><div class="col-lg-3 pr-0 pl-0"><div class="money"><div><div></div><div><div class="adsense-right"><div class="adsense-block"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7505887367641385" data-ad-slot="2134859359" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:300px;height:600px;" width="300" height="600" frameborder="0"></iframe></ins></ins></ins></div></div></div></div></div></div></div></div></div></div></div></div><span class="redux-toastr" aria-live="assertive"><span><div class="top-left"></div><div class="top-right"></div><div class="top-center"></div><div class="bottom-left"></div><div class="bottom-right"></div><div class="bottom-center"></div></span></span><footer class="footer"><div class="footer-bottom"><div class="container"><div class="row"><div class="col-md-4 col-sm-8 col-xs-10"><div class="footer__copyright">© 2016-2018 Copyright: Ранобэ.рф</div></div><div class="col-md-4 col-md-offset-4 col-sm-4 col-xs-2"><ul class="footer__social list-inline text-right"><li><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i></a></li></ul></div></div></div></div><div class="scroll-to-top"><div class="btn-animate"><div class="btn-wrapper"><i class="fi flaticon-up-arrow"></i></div></div></div></footer></div></div>
+    <script src="/build/js/polyfill.b4cf76480fdb2de24251.js"></script>
+    <script src="/public/js/classList.min.js"></script>
+		<script src="/public/js/react.production.min.js"></script>
+		<script src="/public/js/react-dom.production.min.js"></script>
+		<script src="/build/js/frontend.b4cf76480fdb2de24251.js"></script>
+
+
+</body></html>

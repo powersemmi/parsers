@@ -1,0 +1,732 @@
+<html lang="ru-Ru"><head><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style>
+    <meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+    <meta name="wot-verification" content="cacab22e123ff52a7497">
+    <meta property="og:site_name" content="Ранобэ.рф">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="fragment" content="!">
+    <meta name="yandex-verification" content="51b039399a0e38a7">
+    
+    <meta name="theme-color" content="#fff">
+    <title>Глава 74. Вельдора | О моём перерождении в слизь | Ранобэ.рф</title>
+    <link rel="icon" type="image/png" href="/public/images/favicon.png">
+    <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-7505887367641385.js"></script><script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" id="google_shimpl"></script><script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,400i,700,700i" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="/public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/build/css/frontend.b4cf76480fdb2de24251.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/build/css/chunks/PartPage.b4cf76480fdb2de24251.css"><script charset="utf-8" src="/build/js/chunks/PartPage.4f5508407ddd9a636943.js"></script><link rel="preload" href="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><meta name="description" content="Я почувствовал сильный приток энергии, когда приказал &quot;Мудрому Лорду Рафаэлю&quot; освободить Вельдору. В этот момент будто высвободилась невероятной силы энергия.- Я переродился!!!Разве ты не странно звучишь? Сначала я хотел возразить, н..."><meta property="title" content="Глава 74. Вельдора | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:title" content="Глава 74. Вельдора | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:url" content="https://xn--80ac9aeh6f.xn--p1ai/tensei-shitara-slime-datta-ken/noindex-glava-74-veldora/"><meta property="twitter:description" content="Я почувствовал сильный приток энергии, когда приказал &quot;Мудрому Лорду Рафаэлю&quot; освободить Вельдору. В этот момент будто высвободилась невероятной силы энергия.- Я переродился!!!Разве ты не странно звучишь? Сначала я хотел возразить, н..."><meta property="twitter:title" content="Глава 74. Вельдора | О моём перерождении в слизь | Ранобэ.рф"><meta property="article:section" content="Глава 74. Вельдора"><meta property="article:published_time" content="2016-12-19T01:30:10+03:00"><meta property="article:modified_time" content="1970-01-01T03:33:38+03:00"><meta property="og:image" content="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/o-moyom-pererozhdenii-v-sliz-1519254998.png"><meta property="og:image:width" content="537"><meta property="og:image:height" content="240"><meta property="robots" content="noindex, nofollow"><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" as="script"></head>
+<body>
+    <div class="react" id="root"><div class="routers"><header class="header"><div class="header-topline"><div class="container"><div class="row"><div class="col-md-12 pr-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav></div></div></div></div><div class="header__main"><div class="container"><div class="row block-content-header"><div class="col-md-3"><a class="header__logo active" href="/"><img src="/public/images/logo.png" alt="Ранобэ.рф"></a></div><div class="header-wrapper-m " id="js-menu"><div class="header-wrapper-block"><div class="col-md-6 p-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav><div class="search-block opacity"><div class="section"><div class="Select is-clearable is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-2--value"><div class="Select-placeholder"><span>Поиск книги <i class="fa fa-book" aria-hidden="true"></i></span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span>+</span></span></div></div></div></div></div><div class="col-md-3 pr-0 user-panel"><div class=""><div class="header-btn text-right"><a class="cursor btn btn-transparent btn-white btn-auth">Авторизация</a><a class="cursor btn btn-white btn-transparent btn-register">Регистрация</a></div></div></div></div></div></div></div><a class="toggleMenu cursor burger-menu"><button class="toggleMenu c-hamburger c-hamburger--htx "><span class="toggleMenu">toggle menu</span></button></a><a class="profile_menu"><i class="fa fa-user" aria-hidden="true"></i></a></div><div><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script></div></header><div class="content default"><div id="partPage"><div class="floatingBookMenu default"><div class="container"><div class="bookName"><a href="/tensei-shitara-slime-datta-ken/"><img class="bookCover" src="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/mobile/o-moyom-pererozhdenii-v-sliz-1519254997.png">О моём перерождении в слизь</a></div><div class="bookLink"><a href="/tensei-shitara-slime-datta-ken/"></a></div><div class="bookChapters"><div class="prev-part"><a title="Глава 73. Освобождённый" href="/tensei-shitara-slime-datta-ken/noindex-glava-73-osvobozhdyonniy/"><div class="arrow-prev"></div></a><span>Предыдущая</span></div><div class="part-select"><div class="search-block"><div class="section default"><div class="Select has-value is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-3--value"><div class="Select-value" title="Глава 74. Вельдора"><span class="Select-value-label">Глава 74. Вельдора</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-3--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span><i class="fa fa-arrows-v" aria-hidden="true"></i></span></span></div></div></div></div></div><div class="next-part"><span>Следующая</span><a title="Глава 75. Встреча" href="/tensei-shitara-slime-datta-ken/noindex-glava-75-vstrecha/"><div class="arrow-next"></div></a></div></div></div></div><div class="container "><div class="wrap-content-part"><div><div class="row"><div class="col-lg-9"><div class="control-panel default"><div class="control"><div class="control-settings control-block togglePanel"><div class="icon icon-settings togglePanel"></div></div><span class="control-text">Размер текста</span></div><div class="control"><div class="control-mode control-block"><div class="icon icon-mode"></div></div><span class="control-text">Режим чтения</span></div><div class="control"><div class="control-bookmark control-block "><div class="icon icon-bookmark"></div></div><span class="control-text">Добавить закладку</span></div></div><article class="part-block"><div class="preloaderFilter none"><div class="preloaderWrapper"><i class="fi flaticon-loading"></i></div></div><div class="title default"><h1>О моём перерождении в слизь<p>Глава 74. Вельдора</p></h1></div><div><div id="content" class="part-content content__block default font-size-17 line-height-25"><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я почувствовал сильный приток энергии, когда приказал "Мудрому Лорду Рафаэлю" освободить Вельдору. В этот момент будто высвободилась невероятной силы энергия.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Я переродился!!!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Разве ты не странно звучишь? Сначала я хотел возразить, но промолчал и...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Привет! Давно не виделись, как поживаешь?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я поприветствовал его почти без эмоций.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- ...В чём дело... Я наконец вернулся, а ты так ужасно меня встретил... Но ты сделал это быстрее, чем я ожидал. Думал потребуется больше времени.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Нет! Всё же это на "Вечное Заточение" потребовалось время. Если бы мой навык "Великий Мудрец" не изменился, бог знает как долго бы это продолжалось.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Мой уникальный навык "Разведчик" так же всё это время следил за тюрьмой. Так печально, что он был заперт внутри, и я не мог отправить сообщение "Великому Мудрецу". Насколько до нелепого прочное заточение! Как и ожидалось от героя. Кстати, а что с изменившимися навыками?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Спросил Вельдора, и я начал рассказывать. Моё превращение в демона-лорда изменило уникальные навыки и превратило их в высшие. Так "Великий Мудрец" стал "Рафаэлем", плюс значительно увеличились аналитические способности.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Хохо, вот значит как&nbsp; было. И ты стал демоном-лордом меньше, чем за год! Знаешь, а ты действительно стал сильным, не то, что эти недодемоны-лорды!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>-&nbsp; Что ж! Кто бы мог подумать! Ну не гений ли я? Боже, приняв форму слизи, я уже тогда был самым сильным среди остальных. Но это было дано мне свыше, нет?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ты идиот? Совершаешь такие глупые поступки. Какое-то время назад я почувствовал, что ты высвободил огромное количество магической энергии за раз. А ещё ходил и раздавал всем имена направо и налево... а ты знаешь, что каждый раз, когда тебе не хватало энергии, я отдавал тебе часть своей? Какой смешной парень. Мне казалось, что так ты наоборот продлишь моё заключение, а ты взял и изменился, кто бы мог подумать. Должен заметить, очень неожиданно!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Что? Я чувствовал себя хорошо благодаря Вельдоре? Я не раз думал, что в той эволюции, что произошла со мной, к тому же безо всяких последствий было что-то странное. Полагаю, я больше не могу так опрометчиво поступать, одаривая других именами. Ясно... теперь я понимаю почему демоны-лорды не могут в одночасье увеличить число своих последователей. Что теперь говорить об этом, давайте просто сделаем вид, что всё шло по плану.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Серьёзно? Всё шло по плану (хотя это и наглая ложь)! Кстати, ты получил от меня дар? При перевоплощении в демона-лорда все, с кем ты связан, получают что-то вроде даров.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он недоверчиво на меня посмотрел. А немного подумав ответил.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Оооох! Это умение получено в результате изменений! Мой уникальный навык "Разведчик" превратился в высший навык "Король Фауст-Следопыт". Принимая во внимание мою любознательность, мне была дарована элементарная истина!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он очень взволнован. Такой балбес, прямо как и выглядит. Но это даже хорошо. Видеть такого ликующего Вельдору.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Рад за тебя. Эволюция навыков случается неожиданно часто, верно?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я задал ему вопрос.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Идиот! Я не ожидал ничего такого в ближайшую тысячу лет. Те, кто проходит через это, не хвастается, а наоборот держит всё в секрете. То, через что ты прошёл действительно очень ценный опыт.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Таков был его ответ. Нет, ну конечно, я имею в виду, что демоны-лорды пробуждаются не каждый день, что скорее редкое явление. Мне бы хотелось подольше поболтать, но Вельдоре скорее всего не терпится выйти наружу. Я беспокоюсь, хорошая ли это идея. В конце концов его преследовала Церковь. Не обнаружат ли они его?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Эй, теперь когда мы сломали печать и ты переродился, не хочешь выйти наружу? Но, думаю из-за такого количества ауры, которую ты высвободил, скоро каждый будет о тебе знать...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Узнай они, тебе бы доставило это неприятности?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Да. Я хотел отшутиться на этот счёт, но... Доставит ли мне это проблем... Нет, нисколько я полагаю? Даже если что-то и случится, я всегда могу положиться на Вельдору.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Нет. Если подумать, не так сильно. А что если тебе, как носителю информации, не воспользоваться одним из моих клонов?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Предложив это, я создал клона и перенёс сознание Вельдоры в это тело. Так я высвободил его из своего желудка.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я и моя прекрасная копия. Единственное что - у него волосы стали цвета платины. И только я подумал.... Как его волосы на глазах начали расти, достигнув длины в 2 метра. Тело окрепло и передо мной предстал мужчина. Так бы я выглядел, если бы захотел превратиться в парня. Вот что я думал. Как я и предполагал, он просто повёрнут на драках, больной на всю голову. Мне кажется легче сражаться в той пугающей форме. Он не превратился в гигантского дракона, а я уже почти настроился&nbsp; на его превращение.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Куахахахаха! Я достиг небывалой силы! Все, кто не подчинятся - должны умереть!!!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И всё в таком роде, произносил он, пытаясь выглядеть как типичный злодей. Кстати, я помню эти слова. Их говорил один главарь из моей любимой манги.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Эй... старикан. Как ты узнал об этой фразе?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Куахахахаха! Дело в том, что мне было скучно, и я позволил себе порыться в твоих воспоминаниях!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Начинается! Ты в курсе, что такие глупости лишь задерживают начало анализа?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Что?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- ...Что?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мы смотрели друг другу в глаза. К сожалению, я вообще сомневаюсь было ли в тех воспоминаниях что-то хорошее.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Кстати. Ты ведь освободил меня, спасибо!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он опустил глаза и направил разговор в другое русло. И тогда...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>"Сообщение. Получена очень важная информация".</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сказал Рафаэль, а потом начал докладывать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>"Подтверждён запуск "Коридора Души" личности Вельдоры. Личность: Вельдора получил высший навык "Король Бурь Вельдора".</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Эффекты навыка: Призыв Дракона Бурь - способность призывать Вельдору в форме дракона. Исходя из выделяемого количества энергии время призыва сокращено.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия Дракона Бурь: Способность использовать "Возвещающие о смерти ветры", "Чёрную Грозу" и "Ураган Разрушений".</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Исходя из вышесказанного, в настоящее время только Освобождение Дракона Бурь не имеет ограничений по времени. Важно, что в нынешнем состоянии остальные навыки "Короля Бурь Вельдоры" не могут быть использованы".</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ещё одна новость, свалившаяся мне как снег на голову. Да ты издеваешься... Я рассказал обо всём Вельдоре.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- "Коридор Души", хах. Итак, все мои воспоминания будут преодолевать границы времени и пространства и в итоге становиться с тобой одним целым. Другими словами, пока ты существуешь - я бессмертен. Даже если я снова буду запечатан в Вечном Заточении, тебе всего лишь нужно отменить приказ. Я всегда был почти невидимым, а теперь стал бессмертным...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Так я и буду продолжать жить. Нет, правда, как ужасно всё обернулось. Представьте только, что кто-то нападает на меня, мы сражаемся один на один и вдруг "бах!" и появляется Вельдора! Хихихи. Как же жалко будет выглядеть соперник. Здорово же я придумал. Хм, но было же что-то ещё?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>"И второе: большое количество способностей передалось и вам, хозяин. Может мне следует выборочно удалить их, соединив с другими или увеличив их мощность? ДА/НЕТ".</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Не думаю, что у меня будет время их использовать. Порой требуются годы на изучение подобных навыков. В любом случае, у меня не будет возможности ими воспользоваться. Так что такой вариант меня устроит. Подумал я и выбрал - ДА. Началось соединение навыков и так же быстро закончилось.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>"Сообщение. Уникальный навык "Бесконечное Заточение" был использован в качестве основы в ходе слияния... и успешно. Уникальное умение "Бесконечное Заточение" превратился в высший навык "Клятва Короля Уриэля"".</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Что? Я приобрёл уникальный навык "Бесконечное Заточение" и... Важное сообщение, которое Рафаэль-сан так невозмутимо сообщил. Клятва означает верность. Это такая форма верности моих сторонников. Навык, образовавшийся путём соединения всего, что я достиг - высший навык "Клятва Короля Уриэля"... хах. Я проверил свои силы после приобретения навыка. Такое невероятное чувство защищённости. Это лишний раз доказывает, что у нас с товарищами есть некая связь.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хмм? Подождите-ка... Не означает ли это, что я приобрёл четыре высших навыка?! Сейчас... разве не самое подходящее время, чтобы гордиться своими способностями? Давайте отнесёмся к этому серьёзно. Как говорят, печальны дни хвастающегося дурака. Я ведь называюсь демоном-лордом и не должен позволять себе ослаблять защиту. Верно! Если буду во власти чувств, то непременно проиграю. Настало время мыслить здраво. А теперь давайте проверим способности.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>"Объяснение. Высший навык "Клятва Короля Уриэля" обладает следующими эффектами.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Территориальная Власть: Способность управлять пространством и возможность передвигать его в намеченную точку. Способность Передвижения.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Защитный Барьер: Способность создавать многоуровневую защиту и искривлять пространство для создания абсолютной защиты.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вечное Заточение: Способность на долгое время запечатать объект, поставив высшую печать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Изоляция Пространства: Способность контролировать инерцию. В данный момент возможно высвобождать и поглощать тепло по желанию.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это всё. После приобретения данного навыка, уступающие по силе, более слабые сверхнавыки были стёрты".</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ясно... Похоже Территориальная Власть позволяет мне в мгновение ока оказаться там, где я пожелаю. Как я понимаю, сейчас Защитный Барьер покрывает моё тело. Моё вмешательство не требуется, кажется у Рафаэля всё под контролем. Вечное Заточение можно активировать по моему желанию. Это тот же самый барьер, который удерживал Вельдору. То есть те, кого я поймаю, никогда оттуда не выберутся. На самом деле я пока не пользовался Изоляцией Пространства. Я твёрдо верю, что обладаю высокой способностью управления огнём, хотя... В качестве теста я создал свой первый огонь. И по моей команде он исчез. Ох... хорошо. Чтобы не тратить понапрасну высвобожденное тепло, я могу поддерживать изолированное пространство в определённом состоянии. Этот навык вне моего понимания, я, наверное, не смогу им воспользоваться, но единственное, что я точно понимаю - это ещё одно абсурдное приобретённое умение. Оставим всё на Рафаэля-сана. Прямо скажем, навыки Уриэля - внезапное перемещение, абсолютная защита и изоляция. Это я хорошо понимаю. Итак... получается я непобедимый? ...Нет, нет, ведь я только что решил быть осторожным. Эта слизь не будет смотреть на других свысока.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Пока я проверял свои навыки, Вельдора проверял свой высший навык "Король Фауст-Следопыт". Так необычно звучит. В его способности входят: Ускоренное Мышление, Анализ, Всё созданное в этом мире, Оценка Вероятности и Поиски Правды. Даже у меня нет последних двух. К сожалению, не активирована пищевая цепочка. Но, наверное я и так бы в них не разобрался. Закончив с исследованиями новых способностей, я направился к выходу.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мы открыли дверь, и вышли наружу. Гэбил ждал нас у входа, стоя на коленях. Что-то произошло?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- С-с-сегодня и п-п-правда хороший д-день... Видеть Римару-сама и В-вельдора-сама в добром здравии...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он так сильно дрожал. Ясно, он заметил, что Вельдора переродился. Неважно какую форму он принимает, его присутствие выдаёт его. Драконотритоны - далёкие потомки драконов. Более того, монстры Леса Джура долгое время преклонялись перед Вельдорой. И, конечно же его перерождение вызвало панику. Понятно, даже если мне он не доставляет проблем, его выход в свет может создать проблемы в городе.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>-&nbsp; Вельдора, ты не будешь против, если я отменю клонирование, а ты пока ненадолго переселишься обратно?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Хмм? Нет, нисколько. Я ещё не закончил читать ту мангу из твоих воспоминаний и могу воспользоваться твоими глазами, чтобы получить всю необходимую информацию.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он с радостью согласился. Для начала давайте представим его командирам. И когда Вельдора запрыгнул в меня...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Гэбил, не стоит так сильно переживать. Если присмотреться, он очень милый дракон.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- У-уум... Какие взаимоотношения между Римару-сама и-и Вельдора-сама? И теперь, когда Вельдора-сама переродился?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он говорил это, пытаясь скрыть сильное волнение. И я с радостью объяснил. Обещая представить его каждому на общей встрече глав.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но по возвращении в город, как и ожидалось, кое-что всё же доставило проблем. Кажется, что те, кто могли это увидеть, увидели. Будто всё вокруг говорило, что Дракон Бурь переродился и каждый был начеку.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Ох, Римару-сама, вы невредимы! Мы внезапно почувствовали перерождение Дракона Бурь Вельдора-самы в пещере. А зная, что Римару-сама направился именно туда, сильно забеспокоились.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Мой брат Гэбил жив?!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сказал Ригардо, когда убедился, что я вернулся назад. В это время подбежала взволнованная Соука - сестра Гэбил.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Хмм? О, никаких проблем. Ригардо, как там с приготовлением встречи?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Так точно. Немедленно продолжим приготовления. Но что более важно, похоже новости о присутствии Вельдора-самы достигли ушей жителей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Новости здесь быстро разлетаются. Это хорошая возможность всем его представить. Мы решили устроить громадное совещание и позволить узнать об этом всем остальным. На нём также будут Йому и Эллен и другие представители расы людей. Всё же нам необходимо определить наши дальнейшие действия.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Соука, Гэбил будет присутствовать, поэтому и тебе тоже нужно там быть. Скажи Соей всех собрать!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Да! Приступаю к выполнению!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Воскликнула она и убежала прочь. Она убежала, чтобы доставить Соей сообщение, да на такой скорости, что Ригардо даже не успел и глазом моргнуть. Оставлю всё на них, они должны быстро всех собрать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Пока они выполняли мой приказ, я попросил Ригардо объяснить Главам Департамента их обязанности.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Итак, Бенимару.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Бенимару</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Светлый Они (демон, дьявол)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Король Они</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А (ЕР: 213 000) (П.П.: EP или effort points - очки за старания, достижения.)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: отсутствует</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальный навык "Главнокомандующий" - Быстрое Мышление, Мысленное Подавление, Прогнозирование</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Управление Огнём", "Чёрная Гроза", "Множественные Барьеры", "Передвижение в пространстве"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Обнаружение по тепловому излучению", "Величие", "Исполинская Мощь"</p></div></div><div class="yandex-block"><div id="yandex_rtb_R-A-240654-2"></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Боевые навыки: "Трансформация Пламени"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивляемость: Сброс Физических Атак, Сброс Болевых Ощущений, Сброс Изменений Статуса, Сопротивляемость к Энергетическим Атакам, Сопротивляемость к Священной Магии, Сопротивляемость к влиянию природы</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вкратце - абсурд. Он главнокомандующий Бури. Следом идёт Шуна.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Шуна</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Светлый Они</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Принцесса-Призрак</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А (ЕР: 12 000)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: "Управление Природой", "Управление Стихиями", "Управление Бедствиями"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальные навыки:&nbsp; "Психоанализ" - Ускорение Мышления, Анализ, Отмена Заклинания; "Создатель" - Изменение Данных, Объединение, Разъединение</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Множественный Барьер", "Передвижение в пространстве"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Величие"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивляемость: Сброс Изменений Статуса, Сопротивляемость к Энергетическим Атакам</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Шуна тоже достигла ранга А. Но она не сильна в сражениях. Что до Хакуро...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Хакуро</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Светлый Они</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Святой Меч</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А (ЕР: 65 500)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: "Парящий Дух"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальные навык: "Мастер Боевых Искусств" - Ускорение Мышления, Максимальное Ускорение, Предсказание</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Мудрец", "Множественный Барьер", "Передвижение в пространстве"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Величие", "Исполинская Мощь"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивляемость: Сброс Изменений Статуса, Сопротивляемость к Энергетическим Атакам</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как и ожидалось. Святой Меч, хах. Очень ему подходит. На самом деле так мы его и привыкли называть. У Куроби помимо уникального навыка "Исследователь" добавился ещё и уникальный навык "Праведный Ремесленник". Он и правда очень любит кузнечное дело. Теперь Соей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Соей</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Светлый Они</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Ями (Тьма)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А (ЕР: 187 000)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: отсутствует</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальные навыки: "Убийца" - Ускорение Мышления, Смерть от одного удара, Максимальное Ускорение</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Множественный Барьер", "Передвижение в пространстве"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Страх", "Величие"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Боевые навыки: "Яд, Паралич, Уничтожающее Дыхание", "Клонирование", "Манипуляции с паутиной"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивляемость: Сброс Болевых Ощущений, Сброс Изменений Статуса, Сопротивляемость к Физическим и Энергетическим Атакам, Сопротивляемость к Священной Магии, Сопротивляемость к влиянию природы</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он тоже хорош на поле боя. Ох, и Смерть от одного удара - это не физическая атака, он направлен прямиком на духовное тело. Если душа противника не защищена, то противостоять невозможно. Каким опасным созданием он стал. А теперь проблемный ребёнок Шион.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Шион</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Дьявол Они</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Бессмертный</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А (ЕР: 224 000)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: отсутствует</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальные навыки: "Готовка" - Результат Принятия Решения, Оптимальный Выбор</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Мудрец", "Множественные Барьеры", "Передвижение в пространстве", "Восстановление", "Идеальная Память"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Страх", "Богиня Войны"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Боевые навыки: "Трансформация Демона"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивляемость: Сброс Болевых Ощущений, Сброс Изменений Статуса, Сопротивляемость к Физическим и Энергетическим Атакам, Сопротивляемость к Священной Магии, Сопротивляемость к влиянию природы</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Она... После доклада Ригардо я собрался проверить и себя... Но она и правда превосходит Бенимару в боевой силе. Какая пугающая девушка. И, эй, что насчёт "Трансформации Демона"?! Теперь она полудемон-лорд.&nbsp; Я бы не удивился, если бы сейчас она стала расы Демона-Лорда. Зачем нам ещё одна опасная личность на свободе? Дайте же мне хоть вздохнуть немного, а... Следом идёт Гэбил.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Гэбил</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Драконотритон</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Рыцарь-Дракон</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А (ЕР: 126 000)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: отсутствует</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальные навыки: "Настройщик" - Неожиданные Результаты, Изменение Судьбы</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Мудрец", "Множественный Барьер", "Передвижение в пространстве"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Обнаружение по тепловому излучению", "Сверхобоняние", "Величие"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Боевые навыки: "Трансформация Рыцаря-Дракона", "Дыхание Пламени", "Громогласное Дыхание"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивляемость: Сброс Болевых Ощущений, Сброс Изменений Статуса, Сопротивляемость к Физическим и Энергетическим Атакам, Сопротивляемость к Священной Магии, Сопротивляемость к влиянию природы</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я вообще не понимаю что это значит. Я понимаю что такое Настройщик, но что это за способность такая? Возможно это какой-то мистический навык и активируется в момент, когда атака ещё не достигла цели, чтобы преобразовать предполагаемые худшие последствия в благоприятные или как-то так. Этот парень - насмешка судьбы или что-то другое? Как и ожидалось от Гэбил. Ничего не загадывайте наперёд, и он не предаст ваши ожидания. Он также обладает многочисленными сопротивляемостями, неожиданно сильный... наверное. Очередь Герудо, он у нас отвечает за защиту.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Герудо</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Высший Орк</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Король Орков</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А (ЕР: 147 000)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: отсутствует</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальные навыки: "Страж" - Обеспечение Защиты, Замещение, Прочная Стена(П.П.: также Железная или Стальная Стена); "Гурман" - Предсказание, Аппетит, Припасы, Потребление</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Мудрец", "Множественные Барьеры", "Передвижение в пространстве"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Сверхобоняние", "Величие", "Исполинская Мощь"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Боевые навыки: "Яд, Паралич, Уничтожающее Дыхание", "Полная Замена Бронезащиты", "Управление Мыслями"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивление: Сброс Болевых Ощущений, Сброс Изменений Статуса, Сопротивляемость к Физическим и Энергетическим Атакам, Сопротивляемость к Священной Магии, Сопротивляемость к влиянию природы</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Солидный набор. Он способен направить повреждения на себя и воспользоваться собственными защитными навыками, тем самым защитив армию. Как от генерала дивизиона я могу ожидать от него великих свершений. Пока ещё неизвестно как много навыков он может активизировать. И последний - Диабло. Похоже он ничего не рассказал Ригардо, поэтому я пошёл к нему сам. Если точнее, я позвал и он появился.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Имя: Диабло</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Раса: Демон</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дар: Сила Бури</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звание: Демон-Лорд</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ранг: ранг А+ (ЕР: 444 000)</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магия: "Управление Магической Энергией", "Призыв Высшего Демона"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Навыки: Уникальные навыки:&nbsp; "Великий Маг" - Управление Мыслями, Мысленное Подавление, Отмена Заклинания; "Чародей" - Очарование, Обольщение</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сверхнавыки: "Множественные Барьеры", "Передвижение в пространстве"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ежедневные навыки: "Познание Магии", "Честолюбие Демона-Лорда"</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Боевые навыки: Управление Преимуществом</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сопротивление: Сброс Физических Атак, Сопротивляемость к влиянию природы, Сброс Изменений Статуса, Сопротивляемость к Энергетическим Атакам, Сопротивляемость к Священной Магии</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хахаха. Какой приятный парень. Он стал до смешного силён. Он теперь с лёгкостью может стать демоном-лордом. Сомнений быть не может. После нас с Вельдорой он самый сильный в городе.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он должен узнать о нашем собрании и принять в нём участие, направлюсь-ка я к месту сбора. Это будет очень важная встреча, на которой решится дальнейшая судьба Бури. И её главной целью станет создание мира, в котором и люди и монстры могут мирно сосуществовать...</p></div></div></div></div></article><div class="col-md-12 text-center"><div style="margin-bottom: 5px;" class="adsense-bottom"><div class="adsense-block"><ins class="adsbygoogle" style="display: block; text-align: center; height: 193px;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-7505887367641385" data-ad-slot="8181392956" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:769px;height:193px;" width="769" height="193" frameborder="0"></iframe></ins></ins></ins></div></div></div><ul class="default navigation-bottom"><li><a class="btn-prev btn-nav" href="/tensei-shitara-slime-datta-ken/noindex-glava-73-osvobozhdyonniy/"><i class="btn-icon-nav fi flaticon-left-arrow"></i><span>Предыдущая</span></a></li><li class=""><a class="btn-book btn-nav" href="/tensei-shitara-slime-datta-ken/"><i class="btn-icon-nav fi flaticon-open-book"></i><span>Оглавление</span></a></li><li class="next-part last"><a class="btn-next btn-nav btn-nav-right" href="/tensei-shitara-slime-datta-ken/noindex-glava-75-vstrecha/"><i class="btn-icon-nav fi flaticon-arrow-pointing-to-right"></i><span>Следующая</span></a></li></ul></div><div class="col-lg-3 pr-0 pl-0"><div class="money"><div><div></div><div><div class="adsense-right"><div class="adsense-block"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7505887367641385" data-ad-slot="2134859359" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:300px;height:600px;" width="300" height="600" frameborder="0"></iframe></ins></ins></ins></div></div></div></div></div></div></div></div></div></div></div></div><span class="redux-toastr" aria-live="assertive"><span><div class="top-left"></div><div class="top-right"></div><div class="top-center"></div><div class="bottom-left"></div><div class="bottom-right"></div><div class="bottom-center"></div></span></span><footer class="footer"><div class="footer-bottom"><div class="container"><div class="row"><div class="col-md-4 col-sm-8 col-xs-10"><div class="footer__copyright">© 2016-2018 Copyright: Ранобэ.рф</div></div><div class="col-md-4 col-md-offset-4 col-sm-4 col-xs-2"><ul class="footer__social list-inline text-right"><li><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i></a></li></ul></div></div></div></div><div class="scroll-to-top"><div class="btn-animate"><div class="btn-wrapper"><i class="fi flaticon-up-arrow"></i></div></div></div></footer></div></div>
+    <script src="/build/js/polyfill.b4cf76480fdb2de24251.js"></script>
+    <script src="/public/js/classList.min.js"></script>
+		<script src="/public/js/react.production.min.js"></script>
+		<script src="/public/js/react-dom.production.min.js"></script>
+		<script src="/build/js/frontend.b4cf76480fdb2de24251.js"></script>
+
+
+</body></html>

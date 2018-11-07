@@ -1,0 +1,822 @@
+<html lang="ru-Ru"><head><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style>
+    <meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+    <meta name="wot-verification" content="cacab22e123ff52a7497">
+    <meta property="og:site_name" content="Ранобэ.рф">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="fragment" content="!">
+    <meta name="yandex-verification" content="51b039399a0e38a7">
+    
+    <meta name="theme-color" content="#fff">
+    <title>Глава 228. Вторжение в лабиринт (часть 1) | О моём перерождении в слизь | Ранобэ.рф</title>
+    <link rel="icon" type="image/png" href="/public/images/favicon.png">
+    <script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/osd.js"></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-7505887367641385.js"></script><script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" id="google_shimpl"></script><script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,400i,700,700i" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="/public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/build/css/frontend.b4cf76480fdb2de24251.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/build/css/chunks/PartPage.b4cf76480fdb2de24251.css"><script charset="utf-8" src="/build/js/chunks/PartPage.4f5508407ddd9a636943.js"></script><link rel="preload" href="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><meta name="description" content="Вельдора много раз оглядывался в мою сторону, а потом с сожалением ушел, пока я его провожал его взглядом.Тот кто сдается - проигрывает. Это может выглядеть не очень, но он взял у меня большое количество волшебной сущности, поэто..."><meta property="title" content="Глава 228. Вторжение в лабиринт (часть 1) | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:title" content="Глава 228. Вторжение в лабиринт (часть 1) | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:url" content="https://xn--80ac9aeh6f.xn--p1ai/tensei-shitara-slime-datta-ken/glava-228-vtorzhenie-v-labirint/"><meta property="twitter:description" content="Вельдора много раз оглядывался в мою сторону, а потом с сожалением ушел, пока я его провожал его взглядом.Тот кто сдается - проигрывает. Это может выглядеть не очень, но он взял у меня большое количество волшебной сущности, поэто..."><meta property="twitter:title" content="Глава 228. Вторжение в лабиринт (часть 1) | О моём перерождении в слизь | Ранобэ.рф"><meta property="article:section" content="Глава 228. Вторжение в лабиринт (часть 1)"><meta property="article:published_time" content="2018-05-12T01:05:00+03:00"><meta property="article:modified_time" content="2018-09-06T03:39:19+03:00"><meta property="og:image" content="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/o-moyom-pererozhdenii-v-sliz-1519254998.png"><meta property="og:image:width" content="537"><meta property="og:image:height" content="240"><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" as="script"><script id="https://an.yandex.ru/resource/context_static_r_6875.js" src="https://an.yandex.ru/resource/context_static_r_6875.js"></script><style type="text/css">#o83de18cf .s432f9bf9{position:fixed !important;left:-1000px !important;top:-1000px !important;width:1px !important;height:1px !important;display:block !important}</style><style type="text/css">.p7dce408c{opacity:1 !important;white-space:normal !important}.p7dce408c,.p7dce408c yatag{display:block !important;font-family:inherit !important}.p7dce408c,.p7dce408c,.p7dce408c a,.p7dce408c b,.p7dce408c em,.p7dce408c iframe,.p7dce408c img,.p7dce408c table,.p7dce408c tbody,.p7dce408c td,.p7dce408c tr,.p7dce408c yatag{box-sizing:content-box !important;color:inherit !important;font-size:inherit !important;font-weight:inherit !important;-webkit-hyphens:manual !important;-ms-hyphens:manual !important;hyphens:manual !important}.p7dce408c,.p7dce408c a,.p7dce408c b,.p7dce408c em,.p7dce408c iframe,.p7dce408c img,.p7dce408c table,.p7dce408c tbody,.p7dce408c td,.p7dce408c tr{background:none !important;border:none !important;border-radius:0 !important;border-spacing:0 !important;border-collapse:collapse !important;clear:none !important;float:none !important;font-variant:normal !important;letter-spacing:normal !important;line-height:normal !important;margin:0 !important;max-height:none !important;max-width:none !important;min-height:0 !important;min-width:0 !important;outline:none !important;padding:0 !important;position:static !important;text-align:left !important;text-decoration:none !important;text-indent:0 !important;text-transform:none !important;vertical-align:baseline !important;visibility:visible !important;word-spacing:normal !important}.p7dce408c,.p7dce408c a,.p7dce408c b,.p7dce408c em,.p7dce408c img,.p7dce408c table,.p7dce408c tbody,.p7dce408c td,.p7dce408c tr{height:auto !important}.p7dce408c table{display:table !important;empty-cells:hide !important;table-layout:fixed !important}.p7dce408c table,.p7dce408c td{font-size:100% !important}.p7dce408c td{display:table-cell !important;vertical-align:middle !important}.p7dce408c{position:relative !important;z-index:1 !important;-webkit-font-smoothing:antialiased !important;-webkit-text-size-adjust:none !important}.p7dce408c .yf0f96491,.p7dce408c .yf0f96491:hover,.p7dce408c .yf0f96491:hover b,.p7dce408c .yf0f96491 b{display:inline !important;color:#006600 !important;text-decoration:none !important;border-bottom-color:rgba(0,102,0,0.4) !important;border-bottom-width:1px !important;border-bottom-style:solid !important}.p7dce408c .yf0f96491:hover,.p7dce408c .yf0f96491:hover b{color:#DD0000 !important;border-bottom-color:rgba(221,0,0,0.4) !important}.p7dce408c a:focus{-webkit-user-select:none !important;-moz-user-select:none !important;-ms-user-select:none !important;user-select:none !important}.p7dce408c .rba07e159{display:inline !important}.p7dce408c .rd9018637{overflow-wrap:break-word !important;word-wrap:break-word !important;-webkit-hyphens:auto !important;-ms-hyphens:auto !important;hyphens:auto !important}.p7dce408c img.w3ff57f6b{position:relative !important;margin-top:-0.2em !important;margin-right:.3em !important;width:1em !important;height:1em !important;min-width:8px !important;max-width:16px !important;min-height:8px !important;max-height:16px !important;display:inline-block !important;vertical-align:middle !important}.p7dce408c img.ye480c85d{width:16px !important;height:16px !important}.p7dce408c .nf2b7595e{cursor:pointer !important}.p7dce408c .nf2b7595e,.p7dce408c .ub914acd{position:relative !important}.p7dce408c .ub914acd:after{content:"" !important;position:absolute !important;top:0 !important;left:-5px !important;bottom:-5px !important;right:0 !important}.p7dce408c .ub914acd.kbeb30ccc:after{left:0 !important;bottom:0 !important}.p7dce408c .be1f5b546{z-index:-1 !important;transition:z-index 0s linear .4s !important;cursor:default !important}.p7dce408c .be1f5b546,.p7dce408c .ee79fcf11{position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important;overflow:hidden !important}.p7dce408c .ee79fcf11{margin-left:100% !important;transition:margin-left .4s ease-out !important}.p7dce408c .ofaf0e370{position:absolute !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;margin-left:0 !important;width:100% !important;height:100% !important;background:#fff !important;background:hsla(0,0%,100%,.98) !important;transition:margin-left .4s ease-out !important}.p7dce408c .vad6f07d7{z-index:10 !important;transition:z-index 0s !important}.p7dce408c .vad6f07d7 .ee79fcf11{margin-left:0 !important}.p7dce408c .a9fd74bd8{padding:0 0 4px 4px !important}.p7dce408c .n14e16f4d{position:absolute !important;top:50% !important;right:100% !important;margin-top:-9px !important;margin-right:8px !important;padding:0 4px !important;max-width:120px !important;height:18px !important;line-height:18px !important;color:#fff !important;background:#333 !important;background-color:rgba(0,0,0,.8) !important;border-radius:1px !important;visibility:hidden !important;font-size:11px !important;white-space:nowrap !important}.p7dce408c .ab8d56859{position:absolute !important;top:3px !important;right:-6px !important;display:block !important;overflow:hidden !important;width:0 !important;height:0 !important;border-style:solid !important;border-width:6px 0 6px 6px !important;border-color:transparent transparent transparent #333 !important;border-color:transparent transparent transparent rgba(0,0,0,.8) !important}.p7dce408c .c88454f5d{position:relative !important;color:#fff !important;letter-spacing:.04em !important}.p7dce408c .o30306f7f{position:relative !important;padding:4px !important;border-radius:0 0 0 20% !important}.p7dce408c .hd9f9989f svg{display:block !important}.p7dce408c .hd9f9989f polygon{fill:#000000 !important}.p7dce408c .d8c8ebbfe{margin:-3px !important;width:1em !important;height:1em !important;line-height:1em !important;text-align:center !important;font-size:18px !important}.p7dce408c .a9fd74bd8:hover .n14e16f4d{visibility:visible !important}.p7dce408c .y6a750c13:hover .n14e16f4d{display:none !important}.p7dce408c .xcc9e7dab{visibility:visible !important}.p7dce408c .xcc9e7dab .n14e16f4d{display:none !important}.p7dce408c .r239c7045 .n14e16f4d{height:19px !important;line-height:19px !important}.p7dce408c .r239c7045 .ab8d56859{top:2px !important}.p7dce408c .t71e13431 .o30306f7f{padding:5px !important}.p7dce408c .t71e13431 .d8c8ebbfe{margin:-5px !important;font-size:25px !important}.p7dce408c .t71e13431 .n14e16f4d{margin-right:9px !important;margin-top:-12px !important;max-width:160px !important;height:22px !important;line-height:22px !important;font-size:13px !important}.p7dce408c .t71e13431 .ab8d56859{right:-7px !important;top:4px !important;border-width:7px 0 7px 7px !important}.p7dce408c .a9fd74bd8.y6a750c13 .n14e16f4d{display:none !important}.p7dce408c .scf7633ca .o30306f7f{background-color:rgba(0,0,0,.25) !important}.p7dce408c .scf7633ca .hd9f9989f polygon{fill:#fff !important}.p7dce408c .v783998ed,.p7dce408c .ub914acd.kbeb30ccc .a9fd74bd8{padding:0 !important}.p7dce408c .ub914acd.kbeb30ccc.g5d5b28c.vbe38a70d{top:3px !important;right:3px !important}.p7dce408c .ub914acd.kbeb30ccc.g5d5b28c.vbe38a70d .o30306f7f{border-radius:20% !important}.p7dce408c .mec199e58{position:absolute !important;top:0 !important;right:0 !important;left:0 !important;bottom:0 !important;width:100% !important;height:100% !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;color:#000 !important;font-size:13px !important;z-index:-1 !important;opacity:0 !important;transition:opacity .3s !important}.p7dce408c .mec199e58,.p7dce408c .c97a9101f{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.p7dce408c .n7489fb45{margin-left:10px !important}.p7dce408c .le1010d93 svg{fill:#000 !important}.p7dce408c .ycfe6f74b{font-size:15px !important}.p7dce408c .w1b1efe56 .mec199e58{opacity:1 !important;z-index:10 !important}.p7dce408c .j69aac4b7{-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;min-width:100% !important;min-height:100% !important;font-size:13px !important}.p7dce408c .j69aac4b7,.p7dce408c .se69aee10{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;box-sizing:border-box !important}.p7dce408c .se69aee10{width:100% !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;padding:10px !important}.p7dce408c .jeee919bc{font-weight:700 !important}.p7dce408c .y15df229c{display:none !important;font-weight:700 !important}.p7dce408c .a131cd122,.p7dce408c .y15df229c{-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.p7dce408c .a131cd122{overflow:hidden !important}.p7dce408c .f41d617f8,.p7dce408c .a131cd122{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;-webkit-flex-shrink:0 !important;-ms-flex-negative:0 !important;flex-shrink:0 !important;box-sizing:border-box !important}.p7dce408c .f41d617f8{-webkit-align-content:center !important;-ms-flex-line-pack:center !important;align-content:center !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;padding:0 !important;margin:0 !important;position:relative !important}.p7dce408c .ob403d9e0{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;box-sizing:border-box !important;margin:5px 0 !important}.p7dce408c .s160f6640{display:none !important}.p7dce408c .ob403d9e0 .jb31c7eb5{width:100% !important;max-width:250px !important}.p7dce408c .s160f6640 .jb31c7eb5{width:100% !important;max-width:180px !important}.p7dce408c .jb31c7eb5{display:block !important;padding:5px !important;background-color:#fff !important;border:1px solid #c8c8c8 !important;border-radius:4px !important;text-align:center !important;color:#555 !important;white-space:nowrap !important;transition-property:border,color !important;transition-duration:.2s !important;cursor:pointer !important;box-sizing:border-box !important}.p7dce408c .jb31c7eb5:hover{color:#333 !important;border-color:#333 !important}.p7dce408c .j69aac4b7.q62543c72 .a131cd122{padding-bottom:15px !important}.p7dce408c .j69aac4b7.q62543c72 .f41d617f8,.p7dce408c .j69aac4b7.q62543c72 .se69aee10{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.p7dce408c .j69aac4b7.q62543c72 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.p7dce408c .j69aac4b7.b9fb39432 .a131cd122{padding-bottom:5px !important}.p7dce408c .j69aac4b7.b9fb39432 .se69aee10{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.p7dce408c .j69aac4b7.b9fb39432 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.p7dce408c .j69aac4b7.b9fb39432 .ob403d9e0{margin:2px 0 !important}.p7dce408c .j69aac4b7.b9fb39432 .jb31c7eb5{padding:3px !important}.p7dce408c .j69aac4b7.nc59a692 .a131cd122{padding-bottom:15px !important}.p7dce408c .j69aac4b7.nc59a692 .f41d617f8,.p7dce408c .j69aac4b7.nc59a692 .se69aee10{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.p7dce408c .j69aac4b7.nc59a692 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.p7dce408c .j69aac4b7.nc59a692 .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.nc59a692 .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.m45d5ece0 .a131cd122{padding-bottom:5px !important}.p7dce408c .j69aac4b7.m45d5ece0 .se69aee10{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.p7dce408c .j69aac4b7.m45d5ece0 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.p7dce408c .j69aac4b7.m45d5ece0 .ob403d9e0{margin:2px 0 !important}.p7dce408c .j69aac4b7.m45d5ece0 .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.m45d5ece0 .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.m45d5ece0 .jb31c7eb5{padding:3px !important}.p7dce408c .j69aac4b7.m38d73427 .a131cd122{padding-bottom:10px !important}.p7dce408c .j69aac4b7.m38d73427 .se69aee10{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.p7dce408c .j69aac4b7.m38d73427 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-wrap:wrap !important;-ms-flex-wrap:wrap !important;flex-wrap:wrap !important;max-width:540px !important}.p7dce408c .j69aac4b7.m38d73427 .ob403d9e0{width:50% !important;margin:0 !important;padding:5px !important}.p7dce408c .j69aac4b7.x1f04fc47 .a131cd122{padding-bottom:10px !important}.p7dce408c .j69aac4b7.x1f04fc47 .se69aee10{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.p7dce408c .j69aac4b7.x1f04fc47 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-wrap:wrap !important;-ms-flex-wrap:wrap !important;flex-wrap:wrap !important;max-width:340px !important}.p7dce408c .j69aac4b7.x1f04fc47 .ob403d9e0{width:50% !important;margin:0 !important;padding:5px !important}.p7dce408c .j69aac4b7.x1f04fc47 .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.x1f04fc47 .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.m3de9cc4a .se69aee10{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.m3de9cc4a .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:20px !important}.p7dce408c .j69aac4b7.m3de9cc4a .ob403d9e0{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 5px !important}.p7dce408c .j69aac4b7.m3de9cc4a .jb31c7eb5{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.pefe4cfd8 .se69aee10{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.pefe4cfd8 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:15px !important}.p7dce408c .j69aac4b7.pefe4cfd8 .ob403d9e0{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 5px !important}.p7dce408c .j69aac4b7.pefe4cfd8 .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.pefe4cfd8 .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.pefe4cfd8 .jb31c7eb5{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.kc88db62a .se69aee10{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.kc88db62a .jeee919bc{display:none !important}.p7dce408c .j69aac4b7.kc88db62a .y15df229c{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.kc88db62a .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:15px !important}.p7dce408c .j69aac4b7.kc88db62a .ob403d9e0{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 5px !important}.p7dce408c .j69aac4b7.kc88db62a .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.kc88db62a .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.kc88db62a .jb31c7eb5{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.nae59d39f{font-size:11px !important}.p7dce408c .j69aac4b7.nae59d39f .se69aee10{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;padding:4px !important}.p7dce408c .j69aac4b7.nae59d39f .jeee919bc{display:none !important}.p7dce408c .j69aac4b7.nae59d39f .y15df229c{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.nae59d39f .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:10px !important}.p7dce408c .j69aac4b7.nae59d39f .ob403d9e0{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 1px !important}.p7dce408c .j69aac4b7.nae59d39f .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.nae59d39f .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.nae59d39f .jb31c7eb5{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.r2e654bdc{font-size:11px !important}.p7dce408c .j69aac4b7.r2e654bdc .se69aee10{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;padding:0 !important}.p7dce408c .j69aac4b7.r2e654bdc .jeee919bc{display:none !important}.p7dce408c .j69aac4b7.r2e654bdc .y15df229c{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.r2e654bdc .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:10px !important}.p7dce408c .j69aac4b7.r2e654bdc .ob403d9e0{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 2px !important}.p7dce408c .j69aac4b7.r2e654bdc .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.r2e654bdc .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.r2e654bdc .jb31c7eb5{padding:0 5px !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.p7dce408c .j69aac4b7.u3cf4e2c3{font-size:12px !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .se69aee10{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;padding:4px !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .jeee919bc{padding:2px 5px !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .y15df229c{display:none !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .a131cd122{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .f41d617f8{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-wrap:wrap !important;-ms-flex-wrap:wrap !important;flex-wrap:wrap !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .ob403d9e0{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:1px !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .s160f6640{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .uefa64ae2{display:none !important}.p7dce408c .j69aac4b7.u3cf4e2c3 .jb31c7eb5{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;padding:2px !important}.p7dce408c .w1b1efe56 .ob403d9e0{opacity:0 !important}.p7dce408c .vbe38a70d{position:absolute !important;z-index:11 !important;right:0 !important;top:0 !important}.p7dce408c .a12e49f4b{position:absolute !important;left:-101% !important;top:0 !important;width:100% !important;height:100% !important;display:block !important}#p7dce408c .o93e526f0 .yfb00ee69,#p7dce408c .o93e526f0 .wbfb31f88{display:none !important}#p7dce408c .o93e526f0 .a12e49f4b{left:0 !important;transition:left .4s ease-out !important}.p7dce408c .jb8d41a02{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-flow:column nowrap !important;-ms-flex-flow:column nowrap !important;flex-flow:column nowrap !important;font-family: Helvetica,Arial,sans-serif !important;background:#FFFFFF !important;border:inherit !important;border-radius:inherit !important;position:relative !important;overflow:hidden !important;text-decoration:none !important;color:#000000 !important;font-weight:400 !important;line-height:1.25em !important}.p7dce408c .reeb06462{text-decoration:inherit !important;color:inherit !important;font-weight:inherit !important;line-height:inherit !important}.p7dce408c .xd2b47fdd:hover{color:#DD0000 !important}.p7dce408c .v1ee9da2d:hover{color:#DD0000 !important}.p7dce408c .g80ef783b:hover{color:#DD0000 !important;-webkit-text-decoration-color:rgba(221,0,0,0.2) !important;text-decoration-color:rgba(221,0,0,0.2) !important}.p7dce408c .c96757558:hover{border-color:rgba(221,0,0,0.35) !important;color:#DD0000 !important;fill:#DD0000 !important}.p7dce408c .c96757558:hover .g4e332212{border-color:#DD0000 !important}.p7dce408c .c7c7595c:hover{color:#DD0000 !important}.p7dce408c .reeb06462{line-height:normal !important;letter-spacing:normal !important}.p7dce408c .h90e841a1,.p7dce408c .eae1e2049{display:inline-block !important;white-space:nowrap !important;font-size:10px !important;line-height:10px !important;height:10px !important;font-family:Verdana,sans-serif !important;color:inherit !important}.p7dce408c .mecaa661d{display:block !important;background:rgba(0,0,0,0.25) !important;color:#FFFFFF !important;border-radius:0 0 4px 4px !important;font-size:10px !important;line-height:18px !important;height:18px !important;padding:0 6px !important;position:absolute !important;top:0 !important;z-index:2 !important}.p7dce408c .o62a99175{display:block !important;color:rgba(153,153,153,0.7) !important;position:absolute !important;bottom:3px !important;right:3px !important}.p7dce408c .bc61fe9f4{height:18px !important;width:0 !important}.p7dce408c .sab06f308{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:flex-start !important;-ms-flex-pack:start !important;justify-content:flex-start !important;box-sizing:border-box !important;line-height:0 !important}.p7dce408c .sab06f308,.p7dce408c .sab06f308 .feeb05119{width:100% !important}.p7dce408c .sab06f308 .xf838cfde{padding:1px 0 !important}.p7dce408c .m9c766318{display:inline-block !important;font-family:Verdana,sans-serif !important;line-height:1.2em !important;padding:0 .4em !important}.p7dce408c .k94fb87c4{cursor:default !important}.p7dce408c .k94fb87c4 .m9c766318{font-size:10px !important;white-space:nowrap !important}.p7dce408c .rc50d78b1 .m9c766318{font-size:.8em !important}.p7dce408c .c4f2ec082{color:#0000CC !important;font-size:18em !important;font-weight:700 !important;padding-bottom:.6em !important;line-height:1.25em !important}.p7dce408c .k29d00556{font-size:1.3em !important}.p7dce408c .w568271d5{font-size:1.4em !important}.p7dce408c .pfbf20d54{font-size:1.5em !important}.p7dce408c .g3c0695d3{font-size:1.6em !important}.p7dce408c .x736f5052{font-size:1.7em !important}.p7dce408c .ka021bcd1{font-size:1.8em !important}.p7dce408c .h45915850{font-size:1.9em !important}.p7dce408c .na6016cdf{font-size:2em !important}.p7dce408c .q61b72f45{border-radius:0px !important}.p7dce408c .h17fe58f2,.p7dce408c .ca7a97f54{padding-bottom:1em !important}.p7dce408c .la5985b67{max-width:300px !important}.p7dce408c .udf1752b6{-webkit-flex-flow:row wrap !important;-ms-flex-flow:row wrap !important;flex-flow:row wrap !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.p7dce408c .udf1752b6,.p7dce408c .n5f3ddc34{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-justify-content:flex-start !important;-ms-flex-pack:start !important;justify-content:flex-start !important}.p7dce408c .y1ef44ea7,.p7dce408c .n5f3ddc34{-webkit-flex-flow:row nowrap !important;-ms-flex-flow:row nowrap !important;flex-flow:row nowrap !important}.p7dce408c .y1ef44ea7{display:block !important;overflow:hidden !important;border:1px solid rgba(0,102,0,0.35) !important;background:rgba(0,115,230,0.098) !important;padding:.4em .8em !important;color:#006600 !important;border-radius:4px !important;text-align:center !important;fill:#006600 !important;font-size:11.381818181818183px !important}.p7dce408c .la5985b67 .y1ef44ea7{padding:.4em !important}.p7dce408c .qd441f6d0{overflow:hidden !important;height:1.4em !important;text-overflow:ellipsis !important}.p7dce408c .m67073144{white-space:nowrap !important;line-height:1.4em !important;height:1.4em !important}.p7dce408c .g4e332212,.p7dce408c .m67073144{display:inline-block !important}.p7dce408c .g4e332212{box-sizing:border-box !important;line-height:.45em !important;height:.45em !important;width:.45em !important;border:solid #006600 !important;border-width:1px 1px 0 0 !important;-webkit-transform:translateX(-50%) rotate(45deg) !important;transform:translateX(-50%) rotate(45deg) !important;-webkit-transform-origin:100% 100% !important;transform-origin:100% 100% !important}.p7dce408c .n5f3ddc34 .y1ef44ea7{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;font-family:Verdana,sans-serif !important;font-size:11px !important;border-radius:8px !important}.p7dce408c .kec47fd23{font-family:Verdana,sans-serif !important;display:block !important;color:#006600 !important;text-align:center !important;line-height:0 !important}.p7dce408c .ocb55c57c{font-size:11px !important}.p7dce408c .la5985b67 .kec47fd23{padding-top:.5em !important}.p7dce408c .la5985b67 .ocb55c57c{padding-top:.8em !important}.p7dce408c .udf1752b6 .kec47fd23{padding-left:.8em !important;padding-right:.6em !important}.p7dce408c .udf1752b6 .ocb55c57c{padding-left:1.5em !important;padding-right:1em !important}.p7dce408c .vfd452d77{padding-bottom:1em !important}.p7dce408c .g9d9e466f{display:block !important;color:#0000CC !important;line-height:1.7em !important;text-decoration:underline !important;-webkit-text-decoration-color:rgba(0,0,204,0.2) !important;text-decoration-color:rgba(0,0,204,0.2) !important}.p7dce408c .l4f3ad67d{padding-bottom:1em !important;opacity:.5 !important}.p7dce408c .ubf598b65{line-height:1.6em !important}.p7dce408c .k58f9a805{position:absolute !important;background:rgba(0,0,0,.1) !important;background-size:cover !important;box-shadow:0 1px 2px rgba(0,0,0,.5) !important;border-radius:.5em !important}.p7dce408c .jb8d41a02{font-family:SF,Roboto,Helvetica,sans-serif !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-flow:column nowrap !important;-ms-flex-flow:column nowrap !important;flex-flow:column nowrap !important;border:inherit !important;border-radius:inherit !important;position:relative !important;overflow:hidden !important;text-decoration:none !important;font-weight:400 !important;line-height:1.25em !important;cursor:pointer !important;max-width:515px !important}.p7dce408c .g80ef783b,.p7dce408c .g80ef783b:hover{color:inherit !important}.p7dce408c .k410f8bab{-webkit-flex:1 0 auto !important;-ms-flex:1 0 auto !important;flex:1 0 auto !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-flow:column nowrap !important;-ms-flex-flow:column nowrap !important;flex-flow:column nowrap !important;min-height:inherit !important;position:relative !important;font-size:14px !important}.p7dce408c .eae1e2049{z-index:5 !important;left:22px !important}.p7dce408c .k41135358{font-size:.8em !important;background-image:url(//an.yandex.ru/partner-code-bundles/6875/d60c8820c3a9d131f12d9c803540ad78.jpg) !important;background-size:190% !important;background-repeat:no-repeat !important;background-position:50% !important}.p7dce408c .k41135358,.p7dce408c .ac86b6d90{position:absolute !important;top:0 !important;left:0 !important;bottom:0 !important;right:0 !important}.p7dce408c .ac86b6d90{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;pointer-events:none !important}.p7dce408c .w1972f04e{position:absolute !important;left:0 !important;width:100% !important;height:70% !important;-webkit-mask-image:linear-gradient(0deg,transparent,#000 10%) !important;mask-image:linear-gradient(0deg,transparent,#000 10%) !important}.p7dce408c .pc48d5c97{top:191px !important;bottom:16px !important;z-index:1 !important}.p7dce408c .pc48d5c97,.p7dce408c .yfb00ee69{position:absolute !important;left:12px !important;right:12px !important}.p7dce408c .yfb00ee69{top:191px !important;bottom:16px !important;z-index:2 !important;padding:0 16px !important}.p7dce408c .sab06f308{color:inherit !important;font-size:11px !important}.p7dce408c .m9c766318{padding:2px 16px !important;float:left !important;opacity:.87 !important}.p7dce408c .oacf073c.sab06f308{position:absolute !important;width:100% !important;border:0 solid transparent !important}.p7dce408c .adc322afd.sab06f308{width:100% !important;border-top:1px solid transparent !important}.p7dce408c .adc322afd.sab06f308 .m9c766318{padding:2px 12px !important}.p7dce408c .f5828423d{position:relative !important;box-sizing:border-box !important;height:100% !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important}.p7dce408c .na37e0cf7,.p7dce408c .b249df8b9{overflow:hidden !important;-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important}.p7dce408c .b249df8b9{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-justify-content:space-between !important;-ms-flex-pack:justify !important;justify-content:space-between !important;font-size:18px !important;min-height:100% !important}.p7dce408c .mb8211199{font-size:14px !important}.p7dce408c .mb8211199 .lb6da7162{font-size:.93em !important}.p7dce408c .c4f2ec082{padding:0 !important;padding-top:9px !important;color:inherit !important;overflow:hidden !important;position:relative !important;font-size:1em !important;line-height:1.14em !important;-webkit-flex-shrink:0 !important;-ms-flex-negative:0 !important;flex-shrink:0 !important}.p7dce408c .lc9584f4e{word-wrap:break-word !important}.p7dce408c .g4c8415a2{max-height:3.42em !important}.p7dce408c .lb6da7162,.p7dce408c .g4c8415a2{text-overflow:ellipsis !important}.p7dce408c .lb6da7162{padding-bottom:9px !important;font-size:.8em !important;line-height:1.17em !important;overflow:hidden !important;white-space:nowrap !important;-webkit-flex-shrink:0 !important;-ms-flex-negative:0 !important;flex-shrink:0 !important}.p7dce408c .o8401a772{color:rgba(0,0,0,0.5) !important;display:inline !important}.p7dce408c .x843836f6{display:inline !important;font-size:.8em !important}.p7dce408c img.g507a1058{position:relative !important;top:-.5px !important;margin:0 .3em 0 0 !important;height:.8em !important;width:.8em !important;max-width:16px !important;max-height:16px !important;vertical-align:middle !important;background-color:#fff !important}.p7dce408c .h90e841a1{font-size:12px !important;position:absolute !important;bottom:3px !important;right:4px !important;color:inherit !important;opacity:.5 !important}.p7dce408c .h17fe58f2{padding:0 !important}.p7dce408c .he0bd72d2{font-size:.9em !important}.p7dce408c .vfd452d77{padding-bottom:0 !important;margin-bottom:-5px !important}.p7dce408c .g9d9e466f{margin-right:5px !important;margin-bottom:5px !important;padding:.2em .6em !important;display:inline-block !important;border-radius:4px !important;font-size:.88em !important;color:inherit !important;text-decoration:none !important;transition:all .2s ease !important}.p7dce408c .q2b7ad9b8{padding-top:.7em !important}.p7dce408c .g9d9e466f{background-color:rgba(0,115,230,0.1) !important;color:#0073E6 !important}.p7dce408c .g9d9e466f:hover{background-color:#0073E6 !important;color:#FFFFFF !important}.p7dce408c .k58f9a805,.p7dce408c .u458ca05b,.p7dce408c .ae31f3acc{font-size:61.56px !important;width:1em !important;height:1em !important;-webkit-flex-shrink:0 !important;-ms-flex-negative:0 !important;flex-shrink:0 !important}.p7dce408c .ae31f3acc{margin-left:10px !important}.p7dce408c .u458ca05b{position:absolute !important;z-index:4 !important;right:16px !important;bottom:16px !important;-webkit-align-self:center !important;-ms-flex-item-align:center !important;-ms-grid-row-align:center !important;align-self:center !important;padding:0 12px !important;min-height:81px !important}.p7dce408c .sa2824dd1{position:absolute !important;left:50% !important;top:50% !important;margin-left:-.5em !important;margin-top:-.5em !important;font-size:inherit !important;stroke-width:0 !important;box-shadow:none !important;transition:all .2s ease !important}.p7dce408c .sa2824dd1:hover{-webkit-transform:translateY(-2px) !important;transform:translateY(-2px) !important}.p7dce408c .c3fc488c5,.p7dce408c .w99585899{transition:fill .4s ease !important}.p7dce408c .w99585899{fill:rgba(0,115,230,0.098) !important}.p7dce408c .c3fc488c5{fill:#0073E6 !important}.p7dce408c .k58f9a805{position:relative !important;margin-left:10px !important;border-radius:12% !important;box-shadow:none !important;-webkit-align-self:center !important;-ms-flex-item-align:center !important;-ms-grid-row-align:center !important;align-self:center !important}.p7dce408c .jae1059a5{padding-top:.5em !important}.p7dce408c .rd423578f{vertical-align:baseline !important;margin-right:1em !important;font-size:1.1em !important;fill:#fc0 !important}.p7dce408c .aaccb21c{margin-right:3px !important}.p7dce408c .ld05ff288{fill:#000 !important;opacity:.1 !important}.p7dce408c .u4eea1e2b{display:inline !important;opacity:.4 !important}.p7dce408c .c944d69e8{position:absolute !important;left:0 !important;right:0 !important;top:0 !important;bottom:0 !important;z-index:3 !important}.p7dce408c .c944d69e8,.p7dce408c .id93fc5ec{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.p7dce408c .id93fc5ec{margin-left:12px !important;margin-right:12px !important;margin-top:16px !important;padding:9px 16px !important;-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important}.p7dce408c .f534cbb45{margin-bottom:12px !important;overflow:hidden !important;font-size:18px !important;line-height:1.14em !important;font-weight:700 !important}.p7dce408c .o11cc52b5{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important}.p7dce408c .q44e62a60{margin:0 12px 16px !important;padding:0 16px !important;box-sizing:border-box !important;-webkit-flex-shrink:0 !important;-ms-flex-negative:0 !important;flex-shrink:0 !important}.p7dce408c .kc9df3fd5{position:absolute !important;left:0 !important;right:0 !important;width:100% !important}.p7dce408c .m4c0ec7c6{visibility:visible !important;-webkit-animation:Cc .3s ease-in-out 1 forwards !important;animation:Cc .3s ease-in-out 1 forwards !important;transition:visibility 0s linear 0s !important}.p7dce408c .f628504e1{visibility:hidden !important;-webkit-animation:Dc .3s ease-in-out 1 forwards !important;animation:Dc .3s ease-in-out 1 forwards !important;transition:visibility 0s linear .3s !important}.p7dce408c .mf229ba49{border-top:1px solid transparent !important;min-height:81px !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:flex-end !important;-ms-flex-pack:end !important;justify-content:flex-end !important}.p7dce408c .u5f9966cd{overflow:hidden !important;-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;text-align:right !important}.p7dce408c .ge7301c59{font-size:14px !important;white-space:nowrap !important;font-weight:700 !important}.p7dce408c .r9e3300e4{font-weight:400 !important;opacity:.5 !important}.p7dce408c .t60e78b85,.p7dce408c .r9e3300e4{white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important}.p7dce408c .t60e78b85{margin-bottom:9px !important;padding:0 16px !important;font-size:1em !important;line-height:2.5em !important;text-align:center !important;background-color:#0073E6 !important;color:#FFFFFF !important;border-radius:5px !important}.p7dce408c .t60e78b85:hover{background-color:#1A8CFF !important}.p7dce408c .odf80e5bd{display:inline !important}.p7dce408c .odb4c1530 .k410f8bab{font-size:13px !important}.p7dce408c .odb4c1530 .f534cbb45{font-size:14px !important}.p7dce408c .odb4c1530 .he0bd72d2{font-size:12px !important}.p7dce408c .x41dbf649 .oacf073c{border-radius:8px 8px 0 0 !important}.p7dce408c .x41dbf649 .pc48d5c97{border-radius:0 0 8px 8px !important}.p7dce408c .jff840322 .pc48d5c97{border-radius:8px !important}.p7dce408c .e74fc448 .adc322afd{position:absolute !important;bottom:0 !important}.p7dce408c .l718a2283 .sa2824dd1,.p7dce408c .e74fc448 .x843836f6{display:none !important}.p7dce408c .t5e091fcd.jb8d41a02 .k410f8bab{color:#000 !important}.p7dce408c .t5e091fcd.jb8d41a02 .eae1e2049{background:#fff !important;color:rgba(0,0,0,.9) !important;box-shadow:0 10px 100px rgba(0,0,0,.2) !important}.p7dce408c .t5e091fcd.jb8d41a02 .sab06f308{border-color:rgba(0,0,0,.15) !important;background:hsla(0,0%,100%,.8) !important}.p7dce408c .t5e091fcd.jb8d41a02 .mf229ba49{border-color:rgba(0,0,0,.15) !important}.p7dce408c .t5e091fcd.jb8d41a02 .pc48d5c97{opacity:1 !important;background-image:linear-gradient(180deg,hsla(0,0%,100%,.9),#fff) !important;box-shadow:0 2px 4px rgba(0,0,0,.08),0 -1px 3px rgba(0,0,0,.08) !important}.p7dce408c .t5e091fcd.la123e740.jb8d41a02 .sa2824dd1:hover{-webkit-filter:drop-shadow(0 2px 2px rgba(0,0,0,.1)) drop-shadow(0 4px 20px rgba(0,115,230,0.2)) !important;filter:drop-shadow(0 2px 2px rgba(0,0,0,.1)) drop-shadow(0 4px 20px rgba(0,115,230,0.2)) !important}.p7dce408c .t5e091fcd.ia4190c2 .pc48d5c97{background-image:linear-gradient(0deg,hsla(0,0%,100%,.9),#fff) !important}.p7dce408c .t5e091fcd.sdc47c4a6 .pc48d5c97{background-image:linear-gradient(0deg,#fff,hsla(0,0%,100%,.9)) !important}.p7dce408c .t5e091fcd.sdc47c4a6.la123e740 .pc48d5c97,.p7dce408c .t5e091fcd.ia4190c2.la123e740 .pc48d5c97{background-color:#fff !important}.p7dce408c .y43805ef.jb8d41a02 .k410f8bab{color:#fff !important}.p7dce408c .y43805ef.jb8d41a02 .eae1e2049{background:rgba(38,38,38,.9) !important;color:hsla(0,0%,100%,.9) !important;box-shadow:0 10px 100px hsla(0,0%,100%,.2) !important}.p7dce408c .y43805ef.jb8d41a02 .sab06f308{border-color:hsla(0,0%,100%,.2) !important;background:rgba(0,0,0,.75) !important}.p7dce408c .y43805ef.jb8d41a02 .u4eea1e2b{opacity:.5 !important}.p7dce408c .y43805ef.jb8d41a02 .ld05ff288{fill:#fff !important;opacity:.3 !important}.p7dce408c .y43805ef.jb8d41a02 .mf229ba49{border-color:hsla(0,0%,100%,.2) !important}.p7dce408c .y43805ef.jb8d41a02 .pc48d5c97{background:#333 !important;box-shadow:0 10px 100px hsla(0,0%,100%,.2) !important;opacity:.8 !important}.p7dce408c .y43805ef.la123e740 .pc48d5c97{opacity:1 !important}.p7dce408c .y43805ef.la123e740 .sa2824dd1:hover{-webkit-filter:drop-shadow(0 2px 2px hsla(0,0%,100%,.1)) drop-shadow(0 4px 20px rgba(0,115,230,0.2)) !important;filter:drop-shadow(0 2px 2px rgba(255,255,255,.1)) drop-shadow(0 4px 20px rgba(0,115,230,0.2)) !important}.p7dce408c .ia4190c2.jb8d41a02 .yfb00ee69{transition:all .4s ease,opacity .4s ease !important}.p7dce408c .ia4190c2.jb8d41a02 .lb6da7162{transition:all .4s ease,opacity .3s ease !important}.p7dce408c .ia4190c2.jb8d41a02 .w1972f04e{top:auto !important;bottom:0 !important}.p7dce408c .ia4190c2.jb8d41a02 .y1b6d6700{-webkit-mask-image:linear-gradient(180deg,transparent,#000 10%) !important;mask-image:linear-gradient(180deg,transparent,#000 10%) !important}.p7dce408c .ia4190c2.jb8d41a02 .pc48d5c97,.p7dce408c .ia4190c2.jb8d41a02 .yfb00ee69{bottom:191px !important;top:16px !important}.p7dce408c .ia4190c2.jb8d41a02 .sab06f308{border-top-width:1px !important}.p7dce408c .ia4190c2.jb8d41a02 .oacf073c{border-radius:0 0 8px 8px !important;top:100% !important;bottom:auto !important}.p7dce408c .ia4190c2.jb8d41a02 .c944d69e8{visibility:hidden !important;opacity:0 !important;transition:opacity .4s ease,visibility 0s linear !important;transition-delay:0s,.4s !important}.p7dce408c .ia4190c2.jb8d41a02 .t60e78b85,.p7dce408c .ia4190c2.jb8d41a02 .o11cc52b5{opacity:0 !important;-webkit-transform:translateY(-20px) !important;transform:translateY(-20px) !important;transition:all .4s ease !important;transition-delay:0s !important}.p7dce408c .ia4190c2.la123e740 .yfb00ee69{opacity:0 !important;transition-delay:0s !important}.p7dce408c .ia4190c2.la123e740 .lb6da7162{opacity:0 !important;-webkit-transform:translateY(20px) !important;transform:translateY(20px) !important}.p7dce408c .ia4190c2.la123e740 .c944d69e8{visibility:visible !important;opacity:1 !important;transition-delay:0s !important}.p7dce408c .ia4190c2.la123e740 .o11cc52b5{opacity:1 !important;-webkit-transform:translateY(0) !important;transform:translateY(0) !important;transition-delay:.4s !important}.p7dce408c .ia4190c2.la123e740 .t60e78b85{opacity:1 !important;-webkit-transform:translateY(0) !important;transform:translateY(0) !important;transition-delay:.6s !important}.p7dce408c .ia4190c2.x41dbf649 .pc48d5c97{border-radius:8px 8px 0 0 !important}.p7dce408c .sdc47c4a6.jb8d41a02 .yfb00ee69{transition:all .4s ease,opacity .3s ease !important}.p7dce408c .sdc47c4a6.jb8d41a02 .w1972f04e{top:0 !important;bottom:auto !important}.p7dce408c .sdc47c4a6.jb8d41a02 .sab06f308{border-bottom-width:1px !important}.p7dce408c .sdc47c4a6.jb8d41a02 .oacf073c{top:auto !important;bottom:100% !important}.p7dce408c .sdc47c4a6.jb8d41a02 .c944d69e8{visibility:hidden !important;opacity:0 !important;transition:opacity .4s ease,visibility 0s linear !important;transition-delay:0s,.7s !important}.p7dce408c .sdc47c4a6.jb8d41a02 .id93fc5ec{-webkit-transform:translateY(175px) !important;transform:translateY(175px) !important;transition:all .4s ease !important}.p7dce408c .sdc47c4a6.jb8d41a02 .q44e62a60{-webkit-transform:translateY(20px) !important;transform:translateY(20px) !important;transition:all .4s ease !important}.p7dce408c .sdc47c4a6.jb8d41a02 .o11cc52b5{opacity:0 !important;-webkit-transform:translateY(20px) !important;transform:translateY(20px) !important;transition:opacity .4s ease,-webkit-transform 0s ease !important;transition:transform 0s ease,opacity .4s ease !important;transition:transform 0s ease,opacity .4s ease,-webkit-transform 0s ease !important;transition-delay:.4s,0s !important}.p7dce408c .sdc47c4a6.jb8d41a02 .u5f9966cd{-webkit-transform:translateY(20px) !important;transform:translateY(20px) !important;opacity:0 !important;transition:all 0s ease !important;transition-duration:.4s !important}.p7dce408c .sdc47c4a6.jb8d41a02 .t60e78b85{opacity:0 !important;-webkit-transform:translateY(20px) !important;transform:translateY(20px) !important;transition:all .4s ease !important;transition-delay:0s !important}.p7dce408c .sdc47c4a6.la123e740 .yfb00ee69{opacity:0 !important;-webkit-transform:translateY(-175px) !important;transform:translateY(-175px) !important;transition-delay:0s !important}.p7dce408c .sdc47c4a6.la123e740 .c944d69e8{visibility:visible !important;opacity:1 !important}.p7dce408c .sdc47c4a6.la123e740 .c944d69e8,.p7dce408c .sdc47c4a6.la123e740 .id93fc5ec,.p7dce408c .sdc47c4a6.la123e740 .q44e62a60{-webkit-transform:translateY(0) !important;transform:translateY(0) !important;transition-delay:0s !important}.p7dce408c .sdc47c4a6.la123e740 .o11cc52b5{opacity:1 !important;-webkit-transform:translateY(0) !important;transform:translateY(0) !important;transition-duration:.4s,.4s !important;transition-delay:.4s !important}.p7dce408c .sdc47c4a6.la123e740 .u5f9966cd{transition-duration:.4s !important}.p7dce408c .sdc47c4a6.la123e740 .t60e78b85,.p7dce408c .sdc47c4a6.la123e740 .u5f9966cd{opacity:1 !important;-webkit-transform:translateY(0) !important;transform:translateY(0) !important;transition-delay:.6s !important}.p7dce408c .o654cd266 .y1b6d6700{-webkit-animation-name:Ec !important;animation-name:Ec !important;-webkit-animation-iteration-count:infinite !important;animation-iteration-count:infinite !important;-webkit-animation-duration:20s !important;animation-duration:20s !important;-webkit-animation-delay:2s !important;animation-delay:2s !important;-webkit-animation-direction:alternate !important;animation-direction:alternate !important;-webkit-animation-fill-mode:both !important;animation-fill-mode:both !important}.p7dce408c .pc48d5c97{transition:all .4s ease !important;transition-delay:0s !important;-webkit-transform-origin:50% 91.31944444444444% !important;transform-origin:50% 91.31944444444444% !important}.p7dce408c .oacf073c{transition:opacity .2s ease !important;transition-delay:.1s !important}.p7dce408c .sdc47c4a6.la123e740.jb8d41a02 .pc48d5c97,.p7dce408c .ia4190c2.la123e740.jb8d41a02 .pc48d5c97{border-radius:0 !important;-webkit-transform:scale(1.1529411764705881,3.580246913580247) !important;transform:scale(1.1529411764705881,3.580246913580247) !important;transition-delay:0s !important}.p7dce408c .sdc47c4a6.la123e740.jb8d41a02 .oacf073c,.p7dce408c .ia4190c2.la123e740.jb8d41a02 .oacf073c{opacity:0 !important;transition-delay:0s !important}.p7dce408c .sdc47c4a6.la123e740.jb8d41a02 .w99585899,.p7dce408c .ia4190c2.la123e740.jb8d41a02 .w99585899{fill:#0073E6 !important}.p7dce408c .sdc47c4a6.la123e740.jb8d41a02 .c3fc488c5,.p7dce408c .ia4190c2.la123e740.jb8d41a02 .c3fc488c5{fill:#FFFFFF !important}.p7dce408c .sdc47c4a6.la123e740.jb8d41a02 .sa2824dd1:hover .w99585899,.p7dce408c .ia4190c2.la123e740.jb8d41a02 .sa2824dd1:hover .w99585899{fill:#1A8CFF !important}.p7dce408c .tbfc9a0f2.s5b5f02cd .t60e78b85,.p7dce408c .tbfc9a0f2.s5b5f02cd .yfb00ee69,.p7dce408c .tbfc9a0f2.s5b5f02cd .c944d69e8,.p7dce408c .tbfc9a0f2.s5b5f02cd .o11cc52b5,.p7dce408c .tbfc9a0f2.s5b5f02cd .id93fc5ec,.p7dce408c .tbfc9a0f2.s5b5f02cd .q44e62a60,.p7dce408c .tbfc9a0f2.s5b5f02cd .u5f9966cd,.p7dce408c .tbfc9a0f2.s5b5f02cd .g9d9e466f{transition:none !important}@-webkit-keyframes Cc{0%{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}to{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes Cc{0%{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}to{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes Dc{0%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}to{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}}@keyframes Dc{0%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}to{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}}@-webkit-keyframes Ec{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-transform-origin:top;transform-origin:top}70%{-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-transform-origin:bottom;transform-origin:bottom}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes Ec{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-transform-origin:top;transform-origin:top}70%{-webkit-transform:scale(1.2);transform:scale(1.2);-webkit-transform-origin:bottom;transform-origin:bottom}to{-webkit-transform:scale(1);transform:scale(1)}}.p7dce408c .h17fe58f2 .reeb06462{background-color:INVALID !important}.p7dce408c .v1ee9da2d{color:INVALID !important}.p7dce408c .xd2b47fdd{background:INVALID !important;color:INVALID"" !important}.p7dce408c .c7c7595c{background:INVALID !important;color:INVALID !important}.p7dce408c .g80ef783b{background:INVALID !important;color:INVALID !important}.p7dce408c .vfd452d77{background:INVALID !important}.p7dce408c .kec47fd23{background:INVALID !important}.p7dce408c .y1ef44ea7{background-color:INVALID !important}.p7dce408c .qf515e63c.jb8d41a02 .v1ee9da2d{color:INVALID !important}.p7dce408c .qf515e63c.jb8d41a02 .c7c7595c{color:INVALID !important}.p7dce408c .qf515e63c.jb8d41a02 .xd2b47fdd{color:INVALID !important}.p7dce408c .qf515e63c.jb8d41a02 .y1ef44ea7{background-color:INVALID !important}.p7dce408c .cf2da0ec6.jb8d41a02 .xd2b47fdd{color:INVALID !important}.p7dce408c .feeb05119{overflow:visible !important;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 2em) !important;mask-image:linear-gradient(90deg,transparent 0,#000 2em) !important;-webkit-mask-position:-2em !important;mask-position:-2em !important}.p7dce408c .feeb05119,.p7dce408c .xf838cfde{position:relative !important;-webkit-mask-size:calc(100% + 2em) !important;mask-size:calc(100% + 2em) !important;transition:-webkit-mask-position .3s ease !important;transition:mask-position .3s ease !important;transition:mask-position .3s ease,-webkit-mask-position .3s ease !important}.p7dce408c .xf838cfde{overflow:hidden !important;-webkit-mask-image:linear-gradient(270deg,transparent 0,#000 2em) !important;mask-image:linear-gradient(270deg,transparent 0,#000 2em) !important;-webkit-mask-position:calc(100% + 2em) !important;mask-position:calc(100% + 2em) !important}.p7dce408c .h824d60e5.feeb05119 .xf838cfde{-webkit-mask-position:100% !important;mask-position:100% !important}.p7dce408c .vb880195e.feeb05119{-webkit-mask-position:0 !important;mask-position:0 !important}.p7dce408c .w45a758cb{-webkit-flex-flow:row nowrap !important;-ms-flex-flow:row nowrap !important;flex-flow:row nowrap !important;min-width:1px !important;min-height:1px !important}.p7dce408c .w45a758cb,.p7dce408c .s28f9247b{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.p7dce408c .s28f9247b{overflow:hidden !important;-webkit-justify-content:space-between !important;-ms-flex-pack:justify !important;justify-content:space-between !important;-webkit-align-content:space-between !important;-ms-flex-line-pack:justify !important;align-content:space-between !important;-webkit-flex-wrap:wrap !important;-ms-flex-wrap:wrap !important;flex-wrap:wrap !important;margin:auto !important;border:solid #DDDCDA !important;border-width:1px !important;border-radius:0 !important;box-sizing:border-box !important}.p7dce408c .b297b12e{-webkit-align-items:flex-start !important;-ms-flex-align:start !important;align-items:flex-start !important}.p7dce408c .mb80596ee{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important}.p7dce408c .i46711d92{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.p7dce408c .b4843d040,.p7dce408c .xa5b09f8f{border-width:0 !important}.p7dce408c .b4843d040 .jb8d41a02{border-width:1px !important}.p7dce408c .ia2c08d6c .jb8d41a02{border-width:0 !important;border-radius:0 !important}.p7dce408c .id5dbb38e .jb8d41a02{margin:-1px !important;border-radius:0 !important}.p7dce408c .i46711d92{-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}</style><script type="text/javascript" async="" crossorigin="anonymous" src="https://yastatic.net/safeframe-bundles/0.43/host.js"></script><style nonce="">#3b1155ce47{width:1px;height:1px;position:relative;}</style><style nonce="">#id4837{width:1px;height:1px;top:0px;left:0px;position:absolute;}</style></head>
+<body>
+    <div class="react" id="root"><div class="routers"><header class="header"><div class="header-topline"><div class="container"><div class="row"><div class="col-md-12 pr-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav></div></div></div></div><div class="header__main"><div class="container"><div class="row block-content-header"><div class="col-md-3"><a class="header__logo active" href="/"><img src="/public/images/logo.png" alt="Ранобэ.рф"></a></div><div class="header-wrapper-m " id="js-menu"><div class="header-wrapper-block"><div class="col-md-6 p-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav><div class="search-block opacity"><div class="section"><div class="Select is-clearable is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-2--value"><div class="Select-placeholder"><span>Поиск книги <i class="fa fa-book" aria-hidden="true"></i></span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span>+</span></span></div></div></div></div></div><div class="col-md-3 pr-0 user-panel"><div class=""><div class="header-btn text-right"><a class="cursor btn btn-transparent btn-white btn-auth">Авторизация</a><a class="cursor btn btn-white btn-transparent btn-register">Регистрация</a></div></div></div></div></div></div></div><a class="toggleMenu cursor burger-menu"><button class="toggleMenu c-hamburger c-hamburger--htx "><span class="toggleMenu">toggle menu</span></button></a><a class="profile_menu"><i class="fa fa-user" aria-hidden="true"></i></a></div><div><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script></div></header><div class="content default"><div id="partPage"><div class="floatingBookMenu default"><div class="container"><div class="bookName"><a href="/tensei-shitara-slime-datta-ken/"><img class="bookCover" src="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/mobile/o-moyom-pererozhdenii-v-sliz-1519254997.png">О моём перерождении в слизь</a></div><div class="bookLink"><a href="/tensei-shitara-slime-datta-ken/"></a></div><div class="bookChapters"><div class="prev-part"><a title="Глава 227.2. Перекрестное поражение" href="/tensei-shitara-slime-datta-ken/glava-227-2-perekrestnoe-porazhenie/"><div class="arrow-prev"></div></a><span>Предыдущая</span></div><div class="part-select"><div class="search-block"><div class="section default"><div class="Select has-value is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-3--value"><div class="Select-value" title="Глава 228. Вторжение в лабиринт (часть 1)"><span class="Select-value-label">Глава 228. Вторжение в лабиринт (часть 1)</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-3--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span><i class="fa fa-arrows-v" aria-hidden="true"></i></span></span></div></div></div></div></div><div class="next-part"><span>Следующая</span><a title="Глава 229. Вторжение в Лабиринт (часть 2)" href="/tensei-shitara-slime-datta-ken/glava-229-vtorzhenie-v-labirint-chast-2/"><div class="arrow-next"></div></a></div></div></div></div><div class="container "><div class="wrap-content-part"><div><div class="row"><div class="col-lg-9"><div class="control-panel default"><div class="control"><div class="control-settings control-block togglePanel"><div class="icon icon-settings togglePanel"></div></div><span class="control-text">Размер текста</span></div><div class="control"><div class="control-mode control-block"><div class="icon icon-mode"></div></div><span class="control-text">Режим чтения</span></div><div class="control"><div class="control-bookmark control-block "><div class="icon icon-bookmark"></div></div><span class="control-text">Добавить закладку</span></div></div><article class="part-block"><div class="preloaderFilter none"><div class="preloaderWrapper"><i class="fi flaticon-loading"></i></div></div><div class="title default"><h1>О моём перерождении в слизь<p>Глава 228. Вторжение в лабиринт (часть 1)</p></h1></div><div><div id="content" class="part-content content__block default font-size-17 line-height-25"><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вельдора много раз оглядывался в мою сторону, а потом с сожалением ушел, пока я его провожал его взглядом.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тот кто сдается - проигрывает. Это может выглядеть не очень, но он взял у меня большое количество волшебной сущности, поэтому я хотел, чтобы он, по крайней мере, постарался изо всех сил решить спор со своими сестрами.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кроме того, нет никакого способа для других людей, чтобы разрешить исход боя между истинными драконами.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Даже я не хочу этого делать.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вот почему я отправил Вельдора без всяких компромиссов.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Похоже, что оставшиеся силы Вельды были низки.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>По информации Дино, у Вельды было четырнадцать человек в качестве руководителей.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>После того как он услышал о поражении Дагрюэля:
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>-  А, серьезно!? За то, что Оссан проиграл... - такой была его изумленная реакция, когда он сообщал мне информацию.
+</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Я не знаю, говорит ли он правду или лжет, но я думаю, что у Вельды больше нет скрытых сил. В конце концов, это не манга Шонена, нет смысла скрывать их, пока ты не окажешься в невыгодном положении.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Четверо Демонов Небесных Командиров и Палачей, казалось, были доверенными слугами Вельды и его сильнейшим военным потенциалом.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>После этого Пико и Гараша, подчиненные падшего ангела Дино.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>А затем... Люсия.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Только Дино остался среди Четырех Демонов Небесных Командиров, а 4 Палача были убиты Тестароссой и другими.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кроме того, в Королевстве Инграссия усилиями детей и Венома, а также Кумара, который нанес последний удар, был убит один из палачей.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p><i>"Ну, интересно, кто сделает следующий шаг"</i>, - думал я.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В то же время, кажется, что в каждой стране есть свое движение.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ангелы, которые оказывали последнее сопротивление Кариону и другим, внезапно исчезли с помощью телепорта.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Даже ангельская армия, напавшая на "Эльдорадо" исчезла одновременно с этим.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>По-видимому, все ангелы, которые были рассеяны по многим частям мира, казалось, исчезли полностью.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>А потом... они появились и объединили все свои силы на Буре.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Их число составляет около 600.000.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Несмотря на потерю 40% из их 1 миллиона, они все еще могли похвастаться невероятным мастерством.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Все оставшиеся силы Вельды начали атаковать, чтобы сокрушить Бурю.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Соответственно предсказанию Сиэль-сенсей.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Таким образом, хотя мы одержали победу в разных местах, угроза ангельской армии была все еще высока.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если мы достойно проведем войну, мы не останемся целыми и невредимыми.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако с этой стороны у нас был лабиринт.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Герудо и Габиль развернулись по всей поверхности и начали играть с Дино, целью чего была своего рода диверсия.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Цель состоит в том, чтобы заставить Вельду поверить, что это была война.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В худшем случае, мы отступим в лабиринт. Таким образом, ангельская армия не могла действовать как армия.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Так же, как когда Империя напала, мы смогли справиться с каждым из них в отдельности.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Естественно, была проблема.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В способности Рамирис есть предел, то есть диапазон, в котором она может создавать входы, и он был ограничен.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Она не может входить куда угодно.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если быть точным, она могла связать предыдущее Пристанище Души и 100-й этаж откуда угодно, но вы могли только выйти к месту вашего входа.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Попасть в лабиринт из Бури и отправиться в Природный Парк Улг в Республике Ульграция было невозможным.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это была проблема для авантюристов и жителей Бури, которые укрывались в лабиринте.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поскольку вход и выход были ограничены, то если он блокировался, то это означало поражение.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Те, у кого был более высокий ранг, могли использовать передачу, но мало кто мог передавать это широкой общественности.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Более того, использование трансферной магии имело сложные правила; это опасно для нормальных людей, чтобы сделать это внутри лабиринта.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если это я и руководители, мы могли бы перейти в любом месте свободно, хотя...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Можно жить внутри лабиринта, но может быть трудно провести всю свою жизнь, не имея возможности выйти на улицу.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>По этим причинам, было решено, что мы будем защищать вход до конца.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако, это уже было слишком.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если Вельда выполнит свой план, чтобы выманить меня, как я ожидал, он не остановится, пока не разрушит подземелье.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Давайте притворимся, что поведемся на этот план и ловко на него отреагируем.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Все происходило в соответствии с нашими ожиданиями.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Следующий план уже был опубликован.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мы будем в порядке, пока силы противника не превзошли наши ожидания.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Бенимару еще не восстановил свою энергию.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Силы противника непонятны, я немного волновался.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако:
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Оставьте это нам! Будучи освобожденными Римуру-самой, пожалуйста, рассмотрите силы обороны лабиринта.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я решил поверить словам Бенимару.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ну, в худшем случае я упущу Дьябло, и мы как-нибудь справимся.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это не значит, что моя тревога была разрешена, но я ничего не мог сделать, кроме как поверить в каждого, кто остался в лабиринте.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>План на этот раз подвергнет лабиринт опасности.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поэтому я хотел снять большую часть своего беспокойства, но враг не будет ждать.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Таким образом, пока я волнуюсь, началось полное нападение на Бурю.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>****</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Зеро собрал всех оставшихся ангелов в разных местах после того, как ему была дана власть Вельда.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И затем они все отправились в Бурю для полномасштабного нападения.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Зеро был молчаливым человеком.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И его истинная личность - не человек.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Лидером палачей был Ариос, но Зеро был самым сильным.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это было естественно.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ведь Зеро был сделан Юуки, он был искусственным человеком.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если интерпретировать это в широком смысле, можно сказать, что он являлся братом Веги.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В то время, как Вега был настроен на псевдо-агрессивную личность, все эмоции были удалены у Зеро.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он был создан в этом мире как боевая кукла, обладающая как высокой вычислительной мощностью, так и спокойным суждением, не подверженным эмоциям.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Среди сотен кукол ручной работы, созданных Юуки, Зеро был единственным, кого можно было назвать успешным изобретением.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>С уникальным боевым чувством и усовершенствованным телом боевого существа.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Зеро эволюционировал как духовная форма жизни после того, как получил полный контроль над силой Серафима, данной ему.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И прямо сейчас...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он получил завершенный Окончательный Навык "Злой Повелитель Драконов Ази Дахака" от Вельды, Зеро собирался пересечь другую стену.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>После того, как тело Зеро смешалось со "Злым Повелителем Драконов Ази Дахака" произошло своеобразное изменение.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это мутация, которая превзошла ожидания Вельды.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мутация прогрессировала внутри Зеро, никем не замеченная.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Армия из 600.000 ангелов была организована, Зеро, Май, Дино, Пико и Гараша, эти пятеро встретились лицом к лицу.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Их целью было провести последний инструктаж.
+</p></div></div><div class="yandex-block"><div id="yandex_rtb_R-A-240654-2"><yatag class="p7dce408c ndc376bc4" id="p7dce408c" lang="ru"><yatag class="w45a758cb n55921065 l87fb35f7 d4e01184b"><yatag class="s28f9247b mb80596ee b4843d040" style="min-height: 290px !important; min-width: 799px !important; max-width: 799px !important;"><yatag class="jb8d41a02 ha5880a88 tbfc9a0f2 n8e4ea0c6 t5e091fcd sdc47c4a6 jff840322 l718a2283 j8d3bd006 f71f4048b" style="width: 194px !important; min-height: 288px !important; font-size: 11.3818px !important;" data-id="6290003179"><a target="_blank" class="reeb06462 k410f8bab" href="https://an.yandex.ru/count/3Bm0gtgb4cq50FC1CU0Bubi00000E9om7K02I09Wl0Xe172IXwM13e01j8Rj78W1r-Is-JEG0TRJpkukc07sgvM8BQ01sDFExYwe0V2hbOWjk066blF56S010jW1iB3L4E01aF774EW1f0Bu0VZXthu1Y082e0BmjxCMkGBwxqQy9xWSyF02ZvtAYmpu0eA0W820i5k00x__zR06Y0EngOxX1vW3a9K3g0C8i0C4k0J_0UW4eWBu1ABr78W5elKSa0M_nJMW1RJX2QW5jE49i0MquGcu1Rs94i05_Pajo0MGeG_G1Rcd0-05RF050PW6WD2iymwW1ge3g0Qg0ya6tLHE-ArmC3dH1jteWs-kS30vsGO0001WVW000Aa7Yov44wj3S5km1u20a3JG1mBW1wGF-0S1W0W1q0YwYe21W9200k08-DkP2u0A0S4A00000000y3_O2WBW2e29UeWB1AeB48WMg5ABBW00gsEvyGLw1G302u2Z1SWBWDIJ0TaBYov44wj3S5le2wBr7F0B2eWC-E7UlW7e30kO3P-KZ07o3G3w3G223W293W0000000F0_a0x0X3sO3jsfkSBVbPoOEQ0Em8Gzi0u1eGy00000003mFwWFYzsm_ApraBXRsGzx5Av7uNhmF-0F0O0GpE7C3W00?stat-id=2&amp;test-tag=401871651493889&amp;format-type=22&amp;banner-test-tags=eyI2MjkwMDAzMTc5IjoiNDAxODcxNDk5OTg0ODk2In0%3D&amp;"><yatag class="reeb06462 eae1e2049 mecaa661d"><yatag class="rba07e159">Яндекс.Директ</yatag></yatag><yatag class="ac86b6d90" style="background-image: linear-gradient(90deg, rgb(62, 59, 51), rgb(47, 49, 48)) !important;"><yatag class="w1972f04e"><yatag style="position: absolute !important; width: 104.124% !important; height: 100% !important; left: -2.06186% !important; top: 0% !important;" class=""><img alt="" style="width: 100% !important; height: 100% !important; transform-origin: 50% 50% 0px !important;" class="y1b6d6700" src="//avatars.mds.yandex.net/get-direct/225309/GzqzITdAbUaZzkcUx7MWkA/y300"></yatag></yatag></yatag><yatag class="pc48d5c97"></yatag><yatag class="yfb00ee69"><yatag class="f5828423d"><yatag class="na37e0cf7"><yatag class="b249df8b9 g87c58bf5"><yatag class="c4f2ec082 lc9584f4e"><yatag class="rba07e159 rd9018637">Российская стратегия 2018</yatag></yatag><yatag class="lb6da7162"><img class="g507a1058 w3ff57f6b" src="https://favicon.yandex.net/favicon/triumph.totalbattle.com" alt=""><yatag class="o8401a772"><yatag class="rba07e159">triumph.totalbattle.com</yatag><yatag class="x843836f6">&nbsp;→</yatag></yatag></yatag></yatag></yatag></yatag><yatag class="h90e841a1">18+</yatag></yatag><yatag class="c944d69e8"><yatag class="id93fc5ec"><yatag class="f534cbb45"><yatag class="rba07e159 rd9018637">Российская стратегия 2018</yatag></yatag><yatag class="o11cc52b5"><yatag class="kc9df3fd5 m4c0ec7c6"><yatag class="h17fe58f2 he0bd72d2"><yatag class="rba07e159 rd9018637">В&nbsp;этой игре зависают тысячи единомышленников, присоединяйся!</yatag></yatag><yatag class="vfd452d77 q2b7ad9b8"><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Строй замки</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Грабь склепы</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Правь кланом</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="q44e62a60"><yatag class="t60e78b85">Подробнее<yatag class="odf80e5bd">&nbsp;на&nbsp;<yatag class="rba07e159">triumph.totalbattle.com</yatag></yatag></yatag></yatag></yatag></a><yatag class="be1f5b546 g13c5b62b"><yatag class="ee79fcf11"><yatag class="ofaf0e370"><yatag></yatag></yatag></yatag></yatag><yatag class="vbe38a70d nf2b7595e g5d5b28c g993dc2c6"><yatag class="l3b16d548"><yatag class="a9fd74bd8 scf7633ca w9a667040 if2ace7d0"><yatag class="o30306f7f"><yatag class="hd9f9989f" style="width: 8px !important; height: 8px !important;"><svg width="8px" height="8px" viewBox="0 0 14 14"><polygon points="8.28616426 7.02081528 13.6638974 12.3985484 12.3985484 13.6638974 7.02081528 8.28616426 1.64308213 13.6638974 0.377733152 12.3985484 5.7554663 7.02081528 0.377733152 1.64308213 1.64308213 0.377733152 7.02081528 5.7554663 12.3985484 0.377733152 13.6638974 1.64308213"></polygon></svg></yatag><yatag class="n14e16f4d"><yatag class="ab8d56859"></yatag><yatag class="c88454f5d">Скрыть&nbsp;объявление</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="jb8d41a02 ha5880a88 tbfc9a0f2 n8e4ea0c6 t5e091fcd sdc47c4a6 jff840322 l718a2283 j8d3bd006 f71f4048b odb4c1530" style="width: 194px !important; min-height: 288px !important; font-size: 11.3818px !important;" data-id="6171082023"><a target="_blank" class="reeb06462 k410f8bab" href="https://an.yandex.ru/count/3Bm0guBDUBK50FG1CU0Bubi00000E9om7K02I09Wl0Xe172gu-Qn0u01YesKIuW1zvxEjJAG0SxqcVqjc070rEp9Aw01pFIP_Ise0QpKxCahk06-rgkB6S010jW1bF2H4-W1DFW1gCNUlW680WAW0lRu_WUv0lhlHhmdk1pmy0AFdSgB3FW2We20W82mMu03fQZSR8W3Xw-H-0AO0y_o0w031AW32B031BW4_m7e13du1FMgVeW5zQf-a0M9W8W1e0MZyoMe1Q2F8B05e8yWk0NaoIB01OM5X0781V388T05XxeEu0K-y0K1c0QIrlUr1w06gWEe1ge3oGRTL4xuhN0mET46tUY3RwvmC3dP1W00061-0000gGUBBaGJgqDmMx07W82GDD070k07XWhu1m60207G2BgAW870a802u0YxlFy3W0e1mGe00000003mFzWA0k0AW8bw-0h0_1M82mIg2n285gXIYou00AjZkV45UWK0m0k0emN82u3Kam7P2uikH1EhGt1Rw0lrgdxm2mg83AZ5thu1w0mBc0sVb8m1yWq0-Wq0WWu0YGu00000002mFf0Em8Gzc0xTgRd2tvMSc3cW3i24FR0E0Q4F00000000y3-e3ulTiFoizP2uMzaFUnIkH-5wy3_W3m6049_3gX00?stat-id=2&amp;test-tag=401871651493889&amp;format-type=22&amp;banner-test-tags=eyI2MTcxMDgyMDIzIjoiNDAxODcxNDk5OTg0ODk2In0%3D&amp;"><yatag class="ac86b6d90" style="background-image: linear-gradient(90deg, rgba(139, 59, 1, 0.95), rgba(187, 75, 1, 0.95)) !important;"><yatag class="w1972f04e"><yatag style="position: absolute !important; width: 122.866% !important; height: 100% !important; left: -11.433% !important; top: 0% !important;" class=""><img alt="" style="width: 100% !important; height: 100% !important; transform-origin: 50% 60.1667% 0px !important;" class="y1b6d6700" src="//avatars.mds.yandex.net/get-direct/42386/MbYzjHlBr9LsgPOphRpZpg/y300"></yatag></yatag></yatag><yatag class="pc48d5c97"></yatag><yatag class="yfb00ee69"><yatag class="f5828423d"><yatag class="na37e0cf7"><yatag class="b249df8b9 mb8211199"><yatag class="c4f2ec082 g4c8415a2"><yatag class="rba07e159 rd9018637">Продвижение сайтов от&nbsp;30000 рублей</yatag></yatag><yatag class="lb6da7162"><img class="g507a1058 w3ff57f6b" src="https://favicon.yandex.net/favicon/seointellect.ru" alt=""><yatag class="o8401a772"><yatag class="rba07e159">seointellect.ru</yatag><yatag class="x843836f6">&nbsp;→</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="c944d69e8"><yatag class="id93fc5ec"><yatag class="f534cbb45"><yatag class="rba07e159 rd9018637">Продвижение сайтов от&nbsp;30000 рублей</yatag></yatag><yatag class="o11cc52b5"><yatag class="kc9df3fd5 m4c0ec7c6"><yatag class="h17fe58f2 x9f8fecbe"><yatag class="rba07e159 rd9018637"><b>Продвижение сайтов</b> с&nbsp;фин.гарантиями! Вывод в&nbsp;ТОП. Рост трафика и&nbsp;заказов!</yatag></yatag></yatag><yatag class="vfd452d77 kc9df3fd5 f628504e1"><yatag class="vfd452d77"><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Результаты</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Интернет магазинам</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">У&nbsp;нас выгоднее</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Мощный аудит сайта</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="q44e62a60"><yatag class="t60e78b85">Подробнее<yatag class="odf80e5bd">&nbsp;на&nbsp;<yatag class="rba07e159">seointellect.ru</yatag></yatag></yatag></yatag></yatag></a><yatag class="be1f5b546 g13c5b62b"><yatag class="ee79fcf11"><yatag class="ofaf0e370"><yatag></yatag></yatag></yatag></yatag><yatag class="vbe38a70d nf2b7595e g5d5b28c g993dc2c6"><yatag class="l3b16d548"><yatag class="a9fd74bd8 scf7633ca w9a667040 if2ace7d0"><yatag class="o30306f7f"><yatag class="hd9f9989f" style="width: 8px !important; height: 8px !important;"><svg width="8px" height="8px" viewBox="0 0 14 14"><polygon points="8.28616426 7.02081528 13.6638974 12.3985484 12.3985484 13.6638974 7.02081528 8.28616426 1.64308213 13.6638974 0.377733152 12.3985484 5.7554663 7.02081528 0.377733152 1.64308213 1.64308213 0.377733152 7.02081528 5.7554663 12.3985484 0.377733152 13.6638974 1.64308213"></polygon></svg></yatag><yatag class="n14e16f4d"><yatag class="ab8d56859"></yatag><yatag class="c88454f5d">Скрыть&nbsp;объявление</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="jb8d41a02 ha5880a88 tbfc9a0f2 n8e4ea0c6 t5e091fcd sdc47c4a6 x41dbf649 l718a2283 j8d3bd006 f71f4048b odb4c1530" style="width: 194px !important; min-height: 288px !important; font-size: 11.3818px !important;" data-id="6406966899"><a target="_blank" class="reeb06462 k410f8bab" href="https://an.yandex.ru/count/3Bm0gyazBCO50002CU0Bubi00000E9om7K02I09Wl0Xe172E_iV02801oQgzlmU80QB6_yqra07ckPJUBvW1gB6wW2-W0VgvbDulg07shhg0BxW1wfk5W1h00GBO0OhHjnBW0OYGd1Be0OO1-06klzw-0OW20g02llRy5ha2-kz6l2Uu7F3m0e-ToeiC-0A2W820WB1RW0FBaVsF1OW3bfBnc0wO0-3n0Q031gW32B031BW4_m7e13hu1Dw5Wm681Tw5Wm6G1Oc0Y06W1O-e9wW5mQWXi0N1g26u1UJ98i05XOM40SW5yCWXq0M3_mxW1Jxm1G6O1e3GhFCEe0Qg0wW6gWF91jrKJlYjS30vqGRTw8Dlhd0mETa60000O7u0002f1uikH1EhGt1Ri0U0W90qq0S2u0U62lW70O080T08keg0WS2GW0BW29-xlWk02W712W0000000F0_s0e2u0g0YNhu2i3y5OWB1AeB48WMg5ABBW00gsEvyGLw1G302u2Z1SWBWDIJ0TaBYov44wj3S5le2zw5Wm7m2mg83Aw_thu1w0mBc0sVb8m1yWq0-Wq0WWu0YGu00000001mFP0Em8Gzc0xTgRd2tvMSc3cW3iAwCR0E0Q4F00000000y3-e3ulTiFoizP2uMzaFUnIkH-5wy3_W3m6049gXxGy0?stat-id=2&amp;test-tag=401871651493889&amp;format-type=22&amp;banner-test-tags=eyI2NDA2OTY2ODk5IjoiNDAxODcxNDk5OTg0ODk2In0%3D&amp;"><yatag class="ac86b6d90" style="background-image: linear-gradient(90deg, rgb(12, 25, 4), rgb(104, 171, 19)) !important;"><yatag class="w1972f04e"><yatag style="position: absolute !important; width: 100% !important; height: 128.053% !important; left: 0% !important; top: 0% !important;" class=""><img alt="" style="width: 100% !important; height: 100% !important; transform-origin: 50% 0% 0px !important;" class="y1b6d6700" src="//avatars.mds.yandex.net/get-direct/231080/dbghc7ZMPdlfWEikrXBtvw/y300"></yatag></yatag></yatag><yatag class="pc48d5c97"><yatag style="min-height: 15px !important;" class="sab06f308 k94fb87c4 oacf073c"><yatag class="feeb05119 h824d60e5"><yatag class="xf838cfde"><yatag class="m9c766318"><yatag class="rba07e159">Проектная декларация на&nbsp;рекламируемом сайте. Застройщик: АО «РАПИД»</yatag></yatag></yatag></yatag></yatag></yatag><yatag class="yfb00ee69"><yatag class="f5828423d"><yatag class="na37e0cf7"><yatag class="b249df8b9 mb8211199"><yatag class="c4f2ec082 g4c8415a2"><yatag class="rba07e159 rd9018637">Новый ЖК «СВОЙ»! Бизнес-класс!</yatag></yatag><yatag class="lb6da7162"><img class="g507a1058 w3ff57f6b" src="https://favicon.yandex.net/favicon/2320808.ru" alt=""><yatag class="o8401a772"><yatag class="rba07e159">2320808.ru</yatag><yatag class="x843836f6">&nbsp;→</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="c944d69e8"><yatag class="id93fc5ec"><yatag class="f534cbb45"><yatag class="rba07e159 rd9018637">Новый ЖК «СВОЙ»! Бизнес-класс!</yatag></yatag><yatag class="o11cc52b5"><yatag class="kc9df3fd5 m4c0ec7c6"><yatag class="h17fe58f2 x9f8fecbe"><yatag class="rba07e159 rd9018637">800&nbsp;м от <b>Кутузовского</b> пр! Квартиры бизнес-класса. Подземный паркинг! Рассрочка 0%!</yatag></yatag></yatag><yatag class="vfd452d77 kc9df3fd5 f628504e1"><yatag class="vfd452d77"><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Выбор квартир, машиномест</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Условия покупки</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Преимущества</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Инфраструктура</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="q44e62a60"><yatag class="t60e78b85">Подробнее<yatag class="odf80e5bd">&nbsp;на&nbsp;<yatag class="rba07e159">2320808.ru</yatag></yatag></yatag></yatag><yatag style="min-height: 15px !important;" class="sab06f308 k94fb87c4 adc322afd"><yatag class="feeb05119 h824d60e5"><yatag class="xf838cfde"><yatag class="m9c766318"><yatag class="rba07e159">Проектная декларация на&nbsp;рекламируемом сайте. Застройщик: АО «РАПИД»</yatag></yatag></yatag></yatag></yatag></yatag></a><yatag class="be1f5b546 g13c5b62b"><yatag class="ee79fcf11"><yatag class="ofaf0e370"><yatag></yatag></yatag></yatag></yatag><yatag class="vbe38a70d nf2b7595e g5d5b28c g993dc2c6"><yatag class="l3b16d548"><yatag class="a9fd74bd8 scf7633ca w9a667040 if2ace7d0"><yatag class="o30306f7f"><yatag class="hd9f9989f" style="width: 8px !important; height: 8px !important;"><svg width="8px" height="8px" viewBox="0 0 14 14"><polygon points="8.28616426 7.02081528 13.6638974 12.3985484 12.3985484 13.6638974 7.02081528 8.28616426 1.64308213 13.6638974 0.377733152 12.3985484 5.7554663 7.02081528 0.377733152 1.64308213 1.64308213 0.377733152 7.02081528 5.7554663 12.3985484 0.377733152 13.6638974 1.64308213"></polygon></svg></yatag><yatag class="n14e16f4d"><yatag class="ab8d56859"></yatag><yatag class="c88454f5d">Скрыть&nbsp;объявление</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="jb8d41a02 ha5880a88 tbfc9a0f2 n8e4ea0c6 t5e091fcd sdc47c4a6 jff840322 l718a2283 j8d3bd006 f71f4048b odb4c1530" style="width: 194px !important; min-height: 288px !important; font-size: 11.3818px !important;" data-id="6350676875"><a target="_blank" class="reeb06462 k410f8bab" href="https://an.yandex.ru/count/3Bm0gpNRmY050FS1CU0Bubi00000E9om7K02I09Wl0Xe173wX96W3O01i1Y80V_niUOqa06MZhseBvW1pekQY2wW0PgElQWlg06-Yvg8BhW1Z9o0und00GBO0RgZyHJW0ThctnJe0V81-06enTw-0OW20g02XCpj5ha2-kz6l2Uu7F3m0e-ToeiC-0A2W820WB1RW0EbgDniY0E7hv7u0fW3qQO2e0C8g0C8i0C4k0J_0UW4TlW4_9GiY0Nyb2oG1OYeFg05yfyDg0MPdGkm1PcT2xW5wEiFm0N0jbR81S3y5T05teO5u0K-y0K1c0Qar-YK0g06gWEe1ge3oGRTL4xuhN0mET46tUY3RwvmC3dP1W00061-0000gGUBBaGJgqDmMx07W82GDD070k07XWhu1m60207G2BgAW870a802u0Y2vhOBW0e1mGe00000003mFzWA0k0AW8bw-0h0_1M82mIg2n285gXIYou00AjZkV45UWK0m0k0emN82u3Kam7P2uikH1EhGt1Rw0lyb2pm2mg83AZ5thu1w0mBc0sVb8m1yWq0-Wq0WWu0YGu00000000mF90Em8Gzc0xTgRd2tvMSc3cW3iIYCh0E0Q4F00000000y3-e3ulTiFoizP2uMzaFUnIkH-5wy3_W3m604E2hnX40?stat-id=2&amp;test-tag=401871651493889&amp;format-type=22&amp;banner-test-tags=eyI2MzUwNjc2ODc1IjoiNDAxODcxNDk5OTg0ODk2In0%3D&amp;"><yatag class="ac86b6d90" style="background-image: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255)) !important;"><yatag class="w1972f04e"><yatag style="position: absolute !important; width: 104.124% !important; height: 100% !important; left: -2.06186% !important; top: 0% !important;" class=""><img alt="" style="width: 100% !important; height: 100% !important; transform-origin: 50% 73% 0px !important;" class="y1b6d6700" src="//avatars.mds.yandex.net/get-direct/168197/95yA5VvJagZlBnbgt87Iig/y300"></yatag></yatag></yatag><yatag class="pc48d5c97"></yatag><yatag class="yfb00ee69"><yatag class="f5828423d"><yatag class="na37e0cf7"><yatag class="b249df8b9 mb8211199"><yatag class="c4f2ec082 g4c8415a2"><yatag class="rba07e159 rd9018637">Выведем в&nbsp;топ или мы&nbsp;в убытке!</yatag></yatag><yatag class="lb6da7162"><img class="g507a1058 w3ff57f6b" src="https://favicon.yandex.net/favicon/konverseya.ru" alt=""><yatag class="o8401a772"><yatag class="rba07e159">konverseya.ru</yatag><yatag class="x843836f6">&nbsp;→</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="c944d69e8"><yatag class="id93fc5ec"><yatag class="f534cbb45"><yatag class="rba07e159 rd9018637">Выведем в&nbsp;топ или мы&nbsp;в убытке!</yatag></yatag><yatag class="o11cc52b5"><yatag class="kc9df3fd5 m4c0ec7c6"><yatag class="h17fe58f2 x9f8fecbe"><yatag class="rba07e159 rd9018637">«Белое» <b>продвижение сайтов</b> от&nbsp;экспертов, работаем прозрачно, на&nbsp;результат! Заходите!</yatag></yatag></yatag><yatag class="vfd452d77 kc9df3fd5 f628504e1"><yatag class="vfd452d77"><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Повышение Конверсии в&nbsp;подарок</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Seo-аудит бесплатно</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Кейсы</yatag></yatag></yatag><yatag class="g9d9e466f"><yatag class="reeb06462 g80ef783b"><yatag class="rba07e159">Заказать seo</yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag class="q44e62a60"><yatag class="t60e78b85">Подробнее<yatag class="odf80e5bd">&nbsp;на&nbsp;<yatag class="rba07e159">konverseya.ru</yatag></yatag></yatag></yatag></yatag></a><yatag class="be1f5b546 g13c5b62b"><yatag class="ee79fcf11"><yatag class="ofaf0e370"><yatag></yatag></yatag></yatag></yatag><yatag class="vbe38a70d nf2b7595e g5d5b28c g993dc2c6"><yatag class="l3b16d548"><yatag class="a9fd74bd8 scf7633ca w9a667040 if2ace7d0"><yatag class="o30306f7f"><yatag class="hd9f9989f" style="width: 8px !important; height: 8px !important;"><svg width="8px" height="8px" viewBox="0 0 14 14"><polygon points="8.28616426 7.02081528 13.6638974 12.3985484 12.3985484 13.6638974 7.02081528 8.28616426 1.64308213 13.6638974 0.377733152 12.3985484 5.7554663 7.02081528 0.377733152 1.64308213 1.64308213 0.377733152 7.02081528 5.7554663 12.3985484 0.377733152 13.6638974 1.64308213"></polygon></svg></yatag><yatag class="n14e16f4d"><yatag class="ab8d56859"></yatag><yatag class="c88454f5d">Скрыть&nbsp;объявление</yatag></yatag></yatag></yatag></yatag></yatag></yatag></yatag><yatag id="o83de18cf"><yatag class="s432f9bf9"></yatag></yatag></yatag></yatag></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как только он прибыл, все члены были собраны вокруг Зеро.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поскольку Зеро получил титул Верховного Главнокомандующего Небес, Дино и другие не имели права ему возражать.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кроме того, другая причина, по сравнению с тем, когда он встречал его раньше, аура Зеро обладала этим подавляющим принуждением.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Думая, что это будет хлопотно, у Дино не было другого выбора, кроме как подчиниться ему.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>&nbsp;- Хорошо, какой план вы собираетесь привести в действие?
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Дино-Сан, ты не сможешь победить, если будешь сражаться наполовину, понимаешь? Если ты хочешь атаковать, атакуй всех за один раз. Ты должен сконцентрировать свои силы и не дать врагу времени на восстановление.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Не будь смешным. Это проблема то, что они прячутся внутри лабиринта, я постоянно нападаю на них, понимаешь? Это такой план, знаешь ли, стратегия.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>К ответу Мэй, Дино смело спроизнес оправдание, которое он уже придумал раньше.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Не колеблясь говорить все, что он думает, это была удивительная фишка Дино.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Хм... какая наглость...
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Для Май, которая являлась прилежными почетным учеником, Дино был противником, против которого она не была достаточно хороша.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Было облегчением, что Май не смогла опровергнуть этого, Дино попытался продвинуться дальше, но:
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- У нас нет времени на ссоры. Давайте быстро приступим к плану. Приказ, который я получил, состоял в том, чтобы разрушить лабиринт с помощью тотальной атаки. Поэтому, даже если они забаррикадировались внутри лабиринта, ничего страшного. Ведь мы разрушим лабиринт, поэтому проблем не будет. Быстро сметайте поверхностный корпус и начинайте вторжение в лабиринт.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Зеро остановил Дино и озвучил приказ Вельды.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Выражения лиц Дино и остальных изменились из-за услышанного приказа. 
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Эй, эй, не говорите ничего такого неразумного! Этот лабиринт неприступен. Это не потому, что однажды я проиграл, но серьезно, это невыгодно для нас. Враг полностью бессмертен и игнорирует любой урон. Даже если мы атакуем его с армией, мы будем разделены и побеждены один за другим.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Это верно! Кроме того, есть один крутой парень среди поверхностного корпуса. Вряд ли это шутка, для этого парня любая атака может вообще не сработать.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Смотри! Также есть воин, который может идти нога в ногу с этим Гараша. Это не те люди, которых можно легко победить, просто нападая цифрами.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Следом за Дино Пико и Гараша тоже начали жаловаться.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Фактически, во время нападения в последние несколько дней эти двое были в растерянности от того, как им продолжать борьбу против Герудо и Габиля.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Они не знали, как это будет, если они выпустят всю свою власть, но не казалось, что они могут выиграть, сражаясь нормально.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Из-за этого девушки быстро возразили против слов Зеро о действиях с поверхностным корпусом.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поскольку Дино понимал высокую сложность лабиринта, это был совет от всего его сердца.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Его реальное намерение состояло в том, что он не хочет снова войти в лабиринт, но это то, что лучше оставить недосказанным.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тем не менее, разговор продвинулся в худшем направлении, о чем беспокоился Дино.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вкратце:
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Я же говорил, что проблем нет. Май, я передал тебе повеление ангелов. Командуй всей армией и очистите поверхность корпуса. Если это ты, есть некоторые корректировки для дальних атак. Сделайте ангелов огненными залпами Сферы Священного Света с неба и уничтожьте врага на земле.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Понятно. Это подходящий этап для "повышения точности" и "увеличения мощности атаки на большие расстояния" моей способности, хах. Я заставлю ангелов синхронизироваться со мной при помощи "Связи", хорошо?
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Не проблема. Я оставил поверхность тебе, ты не возражаешь?
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Все в порядке. И что ты будешь делать?
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Я вторгнусь в лабиринт с Дино и остальными.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вопрос вкратце решил Зеро, беспокойство Дино попало в цель.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Что... что с этим парнем, даже не обсуждается...
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дино хотел кричать, но, к сожалению, Зеро имел более высокий авторитет.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Эй, эй... внутри лабиринта враг будет продолжать возрождаться...
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Не проблема. Я разрушу лабиринт самостоятельно, используя способность истинного "Злого Повелителя Драконов Ази Дахака", данную мне Вельда-самой.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Прерывая слова Дино, Зеро заявил об этом без каких-либо изменений в его выражении лица.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Почувствовав по отношению Нуро, что никакой аргумент не нужен, Дино, отказавшись от сказанного, будет бесполезным.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поскольку вопрос уже был решен, слова Дино ничего не изменили, поскольку Зеро сказал, что это было распоряжение Вельды.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>
+- Я понимаю, я повинуюсь тебе. Итак, только я и ты войдем в лабиринт? 
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Я войду в лабиринт с вами тремя.
+ И я оставлю вас троих, чтобы заполучить время, поскольку я буду разрушать лабиринт.  
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- ...Понятно.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>
+Так ответил Дино, а Пико и Гараша восприняли это как само собой размеющееся. 
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Таким образом, были определены участники для захвата лабиринта Рамириса.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Когда приступать к плану?
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>На вопрос Дино Зеро ответил:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Сейчас посмотрим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Итак:
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Когда слово Зеро стало сигналом, началась самая большая атака в истории в сторону Бури.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>
+Блестящие вспышки. 
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ангелы атаковали все вместе настолько, насколько это было невозможно.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тепловая волна расходилась по поверхности, испаряя город, созданный Римуру и компанией.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Даже корпус, возглавляемый Герудо и Габилем, решили отступить перед дождем света, который лился с неба, которого нельзя было защитить при помощи простого барьера.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если нет никакой коррекции защиты от способности Герудо, атака будет насильственно уничтожать все.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Коррекция способности Окончательного Навыка Майи [Оружие Лорда (Лук)] обеспечивало точную стрельбу.
+</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Ангелы, объединенные волей Майи, поймали цель на линии ее видимости и атаковали одну точку все вместе.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сконцентрированное нападение 600 000 ангелов пугало.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Температуру сфокусированной точки было невозможно измерить. Если это не отражалось и не рассеивалось барьером Герудо, это не давало никакого сопротивления.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ей стоило хвалить Герудо, поскольку он мог выдержать это за одно мгновение.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Часть города быстро превратилась в опустошенную землю, лишенную чего-либо.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Ангелы двигались под одной воле, в отличие от того, когда они находились под командованием Дино.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как одно живое существо, они показали упорядоченное движение.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Они стали угрозой для Бури, уже невозможно было думать о них так же, как и раньше.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>
+Зеро кивнул, подтверждая, что поверхностный корпус вышел в лабиринт. 
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>От выхода... Вход открыт на поверхности, он подтверждал несколько мест искаженного пространства, которые испускали подобные волны.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мая также заметила это место и завершила его фиксацию в качестве цели армии ангелов.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>
+- Не оставляйте никого, кто убегает.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- Попался.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Обратившись кратко, Зеро начал двигаться в лабиринт, взяв с собой Дино и компанию.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как будто высмеивая Дино и остальных, Мая показала, что она легко побеждает людей, признанных Пико и Гарашей.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Пико разочарованно подумала, что у нее не было другого выбора, кроме как признать это.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тем не менее, они, похоже, отходили слишком легко...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хотя она не говорила громко, поскольку это заставило бы ее выглядеть неудачницей, Пико не могла избавиться от этой мысли&nbsp;в своей голове.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>В конце концов, она испытала горечь во время своей борьбы с Герудо, который мог похвастаться слишком высокой защитой.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Она считала Маю потрясающей, и то как легко она оттолкнула такого противника, но у нее все еще были некоторые неудовлетворенные чувства.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>- О, хорошо, если они отступили в лабиринт, возможно, нам удастся сразиться с ними.
+ Но с этой защитной силой и бессмертием будет далеко не до шуток...</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Думая о решении, когда придет время, Пико последует за Дино, а остальные - в лабиринт.
+</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>
+Когда четверо людей вошли в лабиринт, то наступил момент, когда начал действовать план Зеро по разрушению Лабиринта.</p></div></div></div></div></article><div class="col-md-12 text-center"><div style="margin-bottom: 5px;" class="adsense-bottom"><div class="adsense-block"><ins class="adsbygoogle" style="display: block; text-align: center; height: 193px;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-7505887367641385" data-ad-slot="8181392956" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:769px;height:193px;" width="769" height="193" frameborder="0"></iframe></ins></ins></ins></div></div></div><ul class="default navigation-bottom"><li><a class="btn-prev btn-nav" href="/tensei-shitara-slime-datta-ken/glava-227-2-perekrestnoe-porazhenie/"><i class="btn-icon-nav fi flaticon-left-arrow"></i><span>Предыдущая</span></a></li><li class=""><a class="btn-book btn-nav" href="/tensei-shitara-slime-datta-ken/"><i class="btn-icon-nav fi flaticon-open-book"></i><span>Оглавление</span></a></li><li class="next-part last"><a class="btn-next btn-nav btn-nav-right" href="/tensei-shitara-slime-datta-ken/glava-229-vtorzhenie-v-labirint-chast-2/"><i class="btn-icon-nav fi flaticon-arrow-pointing-to-right"></i><span>Следующая</span></a></li></ul></div><div class="col-lg-3 pr-0 pl-0"><div class="money"><div><div style="padding-bottom: 0px;"></div><div><div class="adsense-right"><div class="adsense-block"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7505887367641385" data-ad-slot="2134859359" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:300px;height:600px;" width="300" height="600" frameborder="0"></iframe></ins></ins></ins></div></div></div></div></div></div></div></div></div></div></div></div><span class="redux-toastr" aria-live="assertive"><span><div class="top-left"></div><div class="top-right"></div><div class="top-center"></div><div class="bottom-left"></div><div class="bottom-right"></div><div class="bottom-center"></div></span></span><footer class="footer"><div class="footer-bottom"><div class="container"><div class="row"><div class="col-md-4 col-sm-8 col-xs-10"><div class="footer__copyright">© 2016-2018 Copyright: Ранобэ.рф</div></div><div class="col-md-4 col-md-offset-4 col-sm-4 col-xs-2"><ul class="footer__social list-inline text-right"><li><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i></a></li></ul></div></div></div></div><div class="scroll-to-top"><div class="btn-animate"><div class="btn-wrapper"><i class="fi flaticon-up-arrow"></i></div></div></div></footer></div></div>
+    <script src="/build/js/polyfill.b4cf76480fdb2de24251.js"></script>
+    <script src="/public/js/classList.min.js"></script>
+		<script src="/public/js/react.production.min.js"></script>
+		<script src="/public/js/react-dom.production.min.js"></script>
+		<script src="/build/js/frontend.b4cf76480fdb2de24251.js"></script>
+
+
+<iframe id="google_osd_static_frame_2017841034642" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><div style="position: fixed; left: -99px;"><div id="3b1155ce47"><iframe scrolling="no" allowtransparency="true" hidefocus="true" tabindex="-1" marginwidth="0" marginheight="0" src="//yastatic.net/safeframe-bundles/0.43/1-1-0/render.html" id="id4837" frameborder="no"></iframe></div></div></body></html>

@@ -51,7 +51,9 @@ class ParseSite:
 
     def start(self):
         self.parse_page()
-        self.parse_links()
+        # self.parse_links()
+        self.check_files()
+        self.parse_files()
 
     def parse_page(self):
         html_src = open(self.file, 'r', encoding="utf-8")
@@ -81,10 +83,9 @@ class ParseSite:
         links_src.close()
         for link in self.link_list:
 
-            sleep(0.2)
             self.browser.get(link)
-            while len(self.browser.title) <= 41:
-            	sleep(0.1)
+            while len(self.browser.title) <= 45:
+                sleep(0.2)
 
             self.__text_list = self.browser.page_source
             try:
@@ -104,8 +105,8 @@ class ParseSite:
         print(a)
         partName = str(self.iterator)+". "+self.browser.title
         part = open(\
-        	'src/html/{}.html'.format(clean(partName)),\
-        	 'w', encoding="utf-8")
+            'src/html/{}.html'.format(clean(partName)),\
+             'w', encoding="utf-8")
         for i in self.__text_list:
             part.write(i)
         part.close()
@@ -114,19 +115,72 @@ class ParseSite:
     def check_files(self):
         files = os.listdir('src\\html')
         number_files = list([int(i.split('. ')[0]) for i in files])
-        print('number_files\n', number_files)
         len_files = list(range(0, len(files)))
-        print('len_files\n', len_files)
+        uniques_list = list(set(number_files))
         check_list = list(set(len_files) - set(number_files))
-        print('check_list\n', check_list)
-       	for g in check_list:
-       		print(g)
 
+        counter_list = Counter(number_files)
+
+        non_uniqueness_list = list()
+        for z in counter_list:
+            if counter_list[z] > 1:
+                non_uniqueness_list.append(z)
+        non_uniqueness_list.sort()
+        if check_list and non_uniqueness_list:
+            print("Not foud:")
+            for g in check_list:
+                print(g)
+            print('\n\nRepeating files:')
+            for h in non_uniqueness_list:
+                print(h)
+            print("\n\n                FAIL")
+        elif check_list:
+            print("Not foud:")
+            for g in check_list:
+                print(g)
+            print("\n\n                FAIL")
+        elif non_uniqueness_list:
+            for h in non_uniqueness_list:
+                print(h)
+            print("\n\n                FAIL")
+        else:
+            print("\n\n                OK")
+        input()
 
     def parse_files(self):
-    	pass
+        files = os.listdir('src\\html')
+        result = open('result/parts.html', 'a', encoding="utf-8")
+        result.write(\
+            "<!DOCTYPE html>\n"+\
+            "<html lang=\"ru\">\n"+\
+            "<head>\n"+\
+            "    <meta charset=\"UTF-8\">\n"+\
+            "    <title>О моём превращении в слизь</title>\n"+\
+            "</head>\n"+\
+            "<body>\n"\
+            )
+        for i in files:
+            html_text = ""
+            text = ""
+            part = open('src/html/{}'.format(i), 'r', encoding="utf-8")
+            for g in part:
+                html_text += g
+            tree = html.fromstring(html_text)
+            for z in tree.xpath('//div/p'):
+                print(z.text)
+                try:
+                    text += "<p>" + z.text + "</p>"
+                except TypeError:
+                    continue
+            part.close()
+            result.write(text+"\n")
+        result.write(\
+            "\n</body>\n"+\
+            "</html>")
+        result.close()
+
 
 
 if __name__ == '__main__':
     main = ParseSite()
-    main.check_files()
+    main.start()

@@ -1,0 +1,636 @@
+<html lang="ru-Ru"><head><style id="react-tooltip">.__react_component_tooltip{border-radius:3px;display:inline-block;font-size:13px;left:-999em;opacity:0;padding:8px 21px;position:fixed;pointer-events:none;transition:opacity 0.3s ease-out;top:-999em;visibility:hidden;z-index:999}.__react_component_tooltip:before,.__react_component_tooltip:after{content:"";width:0;height:0;position:absolute}.__react_component_tooltip.show{opacity:0.9;margin-top:0px;margin-left:0px;visibility:visible}.__react_component_tooltip.type-dark{color:#fff;background-color:#222}.__react_component_tooltip.type-dark.place-top:after{border-top-color:#222;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-dark.place-bottom:after{border-bottom-color:#222;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-dark.place-left:after{border-left-color:#222;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-dark.place-right:after{border-right-color:#222;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-dark.border{border:1px solid #fff}.__react_component_tooltip.type-dark.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-dark.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-dark.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-dark.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-success{color:#fff;background-color:#8DC572}.__react_component_tooltip.type-success.place-top:after{border-top-color:#8DC572;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-success.place-bottom:after{border-bottom-color:#8DC572;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-success.place-left:after{border-left-color:#8DC572;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-success.place-right:after{border-right-color:#8DC572;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-success.border{border:1px solid #fff}.__react_component_tooltip.type-success.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-success.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-success.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-success.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-warning{color:#fff;background-color:#F0AD4E}.__react_component_tooltip.type-warning.place-top:after{border-top-color:#F0AD4E;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-warning.place-bottom:after{border-bottom-color:#F0AD4E;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-warning.place-left:after{border-left-color:#F0AD4E;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-warning.place-right:after{border-right-color:#F0AD4E;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-warning.border{border:1px solid #fff}.__react_component_tooltip.type-warning.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-warning.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-warning.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-warning.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-error{color:#fff;background-color:#BE6464}.__react_component_tooltip.type-error.place-top:after{border-top-color:#BE6464;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-error.place-bottom:after{border-bottom-color:#BE6464;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-error.place-left:after{border-left-color:#BE6464;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-error.place-right:after{border-right-color:#BE6464;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-error.border{border:1px solid #fff}.__react_component_tooltip.type-error.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-error.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-error.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-error.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-info{color:#fff;background-color:#337AB7}.__react_component_tooltip.type-info.place-top:after{border-top-color:#337AB7;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-info.place-bottom:after{border-bottom-color:#337AB7;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-info.place-left:after{border-left-color:#337AB7;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-info.place-right:after{border-right-color:#337AB7;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-info.border{border:1px solid #fff}.__react_component_tooltip.type-info.border.place-top:before{border-top:8px solid #fff}.__react_component_tooltip.type-info.border.place-bottom:before{border-bottom:8px solid #fff}.__react_component_tooltip.type-info.border.place-left:before{border-left:8px solid #fff}.__react_component_tooltip.type-info.border.place-right:before{border-right:8px solid #fff}.__react_component_tooltip.type-light{color:#222;background-color:#fff}.__react_component_tooltip.type-light.place-top:after{border-top-color:#fff;border-top-style:solid;border-top-width:6px}.__react_component_tooltip.type-light.place-bottom:after{border-bottom-color:#fff;border-bottom-style:solid;border-bottom-width:6px}.__react_component_tooltip.type-light.place-left:after{border-left-color:#fff;border-left-style:solid;border-left-width:6px}.__react_component_tooltip.type-light.place-right:after{border-right-color:#fff;border-right-style:solid;border-right-width:6px}.__react_component_tooltip.type-light.border{border:1px solid #222}.__react_component_tooltip.type-light.border.place-top:before{border-top:8px solid #222}.__react_component_tooltip.type-light.border.place-bottom:before{border-bottom:8px solid #222}.__react_component_tooltip.type-light.border.place-left:before{border-left:8px solid #222}.__react_component_tooltip.type-light.border.place-right:before{border-right:8px solid #222}.__react_component_tooltip.place-top{margin-top:-10px}.__react_component_tooltip.place-top:before{border-left:10px solid transparent;border-right:10px solid transparent;bottom:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-top:after{border-left:8px solid transparent;border-right:8px solid transparent;bottom:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-bottom{margin-top:10px}.__react_component_tooltip.place-bottom:before{border-left:10px solid transparent;border-right:10px solid transparent;top:-8px;left:50%;margin-left:-10px}.__react_component_tooltip.place-bottom:after{border-left:8px solid transparent;border-right:8px solid transparent;top:-6px;left:50%;margin-left:-8px}.__react_component_tooltip.place-left{margin-left:-10px}.__react_component_tooltip.place-left:before{border-top:6px solid transparent;border-bottom:6px solid transparent;right:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-left:after{border-top:5px solid transparent;border-bottom:5px solid transparent;right:-6px;top:50%;margin-top:-4px}.__react_component_tooltip.place-right{margin-left:10px}.__react_component_tooltip.place-right:before{border-top:6px solid transparent;border-bottom:6px solid transparent;left:-8px;top:50%;margin-top:-5px}.__react_component_tooltip.place-right:after{border-top:5px solid transparent;border-bottom:5px solid transparent;left:-6px;top:50%;margin-top:-4px}.__react_component_tooltip .multi-line{display:block;padding:2px 0px;text-align:center}</style>
+    <meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+    <meta name="wot-verification" content="cacab22e123ff52a7497">
+    <meta property="og:site_name" content="Ранобэ.рф">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="fragment" content="!">
+    <meta name="yandex-verification" content="51b039399a0e38a7">
+    
+    <meta name="theme-color" content="#fff">
+    <title>Глава 58. Призванные ~ те, кого называют героями | О моём перерождении в слизь | Ранобэ.рф</title>
+    <link rel="icon" type="image/png" href="/public/images/favicon.png">
+    <script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/osd.js"></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async=""></script><script src="https://pagead2.googlesyndication.com/pub-config/r20160913/ca-pub-7505887367641385.js"></script><script src="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" id="google_shimpl"></script><script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,400i,700,700i" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="/public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/build/css/frontend.b4cf76480fdb2de24251.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/build/css/chunks/PartPage.b4cf76480fdb2de24251.css"><script charset="utf-8" src="/build/js/chunks/PartPage.4f5508407ddd9a636943.js"></script><link rel="preload" href="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.ru/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=xn--80ac9aeh6f.xn--p1ai"></script><meta name="description" content="Дети направили свои враждебные, полные ненависти взгляды на меня. Я сразу же почувствовал себя не в своей тарелке. Откуда у них столько враждебности к новому воспитателю?Всего лишь пять детей.Мисаки Кенья: М, 8 летСекигути Рёт..."><meta property="title" content="Глава 58. Призванные ~ те, кого называют героями | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:title" content="Глава 58. Призванные ~ те, кого называют героями | О моём перерождении в слизь | Ранобэ.рф"><meta property="og:url" content="https://xn--80ac9aeh6f.xn--p1ai/tensei-shitara-slime-datta-ken/noindex-glava-58-prizvannie-te-kogo-nazyvayut-geroyami/"><meta property="twitter:description" content="Дети направили свои враждебные, полные ненависти взгляды на меня. Я сразу же почувствовал себя не в своей тарелке. Откуда у них столько враждебности к новому воспитателю?Всего лишь пять детей.Мисаки Кенья: М, 8 летСекигути Рёт..."><meta property="twitter:title" content="Глава 58. Призванные ~ те, кого называют героями | О моём перерождении в слизь | Ранобэ.рф"><meta property="article:section" content="Глава 58. Призванные ~ те, кого называют героями"><meta property="article:published_time" content="2016-12-19T00:36:10+03:00"><meta property="article:modified_time" content="2016-12-19T00:36:10+03:00"><meta property="og:image" content="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/o-moyom-pererozhdenii-v-sliz-1519254998.png"><meta property="og:image:width" content="537"><meta property="og:image:height" content="240"><meta property="robots" content="noindex, nofollow"><link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/r20181031/r20180604/show_ads_impl.js" as="script"><script id="https://an.yandex.ru/resource/context_static_r_6876.js" src="https://an.yandex.ru/resource/context_static_r_6876.js"></script><style type="text/css">.ya_partner_R-A-240654-2-151{opacity:1 !important;white-space:normal !important}.ya_partner_R-A-240654-2-151,.ya_partner_R-A-240654-2-151 yatag{display:block !important;font-family:inherit !important}.ya_partner_R-A-240654-2-151,.ya_partner_R-A-240654-2-151,.ya_partner_R-A-240654-2-151 a,.ya_partner_R-A-240654-2-151 b,.ya_partner_R-A-240654-2-151 em,.ya_partner_R-A-240654-2-151 iframe,.ya_partner_R-A-240654-2-151 img,.ya_partner_R-A-240654-2-151 table,.ya_partner_R-A-240654-2-151 tbody,.ya_partner_R-A-240654-2-151 td,.ya_partner_R-A-240654-2-151 tr,.ya_partner_R-A-240654-2-151 yatag{box-sizing:content-box !important;color:inherit !important;font-size:inherit !important;font-weight:inherit !important;-webkit-hyphens:manual !important;-ms-hyphens:manual !important;hyphens:manual !important}.ya_partner_R-A-240654-2-151,.ya_partner_R-A-240654-2-151 a,.ya_partner_R-A-240654-2-151 b,.ya_partner_R-A-240654-2-151 em,.ya_partner_R-A-240654-2-151 iframe,.ya_partner_R-A-240654-2-151 img,.ya_partner_R-A-240654-2-151 table,.ya_partner_R-A-240654-2-151 tbody,.ya_partner_R-A-240654-2-151 td,.ya_partner_R-A-240654-2-151 tr{background:none !important;border:none !important;border-radius:0 !important;border-spacing:0 !important;border-collapse:collapse !important;clear:none !important;float:none !important;font-variant:normal !important;letter-spacing:normal !important;line-height:normal !important;margin:0 !important;max-height:none !important;max-width:none !important;min-height:0 !important;min-width:0 !important;outline:none !important;padding:0 !important;position:static !important;text-align:left !important;text-decoration:none !important;text-indent:0 !important;text-transform:none !important;vertical-align:baseline !important;visibility:visible !important;word-spacing:normal !important}.ya_partner_R-A-240654-2-151,.ya_partner_R-A-240654-2-151 a,.ya_partner_R-A-240654-2-151 b,.ya_partner_R-A-240654-2-151 em,.ya_partner_R-A-240654-2-151 img,.ya_partner_R-A-240654-2-151 table,.ya_partner_R-A-240654-2-151 tbody,.ya_partner_R-A-240654-2-151 td,.ya_partner_R-A-240654-2-151 tr{height:auto !important}.ya_partner_R-A-240654-2-151 table{display:table !important;empty-cells:hide !important;table-layout:fixed !important}.ya_partner_R-A-240654-2-151 table,.ya_partner_R-A-240654-2-151 td{font-size:100% !important}.ya_partner_R-A-240654-2-151 td{display:table-cell !important;vertical-align:middle !important}.ya_partner_R-A-240654-2-151 .yap-rtb__wrapper{overflow:hidden !important;font:normal 13px Arial,sans-serif !important}.ya_partner_R-A-240654-2-151 .yap-rtb__iframe,.ya_partner_R-A-240654-2-151 .yap-rtb__wrapper{position:relative !important;width:336px !important;height:280px !important;margin:auto !important}.ya_partner_R-A-240654-2-151 .yap-rtb__iframe{z-index:2 !important}.ya_partner_R-A-240654-2-151 .yap-rtb__adtune-button{position:absolute !important;z-index:11 !important;right:0 !important;top:0 !important}.ya_partner_R-A-240654-2-151 .yap-rtb__feedback{border:1px solid #ccc !important;box-sizing:border-box !important}.ya_partner_R-A-240654-2-151 .yap-adtune{cursor:pointer !important}.ya_partner_R-A-240654-2-151 .yap-adtune,.ya_partner_R-A-240654-2-151 .yap-adtune_touch_true{position:relative !important}.ya_partner_R-A-240654-2-151 .yap-adtune_touch_true:after{content:"" !important;position:absolute !important;top:0 !important;left:-5px !important;bottom:-5px !important;right:0 !important}.ya_partner_R-A-240654-2-151 .yap-adtune_touch_true.yap-adtune_disable-click-area:after{left:0 !important;bottom:0 !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu{z-index:-1 !important;transition:z-index 0s linear .4s !important;cursor:default !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu,.ya_partner_R-A-240654-2-151 .yap-feedback-menu__slide{position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important;overflow:hidden !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu__slide{margin-left:100% !important;transition:margin-left .4s ease-out !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu__form{position:absolute !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;margin-left:0 !important;width:100% !important;height:100% !important;background:#fff !important;background:hsla(0,0%,100%,.98) !important;transition:margin-left .4s ease-out !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu_visible{z-index:10 !important;transition:z-index 0s !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu_visible .yap-feedback-menu__slide{margin-left:0 !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon{padding:0 0 4px 4px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon__tooltip{position:absolute !important;top:50% !important;right:100% !important;margin-top:-9px !important;margin-right:8px !important;padding:0 4px !important;max-width:120px !important;height:18px !important;line-height:18px !important;color:#fff !important;background:#333 !important;background-color:rgba(0,0,0,.8) !important;border-radius:1px !important;visibility:hidden !important;font-size:11px !important;white-space:nowrap !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon__tooltip-arrow{position:absolute !important;top:3px !important;right:-6px !important;display:block !important;overflow:hidden !important;width:0 !important;height:0 !important;border-style:solid !important;border-width:6px 0 6px 6px !important;border-color:transparent transparent transparent #333 !important;border-color:transparent transparent transparent rgba(0,0,0,.8) !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon__tooltip-text{position:relative !important;color:#fff !important;letter-spacing:.04em !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon__container{position:relative !important;padding:4px !important;border-radius:0 0 0 20% !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon__image svg{display:block !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon__image polygon{fill:#000 !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon__image-fallback{margin:-3px !important;width:1em !important;height:1em !important;line-height:1em !important;text-align:center !important;font-size:18px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon:hover .yap-adtune-icon__tooltip{visibility:visible !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_open:hover .yap-adtune-icon__tooltip{display:none !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_touch_true{visibility:visible !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_touch_true .yap-adtune-icon__tooltip{display:none !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_oldie_true .yap-adtune-icon__tooltip{height:19px !important;line-height:19px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_oldie_true .yap-adtune-icon__tooltip-arrow{top:2px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_size_l .yap-adtune-icon__container{padding:5px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_size_l .yap-adtune-icon__image-fallback{margin:-5px !important;font-size:25px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_size_l .yap-adtune-icon__tooltip{margin-right:9px !important;margin-top:-12px !important;max-width:160px !important;height:22px !important;line-height:22px !important;font-size:13px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_size_l .yap-adtune-icon__tooltip-arrow{right:-7px !important;top:4px !important;border-width:7px 0 7px 7px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon.yap-adtune-icon_open .yap-adtune-icon__tooltip{display:none !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_black-white .yap-adtune-icon__container{background-color:rgba(0,0,0,.25) !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_black-white .yap-adtune-icon__image polygon{fill:#fff !important}.ya_partner_R-A-240654-2-151 .yap-adtune-icon_row,.ya_partner_R-A-240654-2-151 .yap-adtune_touch_true.yap-adtune_disable-click-area .yap-adtune-icon{padding:0 !important}.ya_partner_R-A-240654-2-151 .yap-adtune_touch_true.yap-adtune_disable-click-area.yap-adtune_black-white.yap-adv__adtune{top:3px !important;right:3px !important}.ya_partner_R-A-240654-2-151 .yap-adtune_touch_true.yap-adtune_disable-click-area.yap-adtune_black-white.yap-adv__adtune .yap-adtune-icon__container{border-radius:20% !important}.ya_partner_R-A-240654-2-151 .yap-adtune-message{position:absolute !important;top:0 !important;right:0 !important;left:0 !important;bottom:0 !important;width:100% !important;height:100% !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;color:#000 !important;font-size:13px !important;z-index:-1 !important;opacity:0 !important;transition:opacity .3s !important}.ya_partner_R-A-240654-2-151 .yap-adtune-message,.ya_partner_R-A-240654-2-151 .yap-adtune-message__container{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.ya_partner_R-A-240654-2-151 .yap-adtune-message__text{margin-left:10px !important}.ya_partner_R-A-240654-2-151 .yap-adtune-message__icon svg{fill:#000 !important}.ya_partner_R-A-240654-2-151 .yap-adtune-message_big{font-size:15px !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu_received .yap-adtune-message{opacity:1 !important;z-index:10 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message{-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;min-width:100% !important;min-height:100% !important;font-size:13px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message,.ya_partner_R-A-240654-2-151 .yap-abuse-message__container{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;box-sizing:border-box !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__container{width:100% !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;padding:10px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__logo{font-weight:700 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__logo_small{display:none !important;font-weight:700 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__logo-wrapper,.ya_partner_R-A-240654-2-151 .yap-abuse-message__logo_small{-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__logo-wrapper{overflow:hidden !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint,.ya_partner_R-A-240654-2-151 .yap-abuse-message__logo-wrapper{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;-webkit-flex-shrink:0 !important;-ms-flex-negative:0 !important;flex-shrink:0 !important;box-sizing:border-box !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint{-webkit-align-content:center !important;-ms-flex-line-pack:center !important;align-content:center !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;padding:0 !important;margin:0 !important;position:relative !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint-item{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;box-sizing:border-box !important;margin:5px 0 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint-item_small{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint-item .yap-abuse-message__complaint-link{width:100% !important;max-width:250px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint-item_small .yap-abuse-message__complaint-link{width:100% !important;max-width:180px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint-link{display:block !important;padding:5px !important;background-color:#fff !important;border:1px solid #c8c8c8 !important;border-radius:4px !important;text-align:center !important;color:#555 !important;white-space:nowrap !important;transition-property:border,color !important;transition-duration:.2s !important;cursor:pointer !important;box-sizing:border-box !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message__complaint-link:hover{color:#333 !important;border-color:#333 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical .yap-abuse-message__logo-wrapper{padding-bottom:15px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical .yap-abuse-message__complaint,.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical .yap-abuse-message__container{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_condensed .yap-abuse-message__logo-wrapper{padding-bottom:5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_condensed .yap-abuse-message__container{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_condensed .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_condensed .yap-abuse-message__complaint-item{margin:2px 0 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_condensed .yap-abuse-message__complaint-link{padding:3px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small .yap-abuse-message__logo-wrapper{padding-bottom:15px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small .yap-abuse-message__complaint,.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small .yap-abuse-message__container{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small-condensed .yap-abuse-message__logo-wrapper{padding-bottom:5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small-condensed .yap-abuse-message__container{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small-condensed .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:stretch !important;-ms-flex-align:stretch !important;align-items:stretch !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small-condensed .yap-abuse-message__complaint-item{margin:2px 0 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small-condensed .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small-condensed .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical_small-condensed .yap-abuse-message__complaint-link{padding:3px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2 .yap-abuse-message__logo-wrapper{padding-bottom:10px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2 .yap-abuse-message__container{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2 .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-wrap:wrap !important;-ms-flex-wrap:wrap !important;flex-wrap:wrap !important;max-width:540px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2 .yap-abuse-message__complaint-item{width:50% !important;margin:0 !important;padding:5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2_small .yap-abuse-message__logo-wrapper{padding-bottom:10px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2_small .yap-abuse-message__container{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2_small .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-wrap:wrap !important;-ms-flex-wrap:wrap !important;flex-wrap:wrap !important;max-width:340px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2_small .yap-abuse-message__complaint-item{width:50% !important;margin:0 !important;padding:5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2_small .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-vertical-2x2_small .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row .yap-abuse-message__container{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:20px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row .yap-abuse-message__complaint-item{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row .yap-abuse-message__complaint-link{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_middle .yap-abuse-message__container{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_middle .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:15px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_middle .yap-abuse-message__complaint-item{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_middle .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_middle .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_middle .yap-abuse-message__complaint-link{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__container{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__logo{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__logo_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:15px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__complaint-item{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_small .yap-abuse-message__complaint-link{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny{font-size:11px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__container{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;padding:4px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__logo{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__logo_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:10px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__complaint-item{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 1px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_tiny .yap-abuse-message__complaint-link{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe{font-size:11px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__container{-webkit-flex-direction:row !important;-ms-flex-direction:row !important;flex-direction:row !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;padding:0 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__logo{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__logo_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important;padding-left:10px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__complaint-item{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:0 2px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-row_stripe .yap-abuse-message__complaint-link{padding:0 5px !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal{font-size:12px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__container{-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important;padding:4px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__logo{padding:2px 5px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__logo_small{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__logo-wrapper{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__complaint{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-wrap:wrap !important;-ms-flex-wrap:wrap !important;flex-wrap:wrap !important;-webkit-flex-shrink:1 !important;-ms-flex-negative:1 !important;flex-shrink:1 !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__complaint-item{-webkit-flex-grow:1 !important;-ms-flex-positive:1 !important;flex-grow:1 !important;margin:1px !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__complaint-item_small{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__complaint-item_large{display:none !important}.ya_partner_R-A-240654-2-151 .yap-abuse-message.yap-abuse-message__layout-minimal .yap-abuse-message__complaint-link{display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-align-items:center !important;-ms-flex-align:center !important;align-items:center !important;-webkit-justify-content:center !important;-ms-flex-pack:center !important;justify-content:center !important;padding:2px !important}.ya_partner_R-A-240654-2-151 .yap-feedback-menu_received .yap-abuse-message__complaint-item{opacity:0 !important}</style><script type="text/javascript" async="" crossorigin="anonymous" src="https://yastatic.net/safeframe-bundles/0.43/host.js"></script><style nonce="">#ya_partner_R-A-240654-2-151{width:336px;height:280px;position:relative;}</style><style nonce="">#id2490{width:336px;height:280px;top:0px;left:0px;position:absolute;}</style><style nonce="">#5cd45ce799{width:1px;height:1px;position:relative;}</style><style nonce="">#id649{width:1px;height:1px;top:0px;left:0px;position:absolute;}</style></head>
+<body>
+    <div class="react" id="root"><div class="routers"><header class="header"><div class="header-topline"><div class="container"><div class="row"><div class="col-md-12 pr-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav></div></div></div></div><div class="header__main"><div class="container"><div class="row block-content-header"><div class="col-md-3"><a class="header__logo active" href="/"><img src="/public/images/logo.png" alt="Ранобэ.рф"></a></div><div class="header-wrapper-m " id="js-menu"><div class="header-wrapper-block"><div class="col-md-6 p-0"><nav class="header__menu"><ul class="header__menu-list"><li><a href="/audio/"><i class="fa fa-music"></i><span>Aудио</span></a></li><li><a href="/discussion/"><i class="fa fa-comments"></i><span>Обсуждение</span></a></li><li><a href="/news/"><i class="fa fa-newspaper-o"></i><span>Новости проекта</span></a></li><li><a href="/books/"><i class="fa fa-book" aria-hidden="true"></i><span>Все книги</span></a></li><li><a href="/pricing/"><i class="fa fa-money" aria-hidden="true"></i><span>Платная подписка</span></a></li><li class="social"><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i><span>Группа VK</span></a></li></ul></nav><div class="search-block opacity"><div class="section"><div class="Select is-clearable is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-2--value"><div class="Select-placeholder"><span>Поиск книги <i class="fa fa-book" aria-hidden="true"></i></span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span>+</span></span></div></div></div></div></div><div class="col-md-3 pr-0 user-panel"><div class=""><div class="header-btn text-right"><a class="cursor btn btn-transparent btn-white btn-auth">Авторизация</a><a class="cursor btn btn-white btn-transparent btn-register">Регистрация</a></div></div></div></div></div></div></div><a class="toggleMenu cursor burger-menu"><button class="toggleMenu c-hamburger c-hamburger--htx "><span class="toggleMenu">toggle menu</span></button></a><a class="profile_menu"><i class="fa fa-user" aria-hidden="true"></i></a></div><div><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script></div></header><div class="content default"><div id="partPage"><div class="floatingBookMenu default"><div class="container"><div class="bookName"><a href="/tensei-shitara-slime-datta-ken/"><img class="bookCover" src="https://xn--80ac9aeh6f.xn--p1ai/statics/images/book/17/mobile/o-moyom-pererozhdenii-v-sliz-1519254997.png">О моём перерождении в слизь</a></div><div class="bookLink"><a href="/tensei-shitara-slime-datta-ken/"></a></div><div class="bookChapters"><div class="prev-part"><a title="Глава 57. Изучение магии" href="/tensei-shitara-slime-datta-ken/noindex-glava-57-izuchenie-magii/"><div class="arrow-prev"></div></a><span>Предыдущая</span></div><div class="part-select"><div class="search-block"><div class="section default"><div class="Select has-value is-searchable Select--single"><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-3--value"><div class="Select-value" title="Глава 58. Призванные ~ те, кого называют героями"><span class="Select-value-label">Глава 58. Призванные ~ те, кого называют героями</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-3--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 19px;" value=""><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: Roboto, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span class="Select-arrow-zone"><span><i class="fa fa-arrows-v" aria-hidden="true"></i></span></span></div></div></div></div></div><div class="next-part"><span>Следующая</span><a title="Глава 59. Церковь делает ход" href="/tensei-shitara-slime-datta-ken/noindex-glava-59-cerkov-delaet-khod/"><div class="arrow-next"></div></a></div></div></div></div><div class="container "><div class="wrap-content-part"><div><div class="row"><div class="col-lg-9"><div class="control-panel default"><div class="control"><div class="control-settings control-block togglePanel"><div class="icon icon-settings togglePanel"></div></div><span class="control-text">Размер текста</span></div><div class="control"><div class="control-mode control-block"><div class="icon icon-mode"></div></div><span class="control-text">Режим чтения</span></div><div class="control"><div class="control-bookmark control-block "><div class="icon icon-bookmark"></div></div><span class="control-text">Добавить закладку</span></div></div><article class="part-block"><div class="preloaderFilter none"><div class="preloaderWrapper"><i class="fi flaticon-loading"></i></div></div><div class="title default"><h1>О моём перерождении в слизь<p>Глава 58. Призванные ~ те, кого называют героями</p></h1></div><div><div id="content" class="part-content content__block default font-size-17 line-height-25"><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Дети направили свои враждебные, полные ненависти взгляды на меня. Я сразу же почувствовал себя не в своей тарелке. Откуда у них столько враждебности к новому воспитателю?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Всего лишь пять детей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Мисаки Кенья: М, 8 лет</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Секигути Рёта: М, 8 лет</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Гейл Гибсон: М, 9 лет</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Элис Рондо: Ж, 7 лет</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хлоя О`Бэлл: Ж, 8 лет</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Никому из них нет еще и десяти. Я взглянул на них, сверяя с записями, которые я взял в учительской.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Они были собраны со всего мира. Каждого из них называли монстром. Каждая страна отсылала запрос об их поимке, но вместо этого авантюристы взяли их под опеку.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Так говорилось в документах, но что-то меня беспокоило. Почему все они почти одного возраста? И всех их подобрали при различных обстоятельствах из стран, окружающих лес Джура? Кроме того, их находили с интервалом в три года. Что-то здесь не так. Кажется, они очень привязались к Шидзу-сан. Кроме нее они слушались только Юки. Пока не увидишь их собственными глазами, не узнаешь, какие они коварные на самом деле.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Эй, детишки, что за внезапная агрессия! С этого момента я буду вашим воспитателем. Меня зовут Римуру. Я не такой милый как Шидзу-сан, так что будьте готовы! – я хотел начать с дружелюбного приветствия, но…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Заткнись! Нас так просто не проведёшь!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Точно-точно! Даже если мы будем слушаться, ты все равно нас убьёшь!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Что ты сделал с Шидзу-сан? Её ты тоже убил?!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Да, взрослым мы не доверяем!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Ты избавишься от нас, когда мы станем бесполезными, да?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хм? Что за странная реакция? Это не просто желание сорвать урок. Здесь витает реальная жажда убийства. Я имею в виду, почему они думают, что мы пытаемся их убить или, что мы убили Шидзу-сан?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Здесь явно творится что-то неладное. В тот день мы не смогли продолжить урок. Я не знаю, что с ними произошло, поэтому навязывать им свою волю я не хотел. Так что первый день закончился знакомством.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Кен-чан, с тобой все хорошо?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Отойди! Этот учитель в маске…что это было!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Эй, успокойся, успокойся! – я слышал их голоса позади, но не обратил никакого внимания. Я только представил им еще кое-кого. Ранга.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сейчас он скорее всего наблюдает за классом вместо меня. Как удобно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но дети не хотели решать задачи, которые он им раздал, и вместо этого стали бездельничать и играть.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Первый урок превратился в самостоятельную работу, и я ничего не мог поделать. Так что оставив всё на Ранга, я решил навестить Юки.</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Мы беседовал, сидя на диванах в кабинете Юки. Из чашек с чаем доносился приятный аромат.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я продолжил беседу:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Пожалуйста, расскажи мне подробней о детях, — я сразу перешёл к делу.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юки посмотрел мне прямо в глаза и, призадумавшись, ответил:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Римуру-сан, позволь задать тебе вопрос… Как много ты знаешь о Сакагути Хинате?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Что за вопрос? Что-то произошло между Хинатой и детьми?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Не много. Она из Японии. И была очень способной ученицей с отличной памятью, так Шидзу-сан говорила…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он кивнул в ответ:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— В таком случае, что ты знаешь об отличие между «Призванными» и «Мировыми Путешественниками»?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Когда он спросил об этом, я вдруг понял, что почти ничего о них не знаю. Призванные должны обладать уникальным навыком. Их довольно мало. И в их душах запечатлено проклятие.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вот всё, что я знал и рассказал ему.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Да. Это сходится с тем, что мы о них знаем. Тебе известно немало…В любом случае, чтобы призвать человека с сильными способностями, для этого нужны особые условия. А что ты знаешь о вызове, который проводится в неполных условиях?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>От дальнейших объяснений Юки мне стало дурно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Успех призывающего заклинания с тридцатью магами, которые будут произносить это заклинание на протяжении трёх дней, составляет 0,3%. Кроме того, маг, который использовал призывающее заклинание, не может воспользоваться им в течение определённого интервала. Период отдыха составляет от 33 до 88 лет. Обычно это время используется для подготовки подходящих условий для более успешного вызова.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но что произойдёт, если проигнорировать эти правила?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Если так, то требований для выполнения гораздо меньше и делать это можно не прерываясь.</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>По словам Юки, из-за этого чаще всего призывают детей. Дети с сильными душами или магией попадают сюда насильно, даже не усев получить подходящий им навык…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Без уникального навыка, из-за переизбытка магической силы их тела не выдерживают. Они сгорают заживо от собственной силы.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Что? Погоди минуту, тогда получается, что те дети…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— На данный момент подсчёты составляют три года. Такова продолжительность жизни детей, которых призвали не надлежащим образом. И этих детей призвали именно так…Они не станут героями.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Что? Героями? Но зачем…Это всё из-за Сакагути Хинаты?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юки не ответил, но его молчание лишь подтвердило мои подозрения.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Церковь ищет новую надежду, новую силу. Все люди ждут мессию, «героя»! Я тайно исследовал возможные убежища и помог некоторым детям сбежать…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Какого чёрта…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Я не нашел способа остановить их смерти. Дети до десяти не исключение: если они не обладают уникальными навыками, то их ждёт смерть…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— А призывающих не заботят их смерти? Разве такие «ошибки» не отбивают у них всё желание?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Они спокойно выполняют свою работу. Их это не особо волнует…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Ты шутишь? Почему ты разрешил церкви и дальше существовать?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Церковь … Западная Церковь Святых пользуется влиянием. Среди стран, окружающих лес Джура, кроме еретиков из страны Сарион, все являются преданными последователями Церкви. Теперь понимаешь? Эту силу не так легко победить, даже имея государственную поддержку. Среди моих подчинённых тоже есть верующие. Если сделать Церковь своим врагом, в Ассоциации начнётся раздор! – ответил Юки с выражением боли и беспомощности на лице.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тут и добавить было нечего. Одна мысль о том, что эти дети…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вот почему они встретили меня с такой враждебностью и ненавистью.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Эй. Почему ты заставил меня встретиться с детьми? Зачем всё это рассказал?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— В самом деле, почему? Может быть, я просто хотел увидеть, сможешь ли ты их спасти. В этом мире я не могу ни на кого положиться. Я уже потерял Шидзу-сан. Если бы ты ничего не заметил, я бы ничего не рассказал. Так почему же ты обратил на это внимание?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Черт возьми. Если бы я ничего не заметил, то просто проводил бы их к гибели. Но теперь как я могу закрыть на это глаза?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Разве не опасно, размещать школу так близко к церкви?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Хе-хе. Напротив, это самое безопасное место. Ты слышал выражение: темнее всего под пламенем свечи? Так что ты будешь делать? Бросишь их?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я посмотрел Юки прямо в глаза и громко заявил:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Я не уйду, и теперь буду делать то, что посчитаю нужным. Есть возражения?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Юки покачал головой:</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Оставляю их на тебя. Если сможешь, прошу, спаси этих детей… — он произнёс, опустив голову.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Говорить это вслух было не обязательно. Это еще одно задание, которое оставила мне Шидзу-сан. Возможно, этот разговор она тоже предвидела.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Я вышел из здания Ассоциации Свободы и вернулся в класс.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Что ж, нельзя показываться им с унылым лицом. Я сделаю, что смогу. Собственно, этим я всё время и занимался. Шидзу-сан доверилась мне, Юки попросил меня об этом, так что ничего другого мне не остаётся.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>＊　＊　＊</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это был худший день в истории Королевства Зверей Юурация.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Лорд-Демон Карион нервно смотрел на небо. К небу быстро приближался сгусток магической энергии, который даже не пытался скрыть свою ауру – Лорд-Демон Милим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Эй, эй, это по-настоящему?»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Она точно собиралась сразиться за право владения этой страной.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Бой с Милим Нава. Что ж, это также можно было назвать возможностью.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Карион не верил в своё превосходство. На самом деле он считал Милим сильнее.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однако.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Гораздо приятнее выиграть у сильного соперника!»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Его кровь кипела, а сердце радостно забилось. Самая сильная, Лорд-Демон Милим. Старший Лорд-Демон, несмотря на ее внешность, который заслуживал восхищения.</p></div></div><div class="yandex-block"><div id="yandex_rtb_R-A-240654-2"><yatag class="yap-reset ya_partner_R-A-240654-2-151"><yatag class="yap-rtb__wrapper"><yatag class="yap-rtb__iframe" id="ya_partner_R-A-240654-2-151"><iframe scrolling="no" allowtransparency="true" hidefocus="true" tabindex="-1" marginwidth="0" marginheight="0" src="//yastatic.net/safeframe-bundles/0.43/1-1-0/render.html" id="id2490" frameborder="no"></iframe></yatag><yatag class="yap-rtb__adtune-button"><yatag class="yap-rtb__adtune yap-adtune yap-adtune_black-white yap-adtune_touch_false "><yatag class="yap-adtune__button"><yatag class="yap-adtune-icon yap-adtune-icon_black-white yap-adtune-icon_touch_false yap-adtune-icon_size_l"><yatag class="yap-adtune-icon__container"><yatag class="yap-adtune-icon__image" style="width: 9px !important; height: 9px !important;"><svg width="9px" height="9px" viewBox="0 0 14 14"><polygon points="8.28616426 7.02081528 13.6638974 12.3985484 12.3985484 13.6638974 7.02081528 8.28616426 1.64308213 13.6638974 0.377733152 12.3985484 5.7554663 7.02081528 0.377733152 1.64308213 1.64308213 0.377733152 7.02081528 5.7554663 12.3985484 0.377733152 13.6638974 1.64308213"></polygon></svg></yatag><yatag class="yap-adtune-icon__tooltip"><yatag class="yap-adtune-icon__tooltip-arrow"></yatag><yatag class="yap-adtune-icon__tooltip-text">Скрыть&nbsp;объявление</yatag></yatag></yatag></yatag></yatag></yatag></yatag></yatag></yatag></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он сможет встретиться с ней лицом к лицу. Сказать, что он предвкушал этот момент – ничего не сказать.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Однажды, будучи ребёнком, он спросил своих родителей о тирании Принцессы Драконов.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Эта история была про Милим или кого-то другого?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но его родители ответили так:&nbsp; гнев Принцессы Драконов может стереть с лица земли целую страну. Никогда не сражайся против неё!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Что за чепуха.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хотя военная мощь Королевства Юурация была небольшой, половину населения составляла раса воинов. Так что по силе эта страна ничем не уступала другим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кроме того, он сам эволюционировал в Лорда-Демона. Ему некого было бояться!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он направился к священной горе позади замка и пока он готовился, он придумал как внезапно напасть на Милим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Его последователи-демоны и слуги склонились перед ним на колени, ожидая инструкций.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Слушайте! У нас всего один враг – Лорд-Демон Милим Нава! Если вы будете сражаться вместе, то сможете дать ей достойный отпор. Но я сам выйду против неё. А вы соорудите барьер и охраняйте жителей. Доверьтесь мне, я выиграю!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Ура!!!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Услышав их боевой клич, он почувствовал их возбуждение.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сегодня у него будет шанс доказать, что он самый сильный.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Личной неприязни у меня к ней нет. Мы могли бы стать хорошими друзьями…какая жалость!»</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сейчас причины ее появления его не волновали. Самое главное – это битва. Его благоразумие в битве не поможет.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он медленно поднялся в небо с помощью 〈Магии Полёта〉.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Поравнявшись с Милим, без всяких слов он начал бой. Сначала быстрая проверка. Удар со всей силы. Однако ее тело было покрыто множеством оборонительных барьеров, и атака ее не коснулась.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он вызвал копье Хякко-сэйрю, и почувствовал как его сила растёт в геометрической прогрессии.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Выдохнув, он совместил боевой дух со своей аурой и атаковал Милим. За каждым взмахом следовала воздушная пуля. Но хотя пули пробили ряд барьеров, они не смогли задеть ее тело.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Кроме того, все атаки останавливал ее демонический меч «Злой Бог».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это длинное, изогнутое лезвие вовсе ей не шло.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Меч был охвачен бледно-голубым светом.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Скольких лордов-демонов сразил этот меч?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Тц! Карион отошел от Милим и собрался с силами.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он никогда не недооценивал ее, но она превысила его ожидания. Он не использовал всю свою силу, но и у нее была бесконечна выдержка.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он решил выложиться на полную. Вот только Милим казалась не в себе, будто её кто-то контролировал.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Но Кариону это было не важно.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Я хотел сразиться с тобой настоящей, а не с какой-то марионеткой! но даже так я не проиграю».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И он высвободил свои способности. Сначала он принял свою форму демона, а затем лорда-демона. В конце концов, он ведь известен как Король Зверей, волколак.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Итак, он начал превращаться в демона-зверя.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И его истинная форма «Король Лев» проявилась. Покрытый серебряной шерстью, с выступающими мускулами.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>На его львиной голове ярко светила корона с Красной Птицей, а его тело было покрыто чёрной черепаховой броней.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Соседние страны специализировались в военном деле, так что на случай борьбы за доминирование в небе, к его спине были прикреплены большие орлиные крылья.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>При виде его, в глазах Милим что-то сверкнуло, и Карион это заметил. Или, может быть, ему это только показалось.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Пришло время, Милим. Жаль, но теперь, когда ты увидела этот облик, я заставлю тебя навсегда исчезнуть, ладно? Мне очень жаль, но всё же прощай!!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он закричал и сосредоточил весь свой боевой дух в копье Хякко-сэйрю. Если бы они были на земле, то она разверзлась бы от его силы, и всё вокруг превратилось бы в пыль.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Конечно, в воздухе тоже имеются свои последствия. Энергия, которую он выпустил, заставила воздух накалиться.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звериный рёв!!!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это рёв направляет магическую энергию на противника.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Вся его энергия была сосредоточена на кончике копья, но оно осталось неповреждённым. Если бы он направил удар на землю, то все в этом направлении стёрлось бы дотла; это непобедимая техника «Короля Зверей» Кариона.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Как правило, первые 100 метров его сила не ослабевала, а&nbsp; фактический диапазон атаки превышал 2 километра. Такое большое расстояние делает эту технику применимой против нескольких противников сразу, но ее можно регулировать и направлять на одного врага.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он впервые использовал Звериный Рёв против одного противника, но он и не представлял, что кому-то удастся выстоять против него.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он выложится по полной.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Магическая энергия быстро выходила из его тела. Он едва мог поддерживать Магию Полёта. Но это была маленькая цена для такого удара. Обычно ему требовалось использовать ее два или три раза, чтобы так выбиться из сил, но сегодня он не мог сдержаться. Его противника защищало множество защитных барьеров.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Сделав глубокий вдох и медленно падая к земле,</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>*Zuzzzza!!!*</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он отразил атаку. По его спине потекла кровь, но он закрыл рану магией.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Он взглянул на Милим. Однако ему не хотелось ее видеть или же верить, что такое могло произойти.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это существо точно превысило все его ожидания.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Крылья дракона широко раскрылись, её белые волосы развивались на ветру. И, хотя раньше его не было, на ее лбу появился алый рог. Лёгкое готическое платье превратилось в черные боевые доспехи.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«А…значит, это ее боевая форма».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Хотя Карион же выбился из сил, его противник был невредим.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— отлично сработано! Было весело. В благодарность я покажу тебе это! – Милим, наконец. заговорила, хотя ее голос был слишком монотонным и не похожим на её собственный.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Карион же почувствовал, что обречен.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>«Не нужно мне ничего показывать!» – он мысленно закричал.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Используя мысленную передачу, он обратился к своим подчинённым.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Бегите!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И собрав последние силы, он сам бросился бежать. Он нутром чуял, что если останется, то умрёт.</p></div></div><div class="
+				default text-block
+				
+				error-text
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><span data-html="true" data-tip="В абзаце <br /> найдена ошибка" class="icon" currentitem="false"><i class="fa fa-exclamation" aria-hidden="true"></i></span><div><p>Зрачки дркона сузились и она расправила крылья.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Милим зарычала!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Звезда Дракона!</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Это сияние легко затмило все остальные звезды. Яркие шарики, посыпавшиеся на землю, разрушили не только замок, но и гору позади него.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Оглушительный звук превзошёл звуковой спектр ушей, так что ударная волна оповестила о разрушении.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Те, кого коснулся свет, исчезли без сопротивление.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Самая сильная магия.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И одна из причин, по которой Милим так долго держала верх над другими.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Невозможно…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>К счастью, Карион избежал прямого удара, поэтому он выжил. Но это же Милим. Лорд-Демон, с которым никогда не стоит драться. По прозвищу «Разрушитель».</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>Теперь Карион был согласен со словами родителей. С ней нельзя вступать в бой. Она на уровень выше остальных. Однако…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Но она…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Она? Что же не так? Может, просветишь меня? – он почувствовал острие лезвия у горла. И присутствие женщины. Повелительница неба, Королева Небес Фрей.</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Тц. Фрей, и ты тоже?</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>— Что насчет меня? У тебя будет достаточно времени, чтобы рассказать мне…</p></div></div><div class="
+				default text-block
+				
+				
+			"><div class="__react_component_tooltip place-top type-dark " data-id="tooltip"></div><span data-html="true" data-tip="Сбросить" class="icon reset none" currentitem="false"><i class="fa fa-undo" aria-hidden="true"></i></span><div contenteditable="false"><p>И сознание покинуло Кариона.</p></div></div></div></div></article><div class="col-md-12 text-center"><div style="margin-bottom: 5px;" class="adsense-bottom"><div class="adsense-block"><ins class="adsbygoogle" style="display: block; text-align: center; height: 193px;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-7505887367641385" data-ad-slot="8181392956" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:193px;margin:0;padding:0;position:relative;visibility:visible;width:769px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:769px;height:193px;" width="769" height="193" frameborder="0"></iframe></ins></ins></ins></div></div></div><ul class="default navigation-bottom"><li><a class="btn-prev btn-nav" href="/tensei-shitara-slime-datta-ken/noindex-glava-57-izuchenie-magii/"><i class="btn-icon-nav fi flaticon-left-arrow"></i><span>Предыдущая</span></a></li><li class=""><a class="btn-book btn-nav" href="/tensei-shitara-slime-datta-ken/"><i class="btn-icon-nav fi flaticon-open-book"></i><span>Оглавление</span></a></li><li class="next-part last"><a class="btn-next btn-nav btn-nav-right" href="/tensei-shitara-slime-datta-ken/noindex-glava-59-cerkov-delaet-khod/"><i class="btn-icon-nav fi flaticon-arrow-pointing-to-right"></i><span>Следующая</span></a></li></ul></div><div class="col-lg-3 pr-0 pl-0"><div class="money"><div><div style="padding-bottom: 0px;"></div><div><div class="adsense-right"><div class="adsense-block"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7505887367641385" data-ad-slot="2134859359" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:300px;height:600px;" width="300" height="600" frameborder="0"></iframe></ins></ins></ins></div></div></div></div></div></div></div></div></div></div></div></div><span class="redux-toastr" aria-live="assertive"><span><div class="top-left"></div><div class="top-right"></div><div class="top-center"></div><div class="bottom-left"></div><div class="bottom-right"></div><div class="bottom-center"></div></span></span><footer class="footer"><div class="footer-bottom"><div class="container"><div class="row"><div class="col-md-4 col-sm-8 col-xs-10"><div class="footer__copyright">© 2016-2018 Copyright: Ранобэ.рф</div></div><div class="col-md-4 col-md-offset-4 col-sm-4 col-xs-2"><ul class="footer__social list-inline text-right"><li><a rel="noopener noreferrer" target="_blank" href="https://vk.com/ranoberf"><i class="fi flaticon-vk"></i></a></li></ul></div></div></div></div><div class="scroll-to-top"><div class="btn-animate"><div class="btn-wrapper"><i class="fi flaticon-up-arrow"></i></div></div></div></footer></div></div>
+    <script src="/build/js/polyfill.b4cf76480fdb2de24251.js"></script>
+    <script src="/public/js/classList.min.js"></script>
+		<script src="/public/js/react.production.min.js"></script>
+		<script src="/public/js/react-dom.production.min.js"></script>
+		<script src="/build/js/frontend.b4cf76480fdb2de24251.js"></script>
+
+
+<iframe id="google_osd_static_frame_1503106072534" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><div style="position: fixed; left: -99px;"><div id="5cd45ce799"><iframe scrolling="no" allowtransparency="true" hidefocus="true" tabindex="-1" marginwidth="0" marginheight="0" src="//yastatic.net/safeframe-bundles/0.43/1-1-0/render.html" id="id649" frameborder="no"></iframe></div></div></body></html>
